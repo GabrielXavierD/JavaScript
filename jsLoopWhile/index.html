@@ -1,0 +1,22 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var n = 1;                            //var n iniciando em 1
+    while(n != 0){                        //loop while(enquanto)
+        n = prompt("Informe um número:"); //Enquanto n for diferente de 0 ele ira executar o bloco de codigo seguinte, 
+        //e cada vez q terminar o loop executado ira voltar aqui para o user digitar outro dado
+        //como ja começou o n com 1, a condição de loop sera verdadeira então ira executar
+        if(n % 2 == 0){  // % = (resto da divisão de "n" por 2, se for = 0 é par, se não é divida é ímpar) caso par, mostra "Número par!"
+           alert("Número par!");  
+    }
+    else{ //se não
+        alert("Número ímpar!");
+    }
+}   //e caso o user informe 0 o loop mostrara como par, porém automaticamente sera encerrado
+</script>
+</body>
+</html>

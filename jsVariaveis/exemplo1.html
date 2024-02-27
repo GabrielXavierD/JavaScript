@@ -1,0 +1,28 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var nome, sobrenome, nomeCompleto; //criando 3 variaveis colocar VAR e o nome da variavel - e nao se define tipo (int etc...)
+        nome = prompt("Informe seu nome:"); //função prompt (abre uma caixa, tipo pop up pro user preencher) onde passa uma informação para o user e fica esperando ele 
+                                           //preencher a informação e depois esse dado é atribuido para alguma variavel
+                                           //aí é atribuido para a variavel que foi colocada, como no exemplo, a variavel "nome" ira receber algum dado
+        sobrenome = prompt("Seu sobrenome:");
+        nomeCompleto = nome + " " + sobrenome; //variavel nome + (o mais junta o nome + o espaço + o sobrenome, o espaço é pra n ficar junto quando mostrar na tela) aí dps é guardado na var "nomeCompleto"
+        alert("Nome: " + nomeCompleto); //alert mostra na tela o resultado, puxando a variavel (com popup porem sem a caixa para receber os dados, somente mostra na tela)
+   //segunda opção para o alert//ou fazer junto com o alert
+        document.write("Nome: " + nomeCompleto); //ai vai mostrar o popup do alert porem tambem vai escrever na tela (dentro do site)
+   
+   </script>
+
+
+<p>let = Com o let você consegue declarar uma variável e reatribuir valor à ela.</p>
+<p>var = O var tem praticamente as mesmas funcionalidades que o let e você também pode reatribuir valor à variável.</p>
+<p>const = Constante, significa que, uma vez que essa variável é declarada, o valor dela não poderá ser alterado.</p>
+<p>let minhaIdade = Number(18) (variável chamada minhaIdade com o número da minha idade)</p>
+
+
+</body>
+</html>
