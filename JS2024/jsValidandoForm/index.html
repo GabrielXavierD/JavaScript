@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando formulário</title>
+</head>
+
+<body>
+    <h1>Validando Formulário</h1>
+    <form>
+        <!--cada tag span (vazio) irá apresentar uma mensagem de validação-->
+        <span id="msg" class="sucesso"></span><br> 
+
+        <label>Usuário:</label>
+        <input type="text" id="usuario"><span></span>
+        <span id="erroUsuario" class="erro"></span><br>
+        
+        <label>Senha:</label>
+        <input type="password" id="senha">
+        <span id="erroSenha" class="erro"></span><br>
+        
+        <button type="button" onclick="valida()">Enviar dados</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

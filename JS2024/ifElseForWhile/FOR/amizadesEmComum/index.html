@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amizades em Comum</title>
+</head>
+<body>
+    <script>
+             
+       // VERIFICANDO AS AMIZADES EM COMUM, AS AMIZADES EM COMUM SÃO ADICIONADAS NO ARRAY amizadesEmComum E DEPOIS MOSTRA NO HTML AS AMIZADES EM COMUM DAS DUAS PESSOAS
+       const amizadesDaJuliana = ['Erickson', 'Cleyton', 'Laura', 'Claudio', 'Sheila', 'Vinicius', 'Leticia'];
+        const amizadesDoAdilson = ['Leticia', 'Guilherme', 'Cleyton', 'Ivan', 'Vinicius', 'Gisele'];
+        const amizadesEmComum = [];
+        
+        for (let indexDaJuliana = 0; indexDaJuliana < amizadesDaJuliana.length; indexDaJuliana = indexDaJuliana + 1) {
+          for (let indexDoAdilson = 0; indexDoAdilson < amizadesDoAdilson.length; indexDoAdilson = indexDoAdilson + 1) {
+            if (amizadesDaJuliana[indexDaJuliana] === amizadesDoAdilson[indexDoAdilson]){
+              amizadesEmComum.push(amizadesDoAdilson[indexDoAdilson]);
+            }
+          }
+        }
+        
+        document.write("<br>As amizades em comum de Juliana e Adilson são: " + amizadesEmComum);
+
+    </script>
+</body>
+</html>
