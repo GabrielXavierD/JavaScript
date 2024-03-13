@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <!--tag <canvas></canvas> cria uma regiao para desenhar textos, linhas etc...-->
+
+    
+    <canvas id="meuCanvas" height="800px" width="800px"></canvas>
+
+
+<script>
+    let variavel = document.getElementById("meuCanvas"); //acessando elemento do canvas e arnazena na variavel 
+    let contexto = variavel.getContext("2d"); //a partir do elemento do canvas ele gera um contexto e armazena na variavel
+    contexto.moveTo(0, 0); //coordenada inicial do desenho
+    contexto.lineTo(200, 100); //coordenada final do desenho
+    contexto.stroke(); //o .stroke serve para mostrar a linha/o contorno do desenho
+    
+</script>
+
+</body>
+</html>

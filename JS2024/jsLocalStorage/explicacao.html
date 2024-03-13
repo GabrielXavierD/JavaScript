@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <!--LocalStorage, armazenando dados no navegador -> mas é melhor um bd ou arquivo-->
+
+
+<script>
+
+    //Armazenando dados
+        //PRIMEIRA FORMA:
+    localStorage.setItem("nome", "Gabriel");  //chave e depois o valor/conteudo
+
+        //SEGUNDA FORMA:
+        //localStorage.(criando uma propriedade) = (recebendo valor)
+    localStorage.nome = "Gabriel";  
+
+
+
+
+    //Recuperando dados
+        //PRIMEIRA FORMA:
+    document.getElementById("minhaDiv").innerHTML = localStorage.getItem("nome");
+        //passando a chave que usei para armazenar o dado ("nome") para ser atribuindo como conteúdo da "minhaDiv" -> o retorno seria "Gabriel"
+        
+        //SEGUNDA FORMA:
+    document.getElementById("minhaDiv").innerHTML = localStorage.nome;
+
+
+    //Removendo dados
+    localStorage.removeItem("nome"); //passando a chave/propriedade a ser removida 
+                                    //-> tambem pode ser removida acessando as config do navegador e apagando "cookies e dados de sites"
+   
+</script>
+
+</body>
+</html>
