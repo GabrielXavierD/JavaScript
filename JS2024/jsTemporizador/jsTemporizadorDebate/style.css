@@ -1,0 +1,51 @@
+margin:0;
+    padding:0;
+}
+body{
+    background:#CCC;
+    color:#FFF;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+#topo{
+    background:#069;
+    height:50px;    
+    border-bottom:2px solid #006;
+    padding-top: 10px;
+}
+h2 a{
+    color:#069;
+    text-decoration:none;
+}
+h2 a:hover{
+    color:#006;
+}
+input{
+    background:#ccc;
+    width:600px;
+    height:200px;
+    line-height:200px;
+    font-size:240px;
+    border:none;
+}
+#cro{
+    width: 600px;
+    clear:both;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right:auto;
+}
+.mybtn{
+    cursor: pointer;
+    font-size:18px;
+    clear:both;
+    margin-bottom: 6px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 450px;
+}
+.container{
+    width:100%;
+}
+.zeb{
+    background-color: #88AAAA;

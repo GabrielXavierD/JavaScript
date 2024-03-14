@@ -1,0 +1,2 @@
+let data = new Date(); //variavel "data" criando uma nova data (data completa: exemplo -> Wed Mar 13 2024 14:08:15 GMT-0300 (Horário Padrão de Brasília))
+document.write(data); //apresentando data (completa - que tambem apresenta os segundos)

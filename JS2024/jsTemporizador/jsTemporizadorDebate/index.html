@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Temporizador</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="topo">
+            <h1>Debate Eleições 2022 - Cronômetro</h1>
+        </div>
+        <div id="cro">
+            <input type="text" class="cronometro" value="00:00" readonly />
+        </div><br />
+        
+        <!--cada função está sendo passada como parametro o tempo em segundos-->
+        <button class="mybtn" onclick="temporizador(180)">3 minutos (Apresentação Inicial)</button><br> 
+        <button class="mybtn zeb" onclick="temporizador(300)">5 minutos (Bloco perguntas, ConsideraçõesFinais)</button><br>
+        <button class="mybtn" onclick="temporizador(60)">1 minuto (Pergunta/Tréplica)</button><br>
+        <button class="mybtn zeb" onclick="temporizador(120)">2 minutos (Resposta/Réplica)</button><br>
+        <button class="mybtn" onclick="window.location='index.html';">Limpar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

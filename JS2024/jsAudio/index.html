@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áudio</title>
+</head>
+<body>
+    <h1>Controlando audio com JavaScript</h1>
+    <audio id="meuAudio" controls><!--o player e os controles aparecem quando "controls" está definido-->
+        <source src="musica.mp3" type="audio/mpeg"></source> <!--source aponta o audio e define o tipo de audio a ser exibido-->
+    </audio> 
+    <br>
+    
+<!--da pra ter os controles pelo JavaScript tambem, fazendo algumas funções-->
+<button onclick="playAudio()">Play</button>
+<button onclick="pauseAudio()">Pause</button>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
