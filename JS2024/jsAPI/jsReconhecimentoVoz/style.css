@@ -1,0 +1,12 @@
+.words {            
+    height:400px;
+    width: 700px;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+.words span {
+    font-size: 22px;
+}
+.button_speech {
+    font-size: 22px;
+}

@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: inherit;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1, p {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .control {
+    height: 100px;
+    overflow: auto;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.2);
+    text-align: center;
+  }
+
+  #box{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 4px;
+    position: absolute;
+    left: 300px; /*propriedade que é alterada pra mover a div na tela*/
+    top:300px; /*propriedade que é alterada pra mover a div na tela*/
+    transition: top 2s, left 2s;
+  }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Reconhecimento de Voz</title>
+</head>
+<body>
+
+    <!--fica melhor testar em um servidor web-->
+    <h1>Reconhecimento de Voz com a Web Speech API</h1>        
+    <div class="words"></div><br> <!--div onde se apresenta o texto-->
+    <button id="btn_speech" onclick='doStartStopCheck()'> <!--função que inicia o reconhecimento da voz se estiver parado 
+        e para caso a transcrição esteja em andamento ele interrompe a transcrição-->
+            Transcrever Áudio <!--hora o botão apresenta "Transcrever Áudio" hora apresenta "interromper"-->
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>
