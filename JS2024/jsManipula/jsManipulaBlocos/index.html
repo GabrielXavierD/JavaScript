@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Alternando Exibição de Blocos</h3>
+
+    <!--uma class pra aspecto visual: btn; manipular atraves do JavaScript: btn1 ou btn2
+    e active pra demostrar qual botão está ativo no momento
+    -->
+    <button class="btn btn1 active">Bloco 1</button>
+    <button class="btn btn2">Bloco 2</button>
+
+
+    <div class="bloco1 hidebloco">
+        <h3>Bloco 1</h3>
+        <p>Conteúdo do Bloco 1</p>
+    </div>
+    <div class="bloco2 hidebloco">
+        <h3>Bloco 2</h3>
+        <p>Conteúdo do Bloco 2</p>
+    </div>
+<!--ambas tem a class hidebloco pra ambas ficarem escondidas no primeiro momento
+e a medida que o user interaje exibe uma ou outra-->
+    <script src="script.js"></script>
+</body>
+</html>

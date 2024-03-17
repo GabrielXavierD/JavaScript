@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="juntatudo">
+    <h1>Calculadora</h1>
+    <div class="calculadora">
+
+        <input type="text" placeholder="Escolha um número" class="resultado">
+        <div class="linha1">
+            <input type="button" value="C" id="clear" onclick="btnClear()">
+            <input type="button" value="<" id="back" onclick="btnBack()">
+            <input type="button" value="√" id="raiz" onclick="btnRaiz()">
+            <input type="button" value="%" id="porcentagem" onclick="btnPorcentagem()">
+        </div>
+        
+        <div class="linha2">
+            <input type="button" value="7" id="sete" onclick="btnSete()">
+            <input type="button" value="8" id="oito" onclick="btnOito()">
+            <input type="button" value="9" id="nove" onclick="btnNove()">
+            <input type="button" value="/" id="dividir" onclick="btnDividir()">
+        </div>
+        
+        <div class="linha3">
+            <input type="button" value="4" id="quatro" onclick="btnQuatro()">
+            <input type="button" value="5" id="cinco" onclick="btnCinco()">
+            <input type="button" value="6" id="seis" onclick="btnSeis()">
+            <input type="button" value="*" id="multiplicacao" onclick="btnMultiplicacao()">
+        </div>
+        
+        <div class="linha4">
+            <input type="button" value="1" id="um" onclick="btnUm()">
+            <input type="button" value="2" id="dois" onclick="btnDois()">
+            <input type="button" value="3" id="tres" onclick="btnTres()">
+            <input type="button" value="-" id="menos" onclick="btnMenos()">
+        </div>
+        
+        <div class="linha5">
+            <input type="button" value="0" id="zero" onclick="btnZero()">
+            <input type="button" value="." id="ponto" onclick="btnPonto()">
+            <input type="button" value="+" id="mais" onclick="btnMais()">
+            <input type="button" value="=" id="igual" onclick="btnIgual()">
+        </div>
+        
+    </div>
+    <p>@GabrielXavierD</p>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

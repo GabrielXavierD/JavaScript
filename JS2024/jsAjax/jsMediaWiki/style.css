@@ -1,0 +1,9 @@
+#resposta{
+    width: 700px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: lightgreen;
+    overflow: scroll;
+}

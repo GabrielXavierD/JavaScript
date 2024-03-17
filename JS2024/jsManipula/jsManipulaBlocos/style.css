@@ -1,0 +1,35 @@
+body{
+    padding: 20px;
+    font-family: verdana;
+}
+.btn {
+    width: 200px;
+    padding: 6px;
+    font-size: 20px;    
+    background-color: lavender;
+}
+.btn:hover {
+    background-color: rgb(157, 143, 212);
+}
+.active{
+    background-color: rgb(255, 118, 20); /*quando o elemento tiver a classe "active" ficará com o fundo laranja*/
+}
+.bloco1 {
+    text-align: center;
+    margin-top: 20px;    
+    width: 600px;
+    height: 400px;
+    border: 2px dashed orangered;
+    background-color: lightgreen;
+}
+.bloco2 {
+    text-align: center;
+    margin-top: 20px;    
+    width: 600px;
+    height: 400px;
+    border: 2px dashed orangered;
+    background-color: rgb(233, 144, 238);
+}
+.hidebloco{
+    display: none; /*propriedade display inicial que está sendo alterada no JavaScript*/
+}
