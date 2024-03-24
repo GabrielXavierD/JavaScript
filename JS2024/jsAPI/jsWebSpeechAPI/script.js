@@ -17,7 +17,6 @@ function falar() {
             mensagem.pitch = 1; //tom 1 (padrão)
             mensagem.text = conteudoFalar; //pegando a mensagem que irá ser falada
             mensagem.lang = "pt-BR"; //definindo a linguagem da mensagem/sintese de voz
-
     synth.speak(mensagem);
     // fazendo modulo "synth" (criado no inicio) realizar a sintese/fala (.speak) passando a mensagem configurada "mensagem"
 

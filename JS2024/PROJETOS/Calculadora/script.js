@@ -2,19 +2,16 @@ function btnClear() {
     document.querySelector(".resultado").value = ""; //limpando o input de ".resultado"
 }
 
-
 function btnBack() {
     let resultado = document.querySelector(".resultado").value;
     document.querySelector(".resultado").value = resultado.substring(0, resultado.length - 1);
     // apagando o ultimo digito = VARIAVEL.substring(0, VARIAVEL.length -1) ->Tamanho máximo -1;
-
 }
+
 function btnRaiz() {
     let inputResultado = document.querySelector(".resultado");
     return Math.sqrt(inputResultado);
-
 }
-
 
 function btnPorcentagem() {
     let inputResultado = document.querySelector(".resultado");
@@ -82,14 +79,16 @@ function btnPonto() {
     let inputResultado = document.querySelector(".resultado");
     inputResultado.value += ".";
 }
+
 function btnMais() {
     let inputResultado = document.querySelector(".resultado");
     inputResultado.value += "+";
-
 }
+
 function limpaCampo() {
     document.querySelector(".resultado").value = '';
 }
+
 function btnIgual() {
     let inputResultado = document.querySelector(".resultado").value;
     if (inputResultado) { //se tiver alguma coisa dentro / não nulo faça:
@@ -103,6 +102,5 @@ function btnIgual() {
         }, 1200);
   /*intervalo-> é uuma função -> colocando a função -> tempo
 Ou seja, campo será limpado depois de 1.2s com a função limpaCampo()*/
-    }
-    
+    }    
 }
