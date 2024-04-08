@@ -7,11 +7,21 @@ function btnBack() {
     document.querySelector(".resultado").value = resultado.substring(0, resultado.length - 1);
     // apagando o ultimo digito = VARIAVEL.substring(0, VARIAVEL.length -1) ->Tamanho máximo -1;
 }
-
 function btnRaiz() {
     let inputResultado = document.querySelector(".resultado");
-    return Math.sqrt(inputResultado);
+    let valor = parseFloat(inputResultado.value);
+    
+    // Verifica se o valor é válido (número)
+    if (!isNaN(valor)) {
+        // Calcula a raiz quadrada e atualiza o valor na entrada
+        inputResultado.value = Math.sqrt(valor);
+    } else {
+        // Se o valor não for válido, exibe uma mensagem de erro
+        inputResultado.value = "Erro";
+    }
 }
+
+
 
 function btnPorcentagem() {
     let inputResultado = document.querySelector(".resultado");
