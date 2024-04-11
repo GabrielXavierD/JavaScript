@@ -1,0 +1,169 @@
+body{
+    background-color: blue;
+}
+.joaninha{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.antena, .antena1{
+    position: absolute;
+    bottom: 78px;
+    left: 76px;
+    height: 40px;
+    width: 10px;
+    transform: rotateZ(40deg);
+    background-color: black;
+}
+.antena1{
+    transform: rotateZ(30deg);
+    bottom: 78px;
+    left: 60px;
+}
+
+.cabeca{
+    z-index: 4;
+    border-radius: 100px;
+    height: 90px;
+    width: 94px;
+    background-color: black;
+}
+
+
+.olho {
+    position: absolute;
+    border-radius: 100px;
+    height: 28px;
+    width: 28px;
+    background-color: rgb(255, 255, 255);
+    bottom: 30px;
+    left: 50px;
+}
+.pupila {
+    position: absolute;
+    border-radius: 100px;
+    height: 16px;
+    width: 16px;
+    background-color: rgb(0, 0, 0);
+    bottom: 36px;
+    left: 62px;   
+}
+.kawaii {
+    position: absolute;
+    border-radius: 100px;
+    height: 6px;
+    width: 21px;
+    background-color: rgb(253, 136, 255);
+    bottom: 19px;
+    left: 53.5px;   
+}
+.corpo {
+    z-index: -2;
+    position: absolute;
+    border-radius: 50px;
+    height: 98px;
+    width: 132px;
+    bottom: -6px;
+    left: -102px;  
+    background-color: rgb(255, 0, 0);
+}
+
+.branco{
+    z-index: -1;
+    position: absolute;
+    height: 28px;
+    width: 118px;
+    bottom: -6px;
+    border-radius: 0px 10px 100px 100px;
+    left: -98px;  
+    background-color: rgb(0, 0, 0);
+
+}
+.bolinha1, 
+.bolinha2, 
+.bolinha3, 
+.bolinha4, 
+.bolinha5 {
+    position: absolute;
+    border-radius: 100px;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 0, 0);
+    bottom: 30px;
+    right: 140px;
+    
+}
+.grupoB{
+    position: absolute;
+    top: 45px;
+    right: 265.5px;
+    transform: rotateZ(180deg);
+}
+.bolinha1{
+    top: -18px;
+    right: 138px;
+}
+.bolinha2{
+    top: 10px;
+    right: 121.5px;
+}
+
+.bolinha3{
+    top: 10px;
+    right: 93.5px;
+}
+
+.bolinha4{
+    top: 10px;
+    right: 150px;
+}
+
+.bolinha5{
+    top: -18px;
+    right: 105px;
+   
+}
+
+.perna1, 
+.perna2, 
+.perna3, 
+.perna4, 
+.perna5, 
+.perna6 {
+    position: absolute;
+    z-index: -6;
+    top: 78px;
+    left: -4px;
+    height: 40px;
+    width: 10px;
+    background-color: black;
+}
+
+.perna2{
+    
+    left: -16px;
+}
+
+.perna3{
+    left: -34px;
+
+} 
+.perna4{
+    left: -46px;
+} 
+.perna5{
+    left: -65px;
+}
+.perna6{
+    left: -78px;
+}
+
+.chao{
+    z-index: -10;
+    height: 1400%;
+    width: 2600%;
+    top: 484px;
+    left: -60px;
+    position: fixed;
+    background-color: green;
+}
