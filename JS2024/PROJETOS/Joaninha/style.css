@@ -1,11 +1,99 @@
 body{
-    background-color: blue;
+    background-image: url("fundo.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    height: 2600px;
+    width: 100px;
+    overflow: scroll;
+    scroll-behavior: unset;
 }
+
+.arvoreP{
+    z-index: -2;
+    position: absolute;
+    transform: scale(1.2);
+    top: -10px;
+    left: -200px;
+  
+}
+
+.arvore{
+    z-index: 6;
+    position: absolute;
+    transform: scale(1.2);
+    top: -10px;
+    left: -200px;
+  
+}
+.arvore2{
+    z-index: 6;
+    position: absolute;
+    transform: scale(1.2);
+    top: 180px;
+    left: 400px;
+}
+.arvore3{
+    z-index: 6;
+    position: absolute;
+    top: -6px;
+    left: 1100px;
+    transform: scale(1.1);
+}
+
+
+.grupoArvore2{
+    position: absolute;
+    left: 1820px;
+    background-repeat:repeat-y
+}
+.grupoArvore3{
+    position: absolute;
+    left: 3720px;
+    background-repeat:repeat-y
+}
+
+.grupoArvore4{
+    position: absolute;
+    left: 5560px;
+    background-repeat:repeat-y
+}
+
+.grupoArvore5{
+    position: absolute;
+    left: 7420px;
+    background-repeat:repeat-y
+}
+
+
+.floresta2{
+    position: absolute;
+    top: 600px;
+}
+
+.floresta3{
+    position: absolute;
+    top: 1400px;
+}
+
+.floresta4{
+    position: absolute;
+    top: 2200px;
+}
+
+
+
+
+
 .joaninha{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    z-index: 2;
+    top: 445px;
+    left: 20px;
+    transform: rotateY(0deg);
+    transform: scale(0.4);
 }
+
+
 .antena, .antena1{
     position: absolute;
     bottom: 78px;
@@ -22,7 +110,7 @@ body{
 }
 
 .cabeca{
-    z-index: 4;
+    z-index: 2;
     border-radius: 100px;
     height: 90px;
     width: 94px;
@@ -160,10 +248,11 @@ body{
 
 .chao{
     z-index: -10;
-    height: 1400%;
-    width: 2600%;
+    height: 2600px;
+    width: 9400px;
     top: 484px;
     left: -60px;
-    position: fixed;
+    position: relative;
     background-color: green;
+
 }
