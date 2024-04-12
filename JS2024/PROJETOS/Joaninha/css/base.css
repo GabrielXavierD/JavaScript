@@ -1,0 +1,106 @@
+body{
+    background-image: url("../imagens/fundo.jpg");
+    background-repeat: repeat;
+    background-size: 100% ;
+    height: 2600px;
+    width: 100px;
+    overflow: scroll;
+    scroll-behavior: unset;
+}
+
+
+#setas{
+    position: absolute;
+    left: 40px;
+    top: 45px;
+    filter: invert(1) drop-shadow(2px  1px 0.1px rgb(0, 0, 0));
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+#setas:hover + h4{
+    visibility: visible;
+}
+
+h4{
+    border-radius: 6px;
+    text-align: justify;
+    visibility: hidden;
+    position: absolute;
+    width: 320px;
+    left: 160px;
+    top: 50px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 2px solid black;
+    padding: 2px;
+    background-color: yellow;
+}
+
+
+
+
+p{
+    position: absolute;
+    font-family: cursive;
+}
+
+#pUm{
+    visibility: hidden;
+    z-index: 12;
+    top: 340px;
+    left: 1000px;
+    background-color: white;
+    border-radius: 12px 12px 0px 12px;
+    text-align:justify;
+    border: 1px solid black;
+    padding: 4px;
+} 
+
+
+
+
+
+.personagens{
+    position: absolute;
+   
+}
+#gata{
+    z-index: 12;
+    top: 130px;
+    left: 1020px;
+    transform: rotateY(180deg) scale(0.16);
+}
+
+#cao{
+    z-index: 12;
+    left: 60px;
+    top: 2540px;
+    transform:  scale(0.6);
+}
+
+
+#macaco{
+    z-index: 12;
+    top: 640px;
+    left: 4080px;
+    transform: rotateY(180deg) scale(0.07);
+}
+
+
+
+
+
+
+.chao{
+    z-index: -10;
+    height: 2600px;
+    width: 9400px;
+    top: 484px;
+    left: -60px;
+    position: relative;
+    background-color: green;
+
+}
