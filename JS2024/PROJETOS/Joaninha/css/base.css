@@ -50,13 +50,14 @@ p{
 #pUm{
     visibility: hidden;
     z-index: 12;
-    top: 340px;
-    left: 1000px;
+    top: 330px;
+    left: 980px;
     background-color: white;
     border-radius: 12px 12px 0px 12px;
     text-align:justify;
     border: 1px solid black;
     padding: 4px;
+    max-width: 240px;
 } 
 
 
@@ -75,6 +76,7 @@ p{
 }
 
 #cao{
+    visibility: hidden;
     z-index: 12;
     left: 60px;
     top: 2540px;
