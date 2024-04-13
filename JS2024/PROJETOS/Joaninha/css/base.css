@@ -41,24 +41,22 @@ h4{
 
 
 
-
 p{
     position: absolute;
     font-family: cursive;
 }
 
-#pUm{
-    visibility: hidden;
-    z-index: 12;
-    top: 330px;
-    left: 980px;
-    background-color: white;
-    border-radius: 12px 12px 0px 12px;
-    text-align:justify;
-    border: 1px solid black;
-    padding: 4px;
-    max-width: 240px;
-} 
+button{
+    position: absolute;
+    border-radius: 1px;
+
+}
+
+
+
+
+
+
 
 
 

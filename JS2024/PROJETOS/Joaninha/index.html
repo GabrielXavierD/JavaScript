@@ -1,32 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/joaninha.css">
     <link rel="stylesheet" href="css/arvores.css">
+    <link rel="stylesheet" href="css/desafios.css">
     <title>Joaninha</title>
 </head>
+
 <body>
-    <a href="https://github.com/GabrielXavierD" target="_blank" style="color:rgb(0, 0, 0); text-decoration: none; position: absolute; margin-left: 2px;"> <img src="icone/github.png" alt="Icone do Github" style="height: 80px; width:80px; transform:scale(0.5); opacity: 1; margin-top: -10px; margin-left: 178px; position: absolute;"><h2>@GabrielXavierD</h2></a>
-   
+    <a href="https://github.com/GabrielXavierD" target="_blank"
+        style="color:rgb(0, 0, 0); text-decoration: none; position: absolute; margin-left: 2px;"> <img
+            src="icone/github.png" alt="Icone do Github"
+            style="height: 80px; width:80px; transform:scale(0.5); opacity: 1; margin-top: -10px; margin-left: 178px; position: absolute;">
+        <h2>@GabrielXavierD</h2>
+    </a>
+
     <img src="imagens/setas.png" id="setas" alt="setas do teclado" srcset="">
     <h4>USE AS SETAS DO TECLADO PARA SE MOVIMENTAR! =D</h4>
-    
+
 
 
     <img src="imagens/personagens/gato.png" class="personagens" id="gata" alt="Cachorro - Personagem" srcset="">
-    <p id="pUm">Olá! Me chamo Lua! Para concluir sua primeira missão, responda corretamente:</p>
+    <div id="gataMissao">
+        <form action="">
+            <p id="pUm">Olá! Me chamo Lua! Para concluir sua primeira missão, responda corretamente a pergunta.</p>
+            <button type="button" id="btnIniciaM" onclick="iniciaMissao()">CLIQUE PARA INICIAR MISSÃO</button>
+        </form>
+    </div>
+
+    <div id="desafio1">
+        <form action="">
+            <label for="">Pulo, pulo, mas não tenho pernas. Sou pequeno, mas posso ser grande. Posso ter várias cores,
+                mas sou apenas uma coisa. As vezes posso acabar explodindo. O que sou?</label>
+            <input type="text" id="charada1" placeholder="Clique aqui para responder">
+            <button onclick="verificarD1()" id="btnVerificarD1" type="button">Verificar resposta</button>
+        </form>
+    </div>
 
 
-<img src="imagens/personagens/cao.png" class="personagens" id="cao" alt="Gata - Personagem" srcset="">
-<p id="pDois">Olá! Me chamo Max! Para concluir sua segunda missão, responda corretamente:</p>
 
-<img src="imagens/personagens/macaco.png" class="personagens" id="macaco" alt="Macaco - Personagem" srcset="">
-<p id="pTres">Olá! Me chamo Joe! Para concluir sua terceira e última missão, responda corretamente:</p>
+    <img src="imagens/personagens/cao.png" class="personagens" id="cao" alt="Gata - Personagem" srcset="">
+    <div id="caoMissao">
+        <form action="">
+            <p id="pDois">Olá! Me chamo Max! Para concluir sua primeira missão, responda corretamente a pergunta.</p>
+            <button type="button" id="btnIniciaM2" onclick="iniciaMissao2()">CLIQUE PARA INICIAR MISSÃO</button>
+        </form>
+    </div>
+
+    <div id="desafio2">
+        <form action="">
+            <label for="">Eu tenho chaves, mas não tenho fechaduras. Eu tenho espaço, mas não tenho espaço. Você pode entrar, mas não pode sair. O que eu sou?</label>
+            <input type="text" id="charada2" placeholder="Clique aqui para responder">
+            <button onclick="verificarD2()" id="btnVerificarD2" type="button">Verificar resposta</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <img src="imagens/personagens/macaco.png" class="personagens" id="macaco" alt="Macaco - Personagem" srcset="">
+    <p id="pTres">Olá! Me chamo Joe! Para concluir sua primeira missão, responda corretamente a pergunta.</p>
 
 
 
@@ -38,133 +86,133 @@
 
 
     <div class="floresta">
-    <div class="grupoArvore">  
-        <img src="imagens/arvore.png" class="arvoreP" alt="Arvore" >
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        <div class="grupoArvore">
+            <img src="imagens/arvore.png" class="arvoreP" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore2">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore3">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore4">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore5">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
     </div>
 
-    <div class="grupoArvore2">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-  
-    <div class="grupoArvore3">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+
+    <div class="floresta2">
+        <div class="grupoArvore">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore2">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore3">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore4">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore5">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
     </div>
 
-    <div class="grupoArvore4">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+    <div class="floresta3">
+        <div class="grupoArvore">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore2">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore3">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore4">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
+
+        <div class="grupoArvore5">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
     </div>
 
-    <div class="grupoArvore5">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-</div>
+    <div class="floresta4">
+        <div class="grupoArvore">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
 
+        <div class="grupoArvore2">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
 
-<div class="floresta2">
-    <div class="grupoArvore">  
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore" >
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
+        <div class="grupoArvore3">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
 
-    <div class="grupoArvore2">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-  
-    <div class="grupoArvore3">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
+        <div class="grupoArvore4">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
 
-    <div class="grupoArvore4">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        <div class="grupoArvore5">
+            <img src="imagens/arvore.png" class="arvore" alt="Arvore">
+            <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
+            <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
+        </div>
     </div>
-
-    <div class="grupoArvore5">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-</div>
-
-<div class="floresta3">
-    <div class="grupoArvore">  
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore" >
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore2">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-  
-    <div class="grupoArvore3">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore4">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore5">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-</div>
-
-<div class="floresta4">
-    <div class="grupoArvore">  
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore" >
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore2">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-  
-    <div class="grupoArvore3">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore4">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-
-    <div class="grupoArvore5">
-        <img src="imagens/arvore.png" class="arvore" alt="Arvore">
-        <img src="imagens/arvore2.png" class="arvore2" alt="Arvore">
-        <img src="imagens/arvore3.png" class="arvore3" alt="Arvore">
-    </div>
-</div>
 
 
 
@@ -173,36 +221,37 @@
 
 
     <div class="joaninha" id="aJoaninha">
-    <div class="antena"></div>
-    <div class="antena1"></div>
-    <div class="cabeca"></div>
+        <div class="antena"></div>
+        <div class="antena1"></div>
+        <div class="cabeca"></div>
         <div class="olho"></div>
-            <div class="pupila"></div>
-    <div class="kawaii"></div>
+        <div class="pupila"></div>
+        <div class="kawaii"></div>
 
-<div class="corpo"></div>
-<div class="branco"></div>
-    <div class="grupoB">
-        <div class="bolinha1"></div>
-        <div class="bolinha2"></div>
-        <div class="bolinha3"></div>
-        <div class="bolinha4"></div>
-        <div class="bolinha5"></div>
+        <div class="corpo"></div>
+        <div class="branco"></div>
+        <div class="grupoB">
+            <div class="bolinha1"></div>
+            <div class="bolinha2"></div>
+            <div class="bolinha3"></div>
+            <div class="bolinha4"></div>
+            <div class="bolinha5"></div>
+        </div>
+
+        <div class="perna1"></div>
+        <div class="perna2"></div>
+        <div class="perna3"></div>
+        <div class="perna4"></div>
+        <div class="perna5"></div>
+        <div class="perna6"></div>
     </div>
-
-    <div class="perna1"></div>
-    <div class="perna2"></div>
-    <div class="perna3"></div>
-    <div class="perna4"></div>
-    <div class="perna5"></div>
-    <div class="perna6"></div>
-</div>
 
 
     <div class="chao"></div>
 
 
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>

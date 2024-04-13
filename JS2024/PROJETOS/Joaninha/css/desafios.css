@@ -1,0 +1,170 @@
+
+#gataMissao{
+    visibility: hidden;
+}
+#pUm{
+    z-index: 12;
+    top: 300px;
+    left: 960px;
+    background-color: white;
+    border-radius: 12px 12px 0px 12px;
+    text-align:justify;
+    border: 1px solid black;
+    padding: 4px;
+    width: 300px;
+    height: 100px;
+} 
+#btnIniciaM{
+    font-weight: bold;
+    z-index: 12;
+    top: 386px;
+    left: 845px;
+    height: 22px;
+    width: 220px;
+    margin-top: 10px;
+    margin-left: 163px;
+    margin-right: 25%;
+}
+
+
+#desafio1{
+    visibility: hidden;
+    z-index: 12;
+    top: 290px;
+    left: 960px;
+    padding: 4px;
+    width: 300px;
+    height: 140px;
+    position: absolute;
+    background-color: white;
+    border-radius: 12px 12px 0px 12px;
+    border: 1px solid black;
+    
+    text-align:justify;
+    font-weight: bold;
+}
+
+#charada1{ /*input*/
+    margin-top: 8px;
+    width: 97.5%;
+}
+
+#btnVerificarD1{
+    margin-top: 6px;
+    left: 28% !important;
+    width: 130px;
+    right: 120px;
+}
+
+
+
+
+
+
+
+#caoMissao{
+    visibility: hidden;
+    position: absolute;
+    left: 200px;
+    top: 2490px;
+}
+
+#pDois{
+
+    z-index: 12;
+    background-color: white;
+    border-radius: 12px 12px 12px 0px;
+    text-align:justify;
+    border: 1px solid black;
+    padding: 4px;
+    height: 100px;
+    width: 250px;
+} 
+
+#btnIniciaM2{
+    font-weight: bold;
+    z-index: 12;
+    left: -140px;
+    top: 85px;
+    height: 22px;
+    width: 220px;
+    margin-top: 10px;
+    margin-left: 163px;
+    margin-right: 25%;
+
+}
+
+
+#desafio2{
+    visibility: hidden;
+    z-index: 12;
+    left: 200px;
+    top: 2490px;
+    padding: 4px;
+    width: 240px;
+    height: 140px;
+    position: absolute;
+    background-color: white;
+    border-radius: 12px 12px 12px 0px;
+    border: 1px solid black;
+    text-align:justify;
+    font-weight: bold;
+}
+
+#charada2{ /*input*/
+    margin-top: 8px;
+    width: 97.5%;
+}
+
+#btnVerificarD2{
+    margin-top: 6px;
+    left: 28% !important;
+    width: 130px;
+    right: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pTres{
+    visibility: visible;
+    z-index: 12;
+    top: 640px;
+    left: 4080px;
+    background-color: white;
+    border-radius: 12px 12px 0px 12px;
+    text-align:justify;
+    border: 1px solid black;
+    padding: 4px;
+    max-width: 240px;
+} 
