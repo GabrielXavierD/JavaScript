@@ -82,6 +82,7 @@
 } 
 
 #btnIniciaM2{
+    visibility: hidden;
     font-weight: bold;
     z-index: 12;
     left: -140px;
@@ -127,37 +128,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#macacoMissao {
+    visibility: hidden;
+    position: absolute;
+    top: 1060px;
+    left: 600px;
+}
 
 
 #pTres{
-    visibility: visible;
     z-index: 12;
     top: 640px;
     left: 4080px;
@@ -166,5 +145,74 @@
     text-align:justify;
     border: 1px solid black;
     padding: 4px;
-    max-width: 240px;
+    height: 95px;
+    width: 260px;
 } 
+
+
+#btnIniciaM3{
+    font-weight: bold;
+    z-index: 12;
+    top: 721px;
+    left: 3950px;
+    height: 22px;
+    width: 220px;
+    margin-top: 10px;
+    margin-left: 163px;
+    margin-right: 25%;
+
+}
+
+
+#desafio3{
+    visibility: hidden;
+    z-index: 12;
+    top: 1650px;
+    left: 4700px;
+    padding: 4px;
+    width: 240px;
+    height: 120px;
+    position: absolute;
+    background-color: white;
+    border-radius: 12px 12px 0px 12px;
+    border: 1px solid black;
+    text-align:justify;
+    font-weight: bold;
+}
+
+#charada3{ /*input*/
+    margin-top: 8px;
+    width: 97.5%;
+}
+
+#btnVerificarD3{
+    margin-top: 6px;
+    left: 28% !important;
+    width: 130px;
+    right: 120px;
+}
+
+
+#desafioFinal{
+visibility: hidden;
+
+    z-index: 12;
+     top: 470px;
+    left: 7650px; 
+    padding: 4px;
+    width: 240px;
+    height: 80px;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align:justify;
+    font-weight: bold;
+}
+
+#btnVerificarFinal{
+    top: 50px;
+    left: 4px; 
+    width: 240px;
+    height: 30px;
+}

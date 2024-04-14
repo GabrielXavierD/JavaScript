@@ -45,6 +45,12 @@
 
 
 
+
+
+
+
+
+
     <img src="imagens/personagens/cao.png" class="personagens" id="cao" alt="Gata - Personagem" srcset="">
     <div id="caoMissao">
         <form action="">
@@ -69,12 +75,37 @@
 
 
 
-
-
-
-
     <img src="imagens/personagens/macaco.png" class="personagens" id="macaco" alt="Macaco - Personagem" srcset="">
-    <p id="pTres">Olá! Me chamo Joe! Para concluir sua primeira missão, responda corretamente a pergunta.</p>
+    <div id="macacoMissao">
+        <form action="">
+            <p id="pTres">Olá! Me chamo Joe! Para concluir sua primeira missão, responda corretamente a pergunta.</p>
+            <button type="button" id="btnIniciaM3" onclick="iniciaMissao3()">CLIQUE PARA INICIAR MISSÃO</button>
+        </form>
+    </div>
+
+    <div id="desafio3">
+        <form action="">
+            <label for="">Ocorre uma vez a cada minuto, duas vezes a cada momento, mas jamais a cada quinhentos anos.</label>
+            <input type="text" id="charada3" placeholder="Clique aqui para responder">
+            <button onclick="verificarD3()" id="btnVerificarD3" type="button">Verificar resposta</button>
+        </form>
+    </div>
+
+
+    <div id="premio">
+        <img id="premioFinal" src="imagens/premio.png" alt="" srcset="">
+    </div>
+
+    <div id="desafioFinal">
+        <form action="">
+            <label for="">Você encontrou o premio e concluiu o jogo! Obrigado por jogar!</label>
+            <button onclick="verificarFinal()" id="btnVerificarFinal" type="button">Clique aqui para jogar novamente</button>
+        </form>
+    </div>
+
+
+    
+    
 
 
 
