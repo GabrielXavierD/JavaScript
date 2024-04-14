@@ -82,7 +82,6 @@
 } 
 
 #btnIniciaM2{
-    visibility: hidden;
     font-weight: bold;
     z-index: 12;
     left: -140px;
