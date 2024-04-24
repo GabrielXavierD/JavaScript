@@ -1,0 +1,50 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Eventos input</title>
+</head>
+
+<body onresize="redimensione()">
+    <p id="t"> Eventos: Input (não estão estritos a elementos com input, pode ser qualquer elemento: textarea, select
+        etc...)<br>
+        ⚫onBlur: Quando sai do campo<br>
+        ⚫onChange: Quando muda o conteúdo do campo<br>
+        ⚫onFocus: Quando entra no campo<br>
+        ⚫onSelect: quando um texto é selecionado<br>
+        ⚫onSubmit: quando o formulário é submetido<br>
+        ⚫onReset: quando o botão de reset é clicado<br>
+        ⚫onKeyDown: quando pressionada a tecla<br>
+        ⚫onKeyUp: quando solta a tecla pressionada
+    </p>
+    <h2>Log de ocorrências 1</h2>
+    <div id="log"></div>
+
+    <br>
+    <br>
+    
+    <h1>Eventos de input</h1>
+    <form name="formTeste" onsubmit="return submeti()" onreset="resetei()">
+        <label for="nome">Nome:</label> <input type="text" id="nome" name="nome" 
+            onblur="saiDoCampo()"
+            onchange="mudei()"
+            onfocus="entreiNoCampo()"
+            onselect="selecionei()"
+            onkeydown="teclaBaixo()"
+            onkeyup="teclaCima()"><br>
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
+
+    <br>
+    <br>
+
+    <h2>Log de ocorrências 2</h2>
+    <div id="log2">
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
