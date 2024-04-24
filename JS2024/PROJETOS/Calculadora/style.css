@@ -59,6 +59,7 @@ input:not(.resultado):hover {
 #igual:hover{
     background-color: rgb(0, 183, 0);
 }
+
 #mais:hover,
 #menos:hover,
 #porcentagem:hover,
@@ -67,13 +68,13 @@ input:not(.resultado):hover {
 #raiz:hover{
     background-color: rgb(0, 99, 237);
 }
+
 #back:hover, #clear:hover{
     background-color: rgb(241, 35, 35);
 }
 
 
 .juntatudo{
- 
     height: 480px;
     width: 340px;
     backdrop-filter: blur(8px);
