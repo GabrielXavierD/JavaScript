@@ -1,0 +1,1 @@
+// Cast / Casting de tipos = converter tipos de dados em outros tipos de dados
