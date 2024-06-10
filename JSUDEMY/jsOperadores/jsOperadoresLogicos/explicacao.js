@@ -1,8 +1,8 @@
 /*
 
-&&  (AND/E lógico)
-||  (OR/OU lógico)
-!   (NOT/NÃO lógico)
+&&  (AND/E lógico) -> verdadeiro se TODAS as expressões forem verdadeiras
+||  (OR/OU lógico) -> verdadeiro se PELO MENOS UMA das expressões for verdadeira
+!   (NOT/NÃO lógico) -> INVERTE o resultado da expressão de comparação (true = false/ false = true)
 ??  (Operador de coalescência nula)
 
 
