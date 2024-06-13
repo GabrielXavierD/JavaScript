@@ -12,6 +12,6 @@ let teste2 = undefined; //atribuindo
 let teste3 //não tem valor, logo, não é definida, é undefined
 
 
-console.log(null)
+console.log(teste)
 console.log(teste2)
 console.log(teste3)
