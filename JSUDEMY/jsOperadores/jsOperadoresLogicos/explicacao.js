@@ -1,4 +1,6 @@
 /*
+OPERADORES LOGICOS (= servem para conectar operações de comparação e operações de comparação 
+servem para a tomada de decisão (IF, ELSE ETC...).)
 
 &&  (AND/E lógico) -> verdadeiro se TODAS as expressões forem verdadeiras
 ||  (OR/OU lógico) -> verdadeiro se PELO MENOS UMA das expressões for verdadeira
