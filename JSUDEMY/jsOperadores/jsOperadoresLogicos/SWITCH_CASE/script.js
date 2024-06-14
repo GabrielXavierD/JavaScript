@@ -7,11 +7,11 @@ CONDICIONAL SWITCH CASE
 Estrutura:
 switch(valor_para_comparacao_dos_cases){
     case 1:
-        break
+        break;
     case 2:
-        break
+        break;
     default:
-        break
+        break;
 
 case VALOR = os cases comparam o valor inserido com o valor do case; não tem limites, pode colocar quantos cases forem necessários.
 break = indica p/ o switch a finalização do case
@@ -25,13 +25,13 @@ let opcao = 1;
 switch (opcao){ //opcao pode ser uma variavel ou um valor pre definido
     case 1:     //se opcao === (estritamente igual a) 1
         document.write("Opção 1");
-        break
+        break;
     case 2:
         document.write("Opção 2");
-        break
+        break;
     default:
         document.write("Erro");
-        break
+        break;
 } 
 
 
@@ -39,29 +39,29 @@ let parametro = 2;
 switch(parametro){
     case 1:
         document.write("<br>Parametro 1");
-        break
+        break;
     case 2:
         document.write("<br>Parametro 2");
-        break
+        break;
     /* default:
          document.write("Erro");
-         break                          -> opcional*/
+         break;                          -> opcional*/
 }
 
 let texto = "tres";
 switch (texto){ //opcao pode ser uma variavel ou um valor pre definido
     case "um": //se === (estritamente igual a) 1
         document.write("<br>Texto 1");
-        break
+        break;
     case "dois":
         document.write("<br>Texto 2");
-        break
+        break;
     case "tres":
         document.write("<br>Texto 3");
-        break    
+        break;    
     default:
         document.write("<br>Erro");
-        break
+        break;
 }
 
 
@@ -70,17 +70,17 @@ let dados = prompt("Digite um número de um a 4:"); //Promp recebe só STRING
 switch (parseInt(dados)){                          //Convertendo o prompt STRING pra INT
     case 1: //se === (estritamente igual a) 1
         document.write("<br>Dado 1");
-        break
+        break;
     case 2:
         document.write("<br>Dado 2");
-        break
+        break;
     case 3:
         document.write("<br>Dado 3");
-        break    
+        break;    
     case 4:
         document.write("<br>Dado 4");
-        break    
+        break;    
     default:
         document.write("<br>Erro");
-        break
+        break;
 } 
