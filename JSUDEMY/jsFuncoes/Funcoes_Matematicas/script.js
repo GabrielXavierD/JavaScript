@@ -7,8 +7,12 @@
                 <=4 arredonda p/ baixo; arredonda >=5 arredonda p/ cima
 
 -Math.random() = fornece um numero aleatorio ENTRE 0 e 1
+-Math.abs() = retorna o valor absoluto de um numero, ou seja, o mesmo numero, porém, positivo
 
-                */
+
+(...)
+Pode ser consultado no W3SCHOOLS
+*/
 
 // Math.ceil()
 var x = Math.ceil(10.380);
