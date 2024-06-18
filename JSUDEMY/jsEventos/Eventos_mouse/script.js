@@ -2,7 +2,6 @@
 -> Ex.: movimento do mouse, click, click em uma tecla do teclado, foco em elemento do formulario, carregamento da página etc...
 Podem ser combinados com funções e podemos disparar logicas de acordo com ações do usuario etc...
 
-5 EVENTOS CAPTURADOS PELO JS ATRAVES DO USO DO MOUSE
 -Eles são declarados nos elementos HTML utilizando a sintaxe de propriedade, exemplo:
   <div onclick=""></div>
 
@@ -11,8 +10,10 @@ Podem ser combinados com funções e podemos disparar logicas de acordo com aç�
 
 -Esses eventos podem ser combinados
     <div onclick="acao1()" onmouseout="acao2()"></div>
+    
+-Alguns eventos não estão disponiveis em certos elementos HTML -> devemos conultar no w3schools em DOM Events
 
-
+5 EVENTOS CAPTURADOS PELO JS ATRAVES DO USO DO MOUSE
 onclick = acionado quando algo é clicado
 ondblclick = acionado quando algo é clicado 2 vezes
 onmouseup = acionado  quando o click sobre determinado elemento é liberado (segura o click e dps solta)
@@ -26,9 +27,9 @@ function acao(){
 }
 
 function acao1(){
-    alert("Você clicou na div com uma FUNÇÃO");
+    alert("Você clicou no elemento");
 }
 
 function acao2(){
-    alert("Você clicou na div com uma FUNÇÃO");
+    alert("O mouse sai do elemento");
 }

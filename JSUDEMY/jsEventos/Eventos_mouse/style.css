@@ -1,7 +1,7 @@
 body{
     display: flex;
     gap: 30px;
-    flex
+    flex-wrap: wrap;
 }
 .um, .dois, .tres, .quatro, .cinco,.seis, .sete{
     width: 200px;
