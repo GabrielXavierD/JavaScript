@@ -13,6 +13,7 @@
 
       3 escopos: 
       -global = script como um todo;
+
       -função = conteudo dentro da função, tem acesso as var globais; 
         -> caso alguma variavel seja declarada dentro dele, não poderá ser acessada globalmente
       
@@ -21,7 +22,7 @@
         -> caso o if esteja dentro de uma função e haja uma variavel declara dentro do if,
          a variavel sofrerá hosting/elevação porém, "subirá" somente até o escopo da função e não será global.
 
-      hosting/elevação -> termo que indica elevação de declaração de variavel 
+      *hosting/elevação -> termo que indica elevação de declaração de variavel 
       -> Ex.: variavel declarada dentro do IF(escopo de bloco), ela fica elevada, ou seja, pode ser acessada em qualquer local do codigo,
       é global
 */

@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    gap: 20px;
+}
+.um, .dois, .tres, .quatro, .cinco{
+    width: 150px;
+    height: 150px;
+    font-weight: bold;
+    font-size: 25px;
+}
+.um{
+    background-color: green;
+}
+.dois{
+    background-color: blue;
+}
+.tres{
+    background-color: red;
+}
+.quatro{
+    background-color: orange;
+}
+.cinco{
+    background-color: purple;
+}
