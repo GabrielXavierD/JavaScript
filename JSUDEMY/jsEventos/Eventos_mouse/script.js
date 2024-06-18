@@ -9,6 +9,9 @@ Podem ser combinados com funções e podemos disparar logicas de acordo com aç�
 -Podemos atribuir funções para serem disparadas 
     <div onclick="acao()"></div>
 
+-Esses eventos podem ser combinados
+    <div onclick="acao1()" onmouseout="acao2()"></div>
+
 
 onclick = acionado quando algo é clicado
 ondblclick = acionado quando algo é clicado 2 vezes
@@ -20,5 +23,12 @@ onmoseout = acionado quando o cursor do mouse sai da regiao da página ocupada p
 
 function acao(){
     alert("Você clicou na div com uma FUNÇÃO");
+}
 
+function acao1(){
+    alert("Você clicou na div com uma FUNÇÃO");
+}
+
+function acao2(){
+    alert("Você clicou na div com uma FUNÇÃO");
 }
