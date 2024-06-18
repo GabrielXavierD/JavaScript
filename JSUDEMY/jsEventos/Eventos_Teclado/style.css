@@ -1,0 +1,33 @@
+body{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.um, .dois, .tres, .quatro, .cinco,.seis, .sete{
+    width: 200px;
+    height: 200px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.um{
+    background-color: green;
+}
+.dois{
+    background-color: blue;
+}
+.tres{
+    background-color: red;
+}
+.quatro{
+    background-color: orange;
+}
+.cinco{
+    background-color: purple;
+}
+.seis{
+    background-color: yellow;
+}
+.sete{
+    background-color: brown;
+}
+

@@ -14,11 +14,11 @@ Podem ser combinados com funções e podemos disparar logicas de acordo com aç�
 -Alguns eventos não estão disponiveis em certos elementos HTML -> devemos conultar no w3schools em DOM Events
 
 5 EVENTOS CAPTURADOS PELO JS ATRAVES DO USO DO MOUSE
-onclick = acionado quando algo é clicado
-ondblclick = acionado quando algo é clicado 2 vezes
-onmouseup = acionado  quando o click sobre determinado elemento é liberado (segura o click e dps solta)
-onmouseover = acionado quando o cursor do mouse sobrepoe o elemento
-onmoseout = acionado quando o cursor do mouse sai da regiao da página ocupada pelo o elemento
+-onclick = acionado quando algo é clicado
+-ondblclick = acionado quando algo é clicado 2 vezes
+-onmouseup = acionado  quando o click sobre determinado elemento é liberado (segura o click e dps solta)
+-onmouseover = acionado quando o cursor do mouse sobrepoe o elemento
+-onmoseout = acionado quando o cursor do mouse sai da regiao da página ocupada pelo o elemento
 */
 
 
