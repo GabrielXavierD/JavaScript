@@ -5,11 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+        }
+    </style>
     <title>Curso de JavaScript</title>
 </head>
 
 <body>
+    <h3>Manipulando Estilo - bg da div</h3>
+    <!-- Passando como parametro a cor, a largura e a altura que será atribuida com cada botao
+        Parametro =  corDeFundo, largura, altura -> no caso, passando o valor dele na função modificaEstilo()
+        Caso, por ex. largura não seja inserida, sera utilizada o valor padrão q está no css, no caso, 300px -->
 
+    <button type="button" onclick="modificaEstilo('#FF0000', '180px', '400px')">VERMELHO</button>
+    <button type="button" onclick="modificaEstilo('#00FF00', '400px', '180px')">VERDE</button>
+    <button type="button" onclick="modificaEstilo('#0000FF', '500px', '500px')">AZUL</button>
+
+    <br><br>
+    <div id="divMudaFundo"></div>
 
     <script src="script.js"></script>
 </body>
