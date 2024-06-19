@@ -15,7 +15,9 @@ Funções de callback = é a passagem de funções como parâmetro para outras f
      mas não é isso que queremos, queremos passar a FUNÇÃO como PARAMETRO, então passamos somente a sua variavel (a referencia dessa função)
 
 
-exibirArtigo(1, function(){...}, function(){...});
+exibirArtigo(1, function(){...}, function(){...}); -> pode fazer assim
+
+exibirArtigo(1, funcao1, funcao2); -> ou assim (+ recomendado -> boa prática)
 
 */
 
@@ -24,14 +26,14 @@ exibirArtigo(1, function(){...}, function(){...});
 function exibirArtigo(id, callbackSucesso, callbackErro){
     // Exemplo ficticio: logica: recuperar id via requisição http
 
-    /*Colocando true pra testar como seria, como já esta determiando true,
+    /*Colocando true pra testar como seria, como já esta determinado true,
       vai ir pra callbackSucesso, nesse caso, precisaria de uma logica, melhor,
-      só estou testandoCaso a recuperação tenha sido um sucesso, 
+      só estou testando. Caso a recuperação tenha sido um sucesso, 
       faça: chame a função callbackSucesso passando titulo e a descrição
       */
 
-    if(false){ 
-        callbackSucesso(prompt("Digite um titulo:"), prompt("Digite a descrição:")); //titulo, descrição
+    if(id == 1){ 
+        callbackSucesso(prompt("Digite um titulo:"), prompt("Digite a descrição:")); //titulo, descrição    
     }else{ //caso de erro (false):
         callbackErro("Erro ao recuperar os dados");
     }
@@ -42,6 +44,7 @@ var callbackSucesso = function(titulo, descricao){ //recebe titulo e descricao d
     document.write("<hr>");
     document.write("<p>" + descricao + "</p>");
 }
+
 var callbackErro = function(erro){ //recebe o erro dali de cima (no caso, o texto "Erro ao recuperar os dados", é só um ex., precisaria melhorar)
     document.write("<p><b>Erro:</b> " + erro + "</p>");
 

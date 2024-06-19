@@ -3,7 +3,7 @@
 
 Como chamar uma função anonima?
 -Usamos o wrapper/técnica de wrapper:
-    -JS -> que é a capacidade de associar a uma variável não apenas em strings, valores, booleanos ou numericos
+    -JS -> que é a capacidade de associar a uma variável não apenas strings, valores, booleanos ou numericos
     mas tambem funções -> ou seja, podemos colocar uma função dentro de uma variavel (embrulha a função dentro da variavel)
     -Passamos um parametro nessa função anonima, igual uma função comum, para podermos usa-lo na logica dentro da função*/
 

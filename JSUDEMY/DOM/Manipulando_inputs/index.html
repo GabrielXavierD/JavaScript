@@ -9,13 +9,20 @@
 </head>
 
 <body>
-    <h1>Curso de JavaScript</h1>
+    <h1>Verificando se é letra ou número</h1>
+    
+    <!-- onkeyup pois o caractere precisa ser digitado primeiro p/ depois ser feita a verificação -->
+    <input type="text" id="entrada" placeholder="Digite um caractere aqui" onkeyup="distribuiCaractere()">
 
-    <input type="text"
-    placeholder="Digite seu nome"
-    id="nome_usuario" 
-    class="campo_texto"
-    name="nome">
+    <br><br>
+    <label for="">Letras</label>
+    <input type="text" id="letras" disabled="disabled">
+
+    <br><label for="">Números</label>
+    <input type="text" id="numeros" disabled="disabled">
+
+<!-- disabilitado p/ user não inserir nenhum valor, somente a função faz a inserção -->
+   
 
     <script src="script.js"></script>
 </body>
