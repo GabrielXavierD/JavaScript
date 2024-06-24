@@ -3,7 +3,7 @@ Operadores aritméticos (matematicos - p/ calculos) em JavaScript:
 
  - Adição: + (tambem serve p/ concatenação de STRINGS, se houver algum texto | Se não, soma)
  - Subtração: -
- - Multiplicação: *
+ - Multiplicação: * (faz casting, tenta converter pra Number caso uma haja multiplicação de Strings, se não der, dá erro NaN (Not a Number))
  - Divisão: /
  - Resto da divisão (Módulo - resto de uma divisão, retorna sempre valor inteiro): %
  - Exponenciação: **
