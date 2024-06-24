@@ -1,6 +1,6 @@
-/*
-ATRIBUTO LENGTH
-  ARRAY:
+/*ATRIBUTO LENGTH
+  
+ARRAY:
 -Retorna a quantidade de elementos dentro do ARRAY
   -Mas pode ter um valor inesperado/diferente do real
    conterá a quantidade de elementos dentro do ARRAY desde que esses elementos eles
