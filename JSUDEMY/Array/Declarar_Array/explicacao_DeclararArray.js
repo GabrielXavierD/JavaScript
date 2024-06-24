@@ -29,7 +29,6 @@ ou na posição 4 (indice 3) a uva.
 
 // Há varias formas de declarar/escrever um ARRAY
 
-
 /* PODE MANIPULAR O INDICE DO ARRAY (1. e 2.)
   
 1. Variavel recebendo um objeto do tipo Array e atraves da referencia da variavel, os seus indices

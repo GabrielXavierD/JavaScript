@@ -12,9 +12,15 @@ ATRIBUTO LENGTH
       - Ele funciona de forma mais parecida com o valor do próximo índice
     do que propriamente com quantos elementos existem dentro do ARRAY.
 
+    -> length mostrará o proximo valor do indice se forem numericos e sequenciais,
+       em caso de textos, mostra 0
+
 
   STRING:
 -Retorna a quantidade de caracteres contidas dentro da STRING.
+
+
+
 */
 
 
