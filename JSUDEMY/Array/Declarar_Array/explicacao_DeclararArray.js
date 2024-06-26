@@ -6,6 +6,7 @@
 -O indice inicia em 0;
 -A posição inicia em 1;
 -O tamanho é quantidade_de_itens - 1;
+-Podemos usar .length para sabermos o tamanho do ARRAY
 -Seus valores podem ser STRINGS, BOOLEANOS, NUMERICO, VALORES MESCLADOS (NUMBER, STRING, BOOLEANO, ETC...) ETC...
 
 -Imita listas da vida real, ex.:
