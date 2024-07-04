@@ -112,4 +112,4 @@ var listaMercado = []
 
 
 listaMercado.forEach(percorreArray)
-
+console.log(listaMercado)
