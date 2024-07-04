@@ -1,5 +1,4 @@
-/*
-LAÇOS ENCADEADOS
+/*LAÇOS ENCADEADOS
 -São laços de repetição dentro de outro laço de repetição
 
 Ex.: Tabuada 1 a 10

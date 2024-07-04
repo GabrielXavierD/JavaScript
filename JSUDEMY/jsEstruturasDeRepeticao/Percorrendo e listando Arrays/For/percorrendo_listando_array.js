@@ -17,8 +17,6 @@ var lista_frutas = []
 document.write(lista_frutas.length + " é o tamanho do array <br>")
 
 
-
-
 // Loop for para percorrer o array
 // Podemos criar a variavel fora tambem, tipo, var i = 0 e usar só o i no loop for
 

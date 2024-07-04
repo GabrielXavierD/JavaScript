@@ -110,6 +110,5 @@ var listaMercado = []
         listaMercado[false] = "Garfo"
 
 
-
 listaMercado.forEach(percorreArray)
 console.log(listaMercado)
