@@ -34,7 +34,7 @@ e repete até finalizar o 1º for (ou seja, quando y = 10)
 y * x = z -> aqui "y" é o primeiro numero da conta e "x" o segundo
 */
 for(var y = 1; y<=10; y++) {        
-  for(var x = 1; x<=10; x++){
+  for(var x = 1; x<=10; x++){ //inciando x sempre em 1 a cada vez que volta para o y, para o x não travar em 11 e poder continuar a tabuada
     document.write(y + " x " + x + " = " + (y*x) + "<br>")
   }
   document.write("<br>")
