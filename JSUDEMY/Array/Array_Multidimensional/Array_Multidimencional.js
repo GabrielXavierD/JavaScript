@@ -10,9 +10,9 @@ Diferença com Array básico
 
 Podemos ter mais de uma váriavel dentro do array
 Ex.:
-Lista de coisas
-frutas  | Array() -> Maçã, Uva, Morango
-pessoas | Array() -> Gabriel, João, Lucas
+  Lista Aleatoria
+  frutas  | Array() -> Maçã, Uva, Morango
+  pessoas | Array() -> Gabriel, João, Lucas
 
 Cada indice tem arrays com coisas diferentes dentro deles
 
@@ -27,9 +27,9 @@ Cada indice tem arrays com coisas diferentes dentro deles
 
 /* Formas de Declarar
 
- 1. MANIPULAR O INDICE DO ARRAY 
+ 1. MANIPULANDO O INDICE DO ARRAY 
 -> se usa Array() ou [] 
--> dps estabelece os indices especificos pela variavel "Pai", seguido pelo o indice do "Filho" e dps o indice do elemento do "Filho"
+-> dps estabelece os indices especificos pela variavel "Pai", seguido pelo o indice (ARRAY) do "Filho" e dps o indice do elemento do "Filho"
 -> length mostrará o proximo valor do indice se forem numericos e sequenciais, em caso de textos, mostra 0
 */
 
@@ -51,9 +51,12 @@ console.log(listaCoisas["frutas"][2]) // -> acessando indices especificos
 console.log(listaCoisas["pessoas"]["a"]) // -> acessando indices especificos
 
 
-/* 2.  NÃO DA PRA MANIPULAR O INDICE DO ARRAY 
+
+
+
+/* 2. SEM/NÃO DA PRA MANIPULAR O INDICE DO ARRAY 
 -> se usa Array() ou [] 
--> indice automatico inicia em 0 e só precisa escrever o que contem dentro do array
+-> indice automatico inicia em 0 (não especifica o indice de cada um) e só precisa escrever o que contém dentro do array
 -> length mostrará o tamanho do Array
 
 */
