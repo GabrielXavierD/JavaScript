@@ -91,11 +91,13 @@ function recuperaVideo(video) {
         //tudo que pode dar erro
         console.log(video[0]["video"])
     } catch(erro) {
-
+        //o erro continua acontecendo, porem, não teremos mais uma exceção que interromperá a logica do script, agora o tratamos
+        console.log(erro) //erro = não é o erro do try acontecendo, mas sim, é a string que contem o erro vindo do try, só estamos apresentando o que tem dentro dela, no caso, o erro vindo do try. 
+        console.log("Agora sim podemos tratar esse erro")
     } finally {
         console.log("SEMPRE PASSA POR AQUI (try / catch)")
     }
-    console.log("A aplicação não morreu")
+    console.log("A aplicação não morreu") //esse console, quando tratamos o erro no catch, ele volta a ser exibido
 
 }
 
