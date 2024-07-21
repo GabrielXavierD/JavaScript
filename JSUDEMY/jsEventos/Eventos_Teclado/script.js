@@ -7,7 +7,7 @@
 -Alguns eventos não estão disponiveis em certos elementos HTML -> devemos conultar no w3schools em DOM Events
 
 Há 3 eventos do teclado
--onkeydown = acionado quando uma tecla é apertada -> Bom p/ tratar problemas antes da exibição do caractere
+-onkeydown = acionado quando uma tecla é apertada, antes de inserir o caractere -> Bom p/ tratar problemas antes da exibição do caractere
 -onkeypress = acionado quando mantem a tecla pressionada 
     -> E somente quando a tecla representa um caractere (Ex.: não funciona com ctrl, pois não tem caracter)
     -> Bom p/ tratar problemas antes da exibição do caractere
