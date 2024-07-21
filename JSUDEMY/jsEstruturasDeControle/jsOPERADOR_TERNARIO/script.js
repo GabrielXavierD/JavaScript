@@ -4,9 +4,9 @@
 relacionados a dados tipo String ou Number (ex.: "Aprovado", "Comprou", 5, 10))
 
 SINTAXE 
-let variavel = <(condicao)> ? <verdadeiro> : <falso>
+let variavel = <(condicao)> ? <Fazerverdadeiro> : <Fazerfalso>
 
-? = se verdadeiro
+? significa se verdadeiro faça
 : = ou - falso
 O que é verdadeiro fica a esquerda e oq é falso fica a direita
 
@@ -22,7 +22,7 @@ if(nota >= media && faltas <= faltas_maximas){
 
 
 let nota = prompt("Insira sua nota:");
-let faltas = prompt("Insitura a quantidade de faltas:");
+let faltas = prompt("Insira a quantidade de faltas:");
 let media = 7;
 let faltas_maximas = 15;
 
