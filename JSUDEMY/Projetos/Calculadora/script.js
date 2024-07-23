@@ -44,4 +44,6 @@ Todos os valores trazidos do DOM são STRINGS então devemos trata-los p/ realiz
 
 
 eval() = submetemos um parametro STRING e ela interpreta como uma instrução JavaScript -> ou seja, numero, traz o resultado da conta
+
 */
+
