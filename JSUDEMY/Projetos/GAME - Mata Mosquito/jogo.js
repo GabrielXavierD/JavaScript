@@ -13,7 +13,6 @@ usuario redimensione a tela (pois se ele redimensionar, talvez ele não veja o s
 
 // Iniciando as variaveis em 0, pois seus valores serão atualizados dentro da função
     // se são declaradas dentro da propria função, entao tem escopo da função e não escopo global, então não podemos acessar seus valores atualizados globalmente (em um console.log() FORA da função, por ex.). Logo, devemos criar as variaveis antes da função, p/ podermos acessa-las globalmente com seus valores atualizados, pois, aí, dentro da função, estamos atualizando o valor de uma VARIAVEL GLOBAL e não de uma variavel criada dentro da propria função.
-
 var altura = 0;
 var largura = 0;
 
