@@ -12,3 +12,11 @@
     height: 90px;
     width: 90px;  
 }
+
+.ladoA{
+    transform: scaleX(1); /*lado 1 é a posição ORIGINAL da img*/
+}
+
+.ladoA{
+    transform: scaleX(-1); /*lado -1 é a posição INVERTIDA da img*/
+}
