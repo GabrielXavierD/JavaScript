@@ -60,6 +60,17 @@ para evitar que as imagens sejam criadas em um valor muito proximo do limite de 
 */
 
 function posicaoRandomica() {
+    /* removendo mosca anterior já (caso já exista, pois na 1 chamada da função ñ existe mosca) 
+    -> o metodo remove() é responsavel por remover o elemento selecionado
+    -> para verificarmos se o elemento existe basta usarmos document.getElementById("mosca"), pois se existir o get vai "pega-lo"
+    se não, esse bloco do if é ignorado, não precisa implementar uma logica para o else 
+    
+    se document.getElementById("mosca") == true faça: remova a mosca
+    */
+    if(document.getElementById("mosca")){ 
+        document.getElementById("mosca").remove()
+    }
+
     var posicaoX = Math.floor(Math.random() * largura) - 90; //não precisa ser 90, escolhi um numero qualquer pra subtrair o numero arredondado (mas q n fosse mt pequeno)... 
     var posicaoY = Math.floor(Math.random() * altura) - 90;
 
@@ -91,7 +102,10 @@ function posicaoRandomica() {
 
     *atribuindo o caminho ao src da tag img (var mosca) -> porem nesse ponto não tem uma classe CSS para aplicar uma formatação na imagem da mosca
 
-    *className = atributo pra colocarmos a classe a ser adicionada  -> Ex.: atribuindo a classe "mosca1" na imagem pra ela aplicar uma formatação (no caso, atribuí uma função que retorna uma classe aleatoria)
+    *className = atributo pra colocarmos a classe a ser adicionada  -> Ex.: atribuindo a classe "mosca1" na imagem pra ela aplicar uma formatação
+    ->No caso, atribuí 2 funções que retorna uma classe aleatoria, elas são concatenadas, mas para funcionarem corretamente
+    precisei dar um espaço nas strings delas, pra que não fique algo tipo: "classe1lado1"
+        -> o correto seria ficar "classe1 lado1" -> pois aí são 2 classes diferentes, aplicando formatações diferentes
     
     *acessando o style do elemento e acessando o atributo left e top do style -> concatenamos o valor randomico com px (como no CSS geralmente usamos px, coloquei px no LEFT e no TOP)
    
@@ -99,17 +113,24 @@ function posicaoRandomica() {
     
     *Graças ao DOM, podemos acessar e modificar os elementos HTML, então acessei o body e inclui a imagem (a variavel que contem ela) no body da página
         ->Mas, devemos tomar cuidado com o erro de precedencia (mostrado no console) nesse ponto, pois se colocarmos o script do JS no head, o script roda antes da criação do body, ou seja, vai dar erro, pois não existe o body p/ ser adicionado a imagem
-    */
+    
+    A função posicaoRandomica() gera moscas, mas para nao ficar varias moscas na tela
+    quando uma fora gerada a anterior é removida, para que fique somente uma mosca
+    *Adicionando um ID na img mosca
+
+    Nós vamos verificar se já existe na página com um elemento com esse mosquito caso exista nós vamos remover
+esse elemento antes e criarmos o proximo elemento.;
+
+        */
     var mosca = document.createElement("img")
         mosca.src = "imagens/mosca.png" 
-        mosca.className = tamanhoAleatorio() 
+        mosca.className = tamanhoAleatorio() + " " + ladoAleatorio()
         mosca.style.left = posicaoX + "px" 
         mosca.style.top = posicaoY + "px"
         mosca.style.position = "absolute";
+        mosca.id = "mosca"
     document.body.appendChild(mosca) 
 }
-
-
 
 
 
@@ -117,8 +138,8 @@ function posicaoRandomica() {
 Criando tamanhos randômicos para a mosca
 Ou seja, classe contem um numero aleatorio que vai de 0 até 3
 depois é feita uma verificação com switch, dependendo do valor contido em CLASSE o case retorna uma formatação 
-(classe CSS) p/ mosca -> assim, gerando tamanhos "aleatorios" p/ mosca
-
+(classe CSS) p/ mosca 
+-> assim, gerando tamanhos "aleatorios" p/ mosca
 
 Não estamos usando break pois return já é a ultima instrução da função, ou seja, quando o interpretador JavaScript identifica o comando return, ele retorna o dado para quem fez a chamada da função, o que interrompe o processamento da função naquele ponto. 
     ->Ou seja, o return já interrompe, faz a "msm coisa" q o break, porem ele retorna algum dado e interrompe o processamento naquele ponto.
@@ -134,6 +155,31 @@ function tamanhoAleatorio() {
             return "mosca2"
         case 2:
             return "mosca3"
+    }
+    
+}
+
+
+
+
+
+/* **************************************************************************************************************
+Criando a orientação da imagem de forma randômica
+
+Exemplo: as vezes refletida pro lado direito ou as vezes pro esquerdo -> Lado A e Lado B
+A função faz a mesma coisa que a de cima, só mudei o nome e até qual numero vai ser gerado aleatoriamente
+
+Retorna o nome de uma classe do CSS, que irá aplicar uma formatação de um tamanho X p/ mosca
+*/
+
+function ladoAleatorio(){
+    var classe = Math.floor(Math.random() * 2) //de 0 até 1 (como é arredondado p/ baixo fica entre 0 e 1)
+    console.log("tamanho aleatorio: ", classe)
+    switch (classe) {
+        case 0:
+            return " ladoA" 
+        case 1:
+            return " ladoB"
     }
     
 }
