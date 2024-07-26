@@ -14,6 +14,7 @@ usuario redimensione a tela (pois se ele redimensionar, talvez ele não veja o s
 */
 var altura = 0;
 var largura = 0;
+var vidas = 0;
 
 function ajustaTamanhoPalcoJogo() {
     largura = window.innerWidth;
@@ -56,18 +57,38 @@ Como evitar o SCROLL?
 Ex.: o limite de largura é 50px e a imagem tem 50px de largura, ela foi gerada em 40px da largura, então 10 pixels ficam no limite "correto" e os outros 40 ficam no limite "estourado",
 o que gera um scroll horizontal
 para evitar que as imagens sejam criadas em um valor muito proximo do limite de largura ou altura e acabe gerando um SCROLL, caso a imagem "estoure o limite" iremos substrair um valor consideravel p/ que não gere um SCROLL
-*/
 
-function posicaoRandomica() {
-    /* removendo mosca anterior já (caso já exista, pois na 1 chamada da função ñ existe mosca) 
-    -> o metodo remove() é responsavel por remover o elemento selecionado
+
+
+EXPLICAÇÃO DA FUNÇÃO posicaoRandomica()
+    /* No IF fazemos a verificação para remover a mosca anterior já (caso já exista, pois na 1 chamada da função ñ existe mosca)
+        -> Se document.getElementById("mosca") for encontrada, ou seja, true, faça: remove()
+        -> o metodo remove() é responsavel por remover o elemento selecionado
+
     -> para verificarmos se o elemento existe basta usarmos document.getElementById("mosca"), pois se existir o get vai "pega-lo"
     se não, esse bloco do if é ignorado, não precisa implementar uma logica para o else 
     
-    se document.getElementById("mosca") == true faça: remova a mosca
-    */
-    if(document.getElementById("mosca")){ 
+    EXPLICAÇÃO PARA A VERIFICAÇÃO DOS PONTOS DE VIDA
+    No HTML, no painel, colocamos as imagens com ID's "v1" até "v3" e aqui no JS iremos fazer uma verificação:
+    ->Quando se passa 1s do setInterval, a função posicaoRandomica() irá remover automaticamente a mosca da tela
+        ->Em seguida irá acessar o ID "v" e irá concatenar com o valor contido na variavel vidas, irá acessar o atributo .src do elemento 
+        "capturado" com o get e irá atribuir uma nova imagem "coração vazio"
+        ->Depois irá adicionar +1 na variavel vidas. 
+    
+    Ou seja ficaria: v1 -> muda sua img de coração cheio p/ coração vazio e adiciona +1 na variavel vidas;
+                     na proxima execução/remoção automatica com o setInterval: estaria acessando o ID v2 -> trocando a img e adicionando +1 em vidas;
+                     na proxima -> acessaria v3 e trocaria a img atual p/ coração vazio 
+*/
+function posicaoRandomica() {
+
+    if (document.getElementById("mosca")) {
         document.getElementById("mosca").remove()
+        if (vidas > 3) {
+            alert("INTERROMPER JOGO - GAME OVER")
+        }else{
+            document.getElementById("v" + vidas).src = "imagens/coracao_vazio.png";
+            vidas++;
+        }
     }
 
     var posicaoX = Math.floor(Math.random() * largura) - 90; //não precisa ser 90, escolhi um numero qualquer pra subtrair o numero arredondado (mas q n fosse mt pequeno)... 
@@ -81,54 +102,61 @@ function posicaoRandomica() {
     console.log('posicaoX: ', posicaoX, 'posicaoY: ', posicaoY);
 
 
-/* **************************************************************************************************************
-    CRIANDO AS MOSCAS DE FORMA PROGRAMATICA (CRIANDO O SEU SPAWN)
+    /* **************************************************************************************************************
+        CRIANDO AS MOSCAS DE FORMA PROGRAMATICA (CRIANDO O SEU SPAWN)
+        
+        -DOM = árvore de elementos -> podemos adicionar ou remover elementos dele
+            ->através da sua API acessada através do objeto Document
+            ->Em uma variavel que contem a tag img, podemos atraves do operador "." (ponto) acessar os atributos desse elemento html (cada tag tem seus respectivos elementos. Ex.: src etc...)
+        -Iremos utilizar o DOM
+        -Utilizaremos o metodo .createElement()
+        -> estamos criando a tag img
     
-    -DOM = árvore de elementos -> podemos adicionar ou remover elementos dele
-        ->através da sua API acessada através do objeto Document
-        ->Em uma variavel que contem a tag img, podemos atraves do operador "." (ponto) acessar os atributos desse elemento html (cada tag tem seus respectivos elementos. Ex.: src etc...)
-    -Iremos utilizar o DOM
-    -Utilizaremos o metodo .createElement()
-    -> estamos criando a tag img
-
-    -através do objeto document, iremos acessar o body da página e atribuir a imagem a ele
-    atraves do metodo .appendChild()
-        ->.appendChild() - adiciona um filho p/ algo
-
-
-    EXPLICAÇÃO DO QUE ESTOU FAZENDO ALI EM var mosca:
-    *atribuindo e criando a tag IMG na variavel MOSCA
-
-    *atribuindo o caminho ao src da tag img (var mosca) -> porem nesse ponto não tem uma classe CSS para aplicar uma formatação na imagem da mosca
-
-    *className = atributo pra colocarmos a classe a ser adicionada  -> Ex.: atribuindo a classe "mosca1" na imagem pra ela aplicar uma formatação
-    ->No caso, atribuí 2 funções que retorna uma classe aleatoria, elas são concatenadas, mas para funcionarem corretamente
-    precisei dar um espaço nas strings delas, pra que não fique algo tipo: "classe1lado1"
-        -> o correto seria ficar "classe1 lado1" -> pois aí são 2 classes diferentes, aplicando formatações diferentes
+        -através do objeto document, iremos acessar o body da página e atribuir a imagem a ele
+        atraves do metodo .appendChild()
+            ->.appendChild() - adiciona um filho p/ algo
     
-    *acessando o style do elemento e acessando o atributo left e top do style -> concatenamos o valor randomico com px (como no CSS geralmente usamos px, coloquei px no LEFT e no TOP)
-   
-    * p/ que as cordenadas randomicas acima sejam aplicadas, devemos tornar o elemento absoluto (posição absoluta). Então acessei o style, acessei o positiondo style e atribuí "absolute" para a variavel MOSCA (que contem a imagem, ou seja, a imagem agora está com position absolute)
     
-    *Graças ao DOM, podemos acessar e modificar os elementos HTML, então acessei o body e inclui a imagem (a variavel que contem ela) no body da página
-        ->Mas, devemos tomar cuidado com o erro de precedencia (mostrado no console) nesse ponto, pois se colocarmos o script do JS no head, o script roda antes da criação do body, ou seja, vai dar erro, pois não existe o body p/ ser adicionado a imagem
+        EXPLICAÇÃO DO QUE ESTOU FAZENDO ALI EM var mosca:
+        *atribuindo e criando a tag IMG na variavel MOSCA
     
-    A função posicaoRandomica() gera moscas, mas para nao ficar varias moscas na tela
-    quando uma fora gerada a anterior é removida, para que fique somente uma mosca
-    *Adicionando um ID na img mosca
-
-    Nós vamos verificar se já existe na página com um elemento com esse mosquito caso exista nós vamos remover
-esse elemento antes e criarmos o proximo elemento.;
-
-        */
+        *atribuindo o caminho ao src da tag img (var mosca) -> porem nesse ponto não tem uma classe CSS para aplicar uma formatação na imagem da mosca
+    
+        *className = atributo pra colocarmos a classe a ser adicionada  -> Ex.: atribuindo a classe "mosca1" na imagem pra ela aplicar uma formatação
+        ->No caso, atribuí 2 funções que retorna uma classe aleatoria, elas são concatenadas, mas para funcionarem corretamente
+        precisei dar um espaço nas strings delas, pra que não fique algo tipo: "classe1lado1"
+            -> o correto seria ficar "classe1 lado1" -> pois aí são 2 classes diferentes, aplicando formatações diferentes
+        
+        *acessando o style do elemento e acessando o atributo left e top do style -> concatenamos o valor randomico com px (como no CSS geralmente usamos px, coloquei px no LEFT e no TOP)
+       
+        * p/ que as cordenadas randomicas acima sejam aplicadas, devemos tornar o elemento absoluto (posição absoluta). Então acessei o style, acessei o positiondo style e atribuí "absolute" para a variavel MOSCA (que contem a imagem, ou seja, a imagem agora está com position absolute)
+        
+        *Graças ao DOM, podemos acessar e modificar os elementos HTML, então acessei o body e inclui a imagem (a variavel que contem ela) no body da página
+            ->Mas, devemos tomar cuidado com o erro de precedencia (mostrado no console) nesse ponto, pois se colocarmos o script do JS no head, o script roda antes da criação do body, ou seja, vai dar erro, pois não existe o body p/ ser adicionado a imagem
+        
+        A função posicaoRandomica() gera moscas, mas para nao ficar varias moscas na tela
+        quando uma fora gerada a anterior é removida, para que fique somente uma mosca
+    
+        *Adicionando um ID na img mosca
+            Nós vamos verificar se já existe na página com um elemento com esse mosquito caso exista nós vamos remover
+            esse elemento antes e criarmos o proximo elemento.;
+    
+        *adicionando o evento onclick na imagem (que esta na variavel mosca) 
+            -> ao ser clicada, é acionada a função que a remove
+            como a função está associada ao elemento HTML eu posso utilizar um operador chamado This:
+            um operador que ajusta o contexto de um determinado atributo ou método.
+            ->com o THIS identificamos o elemento HTML que executou a função e a partir da seleção desse elemento que vai executar o remove()
+    
+            */
     var mosca = document.createElement("img")
-        mosca.src = "imagens/mosca.png" 
-        mosca.className = tamanhoAleatorio() + " " + ladoAleatorio()
-        mosca.style.left = posicaoX + "px" 
-        mosca.style.top = posicaoY + "px"
-        mosca.style.position = "absolute";
-        mosca.id = "mosca"
-    document.body.appendChild(mosca) 
+    mosca.src = "imagens/mosca.png"
+    mosca.className = tamanhoAleatorio() + " " + ladoAleatorio()
+    mosca.style.left = posicaoX + "px"
+    mosca.style.top = posicaoY + "px"
+    mosca.style.position = "absolute";
+    mosca.id = "mosca"
+    mosca.onclick = function () { this.remove() }
+    document.body.appendChild(mosca)
 }
 
 
@@ -155,7 +183,7 @@ function tamanhoAleatorio() {
         case 2:
             return "mosca3"
     }
-    
+
 }
 
 
@@ -171,14 +199,14 @@ A função faz a mesma coisa que a de cima, só mudei o nome e até qual numero 
 Retorna o nome de uma classe do CSS, que irá aplicar uma formatação de um tamanho X p/ mosca
 */
 
-function ladoAleatorio(){
+function ladoAleatorio() {
     var classe = Math.floor(Math.random() * 2) //de 0 até 1 (como é arredondado p/ baixo fica entre 0 e 1)
     console.log("tamanho aleatorio: ", classe)
     switch (classe) {
         case 0:
-            return " ladoA" 
+            return " ladoA"
         case 1:
             return " ladoB"
     }
-    
+
 }
