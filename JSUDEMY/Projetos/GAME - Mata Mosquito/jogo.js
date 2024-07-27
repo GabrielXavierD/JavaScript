@@ -14,7 +14,8 @@ usuario redimensione a tela (pois se ele redimensionar, talvez ele não veja o s
 */
 var altura = 0;
 var largura = 0;
-var vidas = 0;
+var vidas = 1;
+var tempo = 5; //10 segundos
 
 function ajustaTamanhoPalcoJogo() {
     largura = window.innerWidth;
@@ -35,6 +36,26 @@ console.log("Fora da função - altura: " + altura + " largura: " + largura);
 */
 
 
+
+/* **************************************************************************************************************
+No if(tempo<0) -> Se o tempo acabar antes dos pontos de vida significa que o usuário venceu a partida.
+- para o cronometro, para que assim a execução dessa função não fique em loop
+- parando o setInterval() do HTML com a função de spawn das moscas, pois, se o tempo do jogo acabou, as moscas não devem aparecer
+
+-innerHTML é o valor contido entre as tags INNER = INTERNO. Ex.: <>VALOR DAQUI</}span> no caso, atribui a variavel TEMPO, que contem a contagem do cronometro 
+- a cada 1 segundo a função decrementa 1 da variavel tempo
+*/
+var cronometro = setInterval(function () {
+    tempo--
+    if (tempo < 0) {
+        clearInterval(cronometro)
+        clearInterval(criaMosca)
+        window.location.href = "vitoria.html";
+        
+    } else {
+        document.getElementById("cronometro").innerHTML = tempo;
+    }
+}, 1000)
 
 /* **************************************************************************************************************
 Criação de posições randomicas p/ spawnar as moscas
@@ -78,14 +99,17 @@ EXPLICAÇÃO DA FUNÇÃO posicaoRandomica()
     Ou seja ficaria: v1 -> muda sua img de coração cheio p/ coração vazio e adiciona +1 na variavel vidas;
                      na proxima execução/remoção automatica com o setInterval: estaria acessando o ID v2 -> trocando a img e adicionando +1 em vidas;
                      na proxima -> acessaria v3 e trocaria a img atual p/ coração vazio 
+    ->Caso a variavel vidas atinja um valor superior a 3, a página atual sera mudada, o jogador sera redirecionado para a página GAME OVER,
+    através do objeto window e do seu objeto location e pela propriedade href.
 */
 function posicaoRandomica() {
 
+    // Se o usuario conseguir remover a mosca antes do tempo estabelecido no setInterval() no HTML, o IF abaixo não é executado, pois não haverá moscas e assim por diante -> Esse IF só será executado caso o usuario, não consiga remover a mosca a tempo
     if (document.getElementById("mosca")) {
         document.getElementById("mosca").remove()
         if (vidas > 3) {
-            alert("INTERROMPER JOGO - GAME OVER")
-        }else{
+            window.location.href = "gameOver.html";
+        } else {
             document.getElementById("v" + vidas).src = "imagens/coracao_vazio.png";
             vidas++;
         }
@@ -155,7 +179,7 @@ function posicaoRandomica() {
     mosca.style.top = posicaoY + "px"
     mosca.style.position = "absolute";
     mosca.id = "mosca"
-    mosca.onclick = function () { this.remove() }
+    mosca.onclick = function () { this.remove() } //função para remover mosca ao clicar
     document.body.appendChild(mosca)
 }
 
@@ -185,10 +209,6 @@ function tamanhoAleatorio() {
     }
 
 }
-
-
-
-
 
 /* **************************************************************************************************************
 Criando a orientação da imagem de forma randômica
