@@ -21,12 +21,17 @@
             <img src="imagens/coracao_cheio.png" id="v3">
         </div>
 
-        <div class="cronometro">Tempo Restante: </div>
+        <!-- utilizei um span para atribuir a contagem do cronometro de forma programatica pelo JS -->
+        <div class="cronometro">Tempo Restante: <span id="cronometro"></span></div>
     </div>
 
     <script>
+    document.getElementById("cronometro").innerHTML = tempo; 
+
+
+
         // função responsavel por executar a chamada do metodo "posicaoRandomica()" -> o metodo adiciona e remove a mosca a cada 1s
-        setInterval(function (){ 
+        var criaMosca = setInterval(function (){ 
             posicaoRandomica() 
         }, 2000)
     </script>

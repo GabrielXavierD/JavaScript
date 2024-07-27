@@ -52,8 +52,6 @@ console.log(listaCoisas["pessoas"]["a"]) // -> acessando indices especificos
 
 
 
-
-
 /* 2. SEM/NÃO DA PRA MANIPULAR O INDICE DO ARRAY 
 -> se usa Array() ou [] 
 -> indice automatico inicia em 0 (não especifica o indice de cada um) e só precisa escrever o que contém dentro do array
