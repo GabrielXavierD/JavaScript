@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>RPG</title>
+</head>
+
+<body>
+
+
+    <div class="bloco blocoPlayer">
+        <h1 id="nomePlayer">Player 1</h1>
+        <div class="status">
+            <p>Vida atual: <span id="vidaPlayer"></span></p>
+            <p>Dano atual: <span id="danoPlayer"></span></p>
+        </div>
+        <button id="lutarPlayer">Comprar Itens</button>
+        <button id="recuarPlayer">Procurar Boss</button>
+    </div>
+
+    <div class="bloco blocoBoss">
+        <h1 id="nomeBoss">BOSS 1</h1>
+        <div class="status">
+            <p>Vida: <span id="vidaBoss"></span></p>
+            <p>Dano: <span id="danoBoss"></span></p>
+            <p>Dificuldade: <span id="dificuldadeBoss"></span></p>
+        </div>
+        <button id="lutarBoss">Lutar</button>
+        <button id="recuarBoss">Recuar</button>
+        <button id="outroBoss">Procurar outro Boss</button>
+
+    </div>
+
+
+
+<script src="js/script.js"></script>
+</body>
+
+</html>
