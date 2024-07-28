@@ -4,40 +4,107 @@
 }
 
 body{
-    display: flex;
     position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.jogo{
+    display: flex;
+    gap: 12.5%;
     flex-direction: row;
     flex-wrap:  nowrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    margin: 10% 0%;
 }
 
 .bloco{
-    margin: auto auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    align-self: center;
-    border: 1px solid red;
-    height: 45%;
-    width: 50%; 
+    background-image: url(../assets/img/fundo-jogo.png);
+    z-index: 1;
+    max-height: 506px;
+    max-width: 500px;
     position: relative;
 }
 
-h1{
-    text-align: center;
+
+#nomePlayer, #nomeBoss{
+    display: inline-flex;
+    margin-top: 10px;
+    margin-bottom: 25rem;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 2em;
+    white-space: nowrap;
 }
 
-.status{
+#nomePlayer{
+    margin-left: 10.6rem;
+}
+#nomeBoss{
+    margin-left: 12rem;
+}
+
+.conteudo{
+    margin-top: -15px;
+    margin-left: 2%;
+    position: relative;  
+    height: 80px;
+    width: 95%;
+    align-self: flex-end;
+}
+
+.status{   
+    color: white;
+    font-size: 1.25rem;
+
+    margin-left: 6%;
+    margin-top: -10px;   
+
+    border: 1px solid red;
+    display: inline-flex;
+    gap: 35px;  
+}
+
+.ajustaLado{
+    margin-left: 0px;
+    
+}
+.acoes{ 
+ 
     display: flex;
-    gap: 20px;                                                      
+    margin-top: 10px;                                           
+ 
+}
+button{
+    white-space: nowrap;
+    height: 35px;
+    width: 140px;
+    margin-right: 10px;
 }
 
-.status + button{
+.blocoBoss{
+    display: block;
+}
+
+
+
+.borda{
     position: absolute;
-    top: 90% ;
+    z-index: -1;
+    bottom: -50px;
+    left: -74px;
+    height: 38rem;
+    width: 37rem;
 }
 
-.blocoPlayer{
+.borda2{
+    filter: sepia(100);
+    position: absolute;
+    z-index: -1;
+    bottom: -70px;
+    left: -90px;
+    height: 41.5rem;
+    width: 40rem;
 }
