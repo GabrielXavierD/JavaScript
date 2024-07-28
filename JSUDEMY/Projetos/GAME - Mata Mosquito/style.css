@@ -1,54 +1,73 @@
-/* utilizamos a tag HTML para que qualquer elemento da nossa página terá o cursor personalizado */
-*{
-/* cursor: url("IMAGEM"), ESQUERDA, P/ BAIXO (EIXOS DE RENDERIZAÇÃO DA IMG -> o cursor propriamente dito ficará posicionado em 30 30 das dimensões da nossa imagem); */
-cursor: url("imagens/mata_mosca.png"), default;
-}
+    /* utilizamos a tag HTML para que qualquer elemento da nossa página terá o cursor personalizado */
+    * {
+        /* cursor: url("IMAGEM"), ESQUERDA, P/ BAIXO (EIXOS DE RENDERIZAÇÃO DA IMG -> o cursor propriamente dito ficará posicionado em 30 30 das dimensões da nossa imagem); */
+        cursor: url("imagens/mata_mosca.png") 30 30, auto;
+    }
 
-body{
-    background-color: rgb(35, 114, 55);
-    background-image: url(imagens/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.painel{
-    position: absolute;
-    width: 190px;
-    padding: 10px;          
-    left: 0px;
-    bottom: 0px;
-    border-top: solid 1px #fff;
-    background-color: #fff;
-    opacity: 0.7;
-}
+    body {
+        background-color: rgb(35, 114, 55);
+        background-image: url(imagens/bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
-.vidas{
-    float: left;
+    .painel {
+        position: absolute;
+        width: 190px;
+        padding: 10px;
+        left: 0px;
+        bottom: 0px;
+        border-top: solid 1px #fff;
+        background-color: #fff;
+        opacity: 0.7;
+    }
 
-}
-.cronometro{
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
-}
-.mosca1{
-    height: 60px;
-    width: 60px;  
-}
+    .vidas {
+        float: left;
 
-.mosca2{
-    height: 70px;
-    width: 70px;  
-}
+    }
 
-.mosca3{
-    height: 90px;
-    width: 90px;  
-}
+    .cronometro {
+        float: left;
+        font-size: 20px;
+        font-weight: bold;
+    }
 
-.ladoA{
-    transform: scaleX(1); /*lado 1 é a posição ORIGINAL da img*/
-}
+    .mosca1 {
+        height: 60px;
+        width: 60px;
+    }
 
-.ladoA{
-    transform: scaleX(-1); /*lado -1 é a posição INVERTIDA da img*/
-}
+    .mosca2 {
+        height: 70px;
+        width: 70px;
+    }
+
+    .mosca3 {
+        height: 90px;
+        width: 90px;
+    }
+
+    .ladoA {
+        transform: scaleX(1);/*lado 1 é a posição ORIGINAL da img*/
+    }
+
+    .ladoA {
+        transform: scaleX(-1);/*lado -1 é a posição INVERTIDA da img*/
+    }
+
+
+
+    .col #nMoscas {
+        height: 40px;
+        width: 260px;
+        text-align: center;
+        margin: 4px auto;
+        border-radius: 8px;
+    }
+
+    .col #nMoscas p {
+        font-weight: bold;
+        white-space: nowrap;
+        margin: 0;/* Remove default margins */
+    }

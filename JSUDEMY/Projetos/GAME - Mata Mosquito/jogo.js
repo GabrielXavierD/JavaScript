@@ -17,7 +17,7 @@ var largura = 0;
 var vidas = 1;
 var tempo = 15; //15 segundos do cronometro
 var criaMoscaTempo = 1500 //colocando um valor qualquer default, em milissegundos para criar outra mosca no jogo -> valor para o setInterval()
-
+var moscasMortas = 0;
 
 /* **********EXPLICAÇÃO**********
 Recuperando a url atual através do objeto WINDOW e seu objeto LOCATION, pela propriedade HREF
@@ -78,6 +78,8 @@ console.log("Fora da função - altura: " + altura + " largura: " + largura);
 No if(tempo<0) -> Se o tempo acabar antes dos pontos de vida significa que o usuário venceu a partida.
 - para o cronometro, para que assim a execução dessa função não fique em loop
 - parando o setInterval() do HTML com a função de spawn das moscas, pois, se o tempo do jogo acabou, as moscas não devem aparecer
+- redirecionando o usuario para a página "vitoria", passando um parametro através do "?" na url, concatenando com o valor contido em moscasMortas (que será o parametro passado) 
+    -> o valor contido em moscas, será verificado na página "vitoria", será feito a "captura" URL (que estará com o parametro), através da propriedade search de location -> será capturado a queryString (tudo o que está depois(da direita) ? e inclusive o ?) e depois será removido a "?", através do metodo .replace() -> entrará em uma verificação, se houver valor, ou seja, se for true, irá atribuir o valor do parametro ao span do HTML da página vitoria.
 
 -innerHTML é o valor contido entre as tags INNER = INTERNO. Ex.: <>VALOR DAQUI</}span> no caso, atribui a variavel TEMPO, que contem a contagem do cronometro 
 - a cada 1 segundo a função decrementa 1 da variavel tempo
@@ -87,8 +89,7 @@ var cronometro = setInterval(function () {
     if (tempo < 0) {
         clearInterval(cronometro)
         clearInterval(criaMosca)
-        window.location.href = "vitoria.html";
-
+        window.location.href = "vitoria.html?" + moscasMortas;
     } else {
         document.getElementById("cronometro").innerHTML = tempo;
     }
@@ -224,7 +225,14 @@ function posicaoRandomica() {
     mosca.id = "mosca"
     mosca.onclick = function () { 
         mosca.src = "imagens/mosca_morta.png"; 
-        setTimeout(function(){mosca.remove()}, 500); 
+        moscasMortas++;
+        document.getElementById("numMoscasMortas").innerHTML = moscasMortas;
+        console.log('moscasMortas: ', moscasMortas);
+        
+        setTimeout(function(){
+            mosca.remove();
+            
+        }, 500); 
     } 
     
     document.body.appendChild(mosca)

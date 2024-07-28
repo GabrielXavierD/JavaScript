@@ -30,21 +30,39 @@
 
         <div class="row">
             <div class="col">
+                <div  class="d-flex justify-content-center align-items-center bg-white" id="nMoscas">
+                    <p>Número de moscas mortas: <span id="numMoscasMortas"></span></p>
+                </div>
+
+
                 <div class="d-flex justify-content-center">
                     <!-- Ao clicar sobre o botão, recuperamos o objeto window.location e forçamos o redirecionamento para outra pagina, com a propriedade href-->
-                    <button type="button" class="btn btn-dark btn-lg" onclick="window.location.href='index.html'">Jogar Novamente</button>
+                    <button type="button" class="btn btn-dark btn-lg" onclick="window.location.href='index.html'">Jogar
+                        Novamente</button>
                 </div>
 
                 <div class="d-flex justify-content-center mt-1">
-                    <button type="button" class="btn btn-success btn-lg" onclick="window.location.href='inicio.html'">Escolher outra dificuldade</button>
+                    <button type="button" class="btn btn-success btn-lg"
+                        onclick="window.location.href='inicio.html'">Escolher outra dificuldade</button>
                 </div>
-                
+
             </div>
         </div>
 
 
 
     </div>
+    <script>
+        var morteMosca = window.location.search;
+        morteMosca = nivel.replace("?", ""); //removendo todos os "?" contidos em "nivel" e substituindo por "" (vazio)
+        if (morteMosca) {
+            document.getElementById("numMoscasMortas").innerHTML = morteMosca;
+            console.log('morteMosca: ');
+        }
+        console.log('nivel: ', nivel, ' criaMoscaTempo: ', criaMoscaTempo, ' morteMosca: ', morteMosca);
+    </script>
+
 
 </body>
+
 </html>
