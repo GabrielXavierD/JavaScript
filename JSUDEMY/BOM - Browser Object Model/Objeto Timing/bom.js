@@ -1,11 +1,11 @@
 /* TIMING
 -É um objeto
-
+-É obrigatorio passar uma função, no parametro de "ação" de setTimeout() e setInterval() -> para que essa função seja executada após passado o  informado - Ex.: informou 2s, então dps de 2s a função será executada
 
 
 2 Metodos especificos do objeto WINDOW:
-*setTimeout()  -> recebe 2 parametros -> ação e tempo em milissegundos
-  -> Permite que uma ação seja executada UMA ÚNICA VEZ APÓS TRANSCORRIDO O TEMPO INFORMADO.
+*setTimeout()  -> recebe 2 parametros -> ação (FUNÇÃO) e tempo em milissegundos
+  -> Permite que uma ação (FUNÇÃO) seja executada UMA ÚNICA VEZ APÓS TRANSCORRIDO O TEMPO INFORMADO.
       Ex.: texto impresso no navegador, tempo = 5 segundos.
       Ou seja, a aplicação é carregada, mas somente dps do tempo estabelecido a ação vai ser executada uma UNICA VEZ.
 
@@ -13,8 +13,8 @@
 
 
 
-*setInterval() -> recebe 2 parametros -> ação e tempo em milissegundos
-  ->Permite continuar executando uma ação a cada INTERVALO DE TEMPO informado (executa de forma INDETERMINADA).
+*setInterval() -> recebe 2 parametros -> ação (FUNÇÃO) e tempo em milissegundos
+  ->Permite continuar executando uma ação (FUNÇÃO) a cada INTERVALO DE TEMPO informado (executa de forma INDETERMINADA).
      Ex.: texto impresso no navegador, tempo = 5 segundos.
      Ou seja, a ação estabelecida SEMPRE será EXECUTADA A CADA 5 SEGUNDOS (e não uma unica vez) para SEMPRE (ou até determinarmos uma parada).
 
