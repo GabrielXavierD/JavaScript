@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>RPG</title>
+</head>
+
+<body>
+
+<div class="jogo">
+    <div class="bloco blocoPlayer">
+        <img class="borda" src="./assets/img/borda.png" alt="borda" srcset="">
+        <p id="nomePlayer"></p>
+        <div class="conteudo">
+            <div class="status">
+                <p>Vida: <span id="vidaPlayer"></span></p>
+                <p>Dano: <span id="danoPlayer"></span></p>
+            </div>
+            <div class="acoes">
+                <button id="comprarItens">Comprar Itens</button>
+                <button id="outroBoss" onclick="procurarBoss()">Procurar Boss</button>
+                <button id="irParaCasa" onclick="irEmbora()" disabled>Voltar para casa</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloco blocoBoss" id="containerBoss">
+        <img class="borda mudaCor" src="./assets/img/borda.png" alt="borda" srcset="">
+        <p id="nomeBoss">‎ </p>
+        <div class="conteudo">
+            <div class="status">
+                <p id="pVidaBoss">Vida: <span id="vidaBoss"></span></p>
+                <p id="pDanoBoss">Dano: <span id="danoBoss"></span></p>
+                <p id="pDificuldadeBoss">Dificuldade: <span id="dificuldadeBoss"></span></p>
+            </div>
+            <div class="acoes">
+                <button class="mudaCor" id="lutarBoss" onclick="atacar()">Lutar</button>
+                <button class="mudaCor" id="fugirBoss" onclick="fugir()">Fugir</button>
+                <button class="mudaCor" id="outroBoss" onclick="procurarBoss()">Procurar outro Boss</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

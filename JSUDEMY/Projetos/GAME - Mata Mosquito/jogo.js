@@ -27,9 +27,9 @@ SEARCH -> atributo que retorna para nós apenas a queryString da URL -> Ou seja 
 
 Mas para testarmos de uma maneira melhor -> vamos remover o "?" do parametro
     -Podemos fazer essa remoção com o metodo replace(a_remover, a_substituir) -> esse metodo recebe 2 parametros
-    -No parametro "a_remover" -> todos os caracteres iguais serão removidos e substituidos por "a_substituir"
-        Ex.: ("?Gab?", "s") -> sGabs
-             ("?Biel?", "") -> Biel
+    -No parametro "a_remover" -> o primeiro caractere igual ao informado será removido e substituid por "a_substituir"
+        Ex.: ("?Gab?", "s") -> sGab?
+             ("?Biel?", "") -> Biel?
 
 Depois estou realizando uma verificação do valor atual contido em NIVEL, ou seja, verificando qual dificuldade foi escolhida pelo usuario
 para que assim, seja estabelecido um tempo de criação das MOSCAS, de acordo com a dificuldade escolhida:
@@ -41,7 +41,7 @@ então, deixamos mais dinamico, o usuario escolhe a dificuldade e a partir disso
 
 */
 var nivel = window.location.search;
-nivel = nivel.replace("?", ""); //removendo todos os "?" contidos em "nivel" e substituindo por "" (vazio)
+nivel = nivel.replace("?", ""); //removendo o primeiro "?" contido em "nivel" e substituindo por ""(vazio)
 
 if (nivel === "Normal") {
     criaMoscaTempo = 1500;
