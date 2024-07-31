@@ -65,6 +65,17 @@ body{
     align-self: flex-end;
 }
 
+.imgBoss{
+
+    position: absolute;
+    border: 1px solid black;
+    bottom: 90px;
+    left: 3.5px;
+    height: 360px;
+    width: 420px;
+    z-index: -2;
+}
+
 .status{  
     color: white;
     font-size: 1.25rem;
@@ -91,10 +102,8 @@ button{
 }
 
 
-
-
 /* JS */
-.blocoBoss{
+.escondeBoss{
     display: none;
 }
 

@@ -30,6 +30,9 @@ var vidaDoBoss = Math.ceil(Math.random() * 1500);
 var danoDoBoss = Math.ceil(Math.random() * 1500);
 var dificuldadeDoBoss = "";
 
+var imgBoss;
+
+
 function boss() {
     blocoDoBoss.style.display = "block";
 
@@ -59,7 +62,7 @@ function boss() {
 }
 
 function atacar() {
-    if (vidaDoBoss<=0) {
+    if (vidaDoBoss <= 0) {
         alert("Boss já derrotado! Procure outro Boss ou vá para casa!");
         return false; //parando a função
     }
@@ -89,7 +92,7 @@ function atacar() {
         document.getElementById("vidaPlayer").innerHTML = 0;
         alert("O Boss Venceu!")
         alert("Você MORREU! O jogo será reiniciado!");
-        window.location.href="jogo.html";
+        window.location.href = "jogo.html";
     }
 }
 
@@ -98,6 +101,57 @@ function procurarBoss() {
     alert("Você decidiu procurar outro Boss!");
     alert("Você está andando pelo mapa.");
     alert("Você encontrou um novo Boss! Tome cuidado!");
+
+
+/* **********IMG BOSS***********/
+var numBoss = Math.ceil(Math.random() * 5);
+
+function criaImagem(numBoss) {
+    var divConteudo = document.getElementById("conteudo");
+
+    console.log("IMAGEM ANTIGA:", imgBoss)
+    if (imgBoss) {
+        imgBoss.remove();
+    }
+
+   
+    imgBoss = document.createElement("img");
+    imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
+    imgBoss.classList.add("imgBoss");
+    console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss)
+
+
+
+    divConteudo.insertBefore(imgBoss, divConteudo.firstChild);
+    console.log("ADICIONANDO NA DIV CONTEUDO:", divConteudo);
+}
+
+switch (numBoss) {
+    case 1:
+        console.log("SWITCH: ", numBoss);
+        criaImagem(numBoss);
+        break;
+    case 2:
+        console.log("SWITCH: ", numBoss);
+        criaImagem(numBoss);
+        break;
+    case 3:
+        console.log("SWITCH: ", numBoss);
+        criaImagem(numBoss);
+        break;
+    case 4:
+        console.log("SWITCH: ", numBoss);
+        criaImagem(numBoss);
+        break;
+    case 5:
+        console.log("SWITCH: ", numBoss);
+        criaImagem(numBoss);
+        break;
+}
+
+
+
+
     boss()
 
     botaoItens.setAttribute("disabled", "");
@@ -112,7 +166,7 @@ function irEmbora() {
     alert("Você está andando pelo mapa.");
     alert("Você chegou em casa!");
     blocoDoBoss.style.display = "none";
-    
+
     botaoItens.removeAttribute("disabled", "");
     botaoItens.className = "";
 
@@ -134,13 +188,13 @@ function fugir() {
 
 
 
-function enviarDados(){
+function enviarDados() {
     var usuario = document.getElementById("nomePlayer").value;
     console.log('usuario: ', usuario);
 
     var radios = document.getElementsByName('sexo');
     var sexoSelecionado = "";
-    
+
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
             sexoSelecionado = radios[i].value;
@@ -150,11 +204,11 @@ function enviarDados(){
 
     console.log('sexo: ', sexoSelecionado);
 
-    if(usuario === "" || sexoSelecionado === ""){
+    if (usuario === "" || sexoSelecionado === "") {
         alert("Preencha todos os campos do formulário!");
     } else {
         // Redireciona para a página do jogo com os parâmetros
-        window.location.href="jogo.html?" + usuario + "?" + sexoSelecionado;
+        window.location.href = "jogo.html?" + usuario + "?" + sexoSelecionado;
     }
 }
 
@@ -174,13 +228,13 @@ Ordem dos acontecimentos abaixo:
 -Fazemos a verificação: se for true, há algo na variavel "usuarioAtual", então adicionamos o valor contido em "usuarioAtual" entre (.innerHTML) a tag que contém o id "nomePlayer"
 */
 
-var paramURL = window.location.search; 
-paramURL2 = paramURL.replace("?", ""); 
+var paramURL = window.location.search;
+paramURL2 = paramURL.replace("?", "");
 console.log('paramURL2: ', paramURL2);
 
-var parametros = paramURL2.split("?"); 
-    var usuarioAtual = parametros[0]; 
-    var sexoAtual = parametros[1];   
+var parametros = paramURL2.split("?");
+var usuarioAtual = parametros[0];
+var sexoAtual = parametros[1];
 
 console.log('usuarioAtual: ', usuarioAtual);
 console.log('sexoAtual: ', sexoAtual);
@@ -188,3 +242,5 @@ console.log('sexoAtual: ', sexoAtual);
 if (usuarioAtual) {
     document.getElementById("nomePlayer").innerHTML = usuarioAtual;
 }
+
+
