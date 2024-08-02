@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <script>
+      /*
+      ESCOPO = {} (sempre quando há "abre e fecha chaves" tem a criação de um escopo)
+      -> Se criou um escopo, o uso errado de VAR ou LET pode ocasionar em um bug
+
+      ESCOPO GLOBAL > ESCOPO DE FUNÇÃO  > ESCOPO DE BLOCO (referencia a um comando: if, switch, while, for)
+
+      ESCOPO GLOBAL: -É o objeto WINDOW;
+                        -> Exemplo: var global = "Olá" -> se fizermos console.log(window.global) -> retorna "Olá"
+                      -São variáveis declaradas como VAR podem ser utilizadas dentro de funções e dentro de blocos (mesmo se o escopo de bloco estiver dentro de uma função)
+
+       ESCOPO DE FUNÇÃO: -Se eu declarar uma variável (independente do tipo) dentro de uma função essa variável estará disponível
+       SOMENTE para a FUNÇÃO e para os ESCOPO DE BLOCOS contidos dentro da função;
+                         -Variaveis criadas dentro de função/escopos de função são isolados do Escopo Global e não sofrem HOSTING/ELEVAÇÃO para o nivel global;
+       
+       ESCOPO DE BLOCO: -O unico que tem a caracteristica de poder sofrer HOSTING/ELEVAÇÃO
+                        -Variaveis criadas dentro de escopos de bloco (que estão FORA de uma função) elas sofrem HOSTING/ELEVAÇÃO para o ESCOPO GLOBAL ->Somente se usar VAR;
+                        -Variaveis criadas dentro de escopos de bloco (que estão DENTRO de uma função) elas sofrem HOSTING/ELEVAÇÃO para o ESCOPO DA FUNÇÃO; ->Somente se usar VAR;
+
+    -var: Tem escopo de função(e é acessível fora do bloco onde foi declarada) ou global => preserva o escopo onde a variavel é criada -> VAR sofre HOSTING/ELEVAÇÃO
+    -let: Tem escopo de bloco e é acessível apenas dentro do bloco onde foi declarada -> Ele faz com que a variável preserve o escopo onde ela foi criada - LET NÃO sofre HOSTING/ELEVAÇÃO
+
+      *DE FORMA GERAL, É RECOMENDADO UTILIZAR O OPERADOR LET*
+
+
+    Escopo/Bloco = {...}
+
+      3 escopos: 
+      -global = script como um todo;
+
+      -função = conteudo dentro da função, tem acesso as var globais; 
+        -> caso alguma variavel seja declarada dentro dele, não poderá ser acessada globalmente
+      
+      -bloco = informações dentro de comandos, tem acesso as var globais -> Ex.: IF{} ou SWITCH{}
+        -> variaveis declaradas dentro de escopo de bloco sofrem hosting/elevação p/ global; 
+        -> caso o if esteja dentro de uma função e haja uma variavel declara dentro do if,
+         a variavel sofrerá hosting/elevação porém, "subirá" somente até o escopo da função e não será global.
+
+      *hosting/elevação -> termo que indica elevação de declaração de variavel 
+      -> Ex.: variavel declarada dentro do IF(escopo de bloco), ela fica elevada, ou seja, pode ser acessada em qualquer local do codigo,
+      é global
+*/
+
+
+      var global = "Olá";
+      console.log(window.global)
+
+      var serie = '<br>Friends' //Variavel global -> Pode ser acessada dentro de escopos de funções e de blocos (e escopos de bloco dentro de um escopo de função)
+      
+
+      function minhaFuncao() {
+        console.log(serie); //dentro do escopo da função
+       
+        if(true){
+          console.log(serie); //dentro do escopo de bloco, dentro de um escopo de função
+        }
+      }
+
+      minhaFuncao()
+
+
+      if(true){
+        console.log(serie); //dentro de um escopo de bloco (no caso, esse escopo de bloco, está no mesmo nivel de escopo de função)
+      }
+
+
+
+
+
+// EXEMPLO 2
+      // Escopo de bloco:
+      if(true){
+        var serie2 = '<br>Game of Thrones'; //var declarada dentro do escopo do bloco
+        document.write(serie);
+      }
+      
+      document.write(serie2); //o escopo global tem acesso a var criada dentro de if
+
+      document.write('<br />');
+
+    
+
+      // Escopo de função:
+      function netflix(){
+        var serie3 = 'The Walking Dead';
+        document.write(serie); //var. global
+        document.write(serie2); //var. global declarada dentro do escopo do bloco IF
+      }
+
+      netflix() //chamando a função vazia, p/ mostrar o que há dentro dela, no caso os nomes das series
+
+      document.write(serie3); //não renderiza, pois variavel declarada dentro de função não pode ser acessada globalmente
+    </script>
+    
+  </head>
+
+  <body>
+  </body>
+</html>
