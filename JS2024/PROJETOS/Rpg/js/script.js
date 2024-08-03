@@ -1,7 +1,9 @@
-/**********IMAGENS DE FUNDO***********/
+/**********ASSETS***********/
 var bodyPagina = document.getElementById("body")
 
-
+var audioPlayer = document.getElementById('audioPlayer');
+var audioSrcPlayer = document.getElementById('audioSrcPlayer');
+audioSrcPlayer.src = ""
 
 
 
@@ -127,7 +129,19 @@ function atacar() {
 
 
 function procurarBoss() {
-    bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo13.jpg)";
+    bodyPagina.style.backgroundImage = "url(./assets/img/bg/fundo13.jpg)";
+
+    // Troca o src do elemento <source>
+    let audioAleatorio = Math.ceil(Math.random()*5)
+    audioSrcPlayer.src = "assets/audio/procurarBoss/Action_"+ audioAleatorio +".mp3";
+    // Atualiza o audio player para carregar o novo src
+    audioPlayer.load();
+    // Opcionalmente, reproduz o áudio
+    audioPlayer.play();
+
+
+    
+    console.log(bodyPagina.style.backgroundImage = "url(./assets/img/bg/fundo13.jpg)")
 
     alert("Você decidiu procurar outro Boss!");
     alert("Você está andando pelo mapa.");
@@ -200,6 +214,17 @@ function irEmbora() {
 function fugir() {
     bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo1.jpg)";
 
+
+    // Troca o src do elemento <source>
+    let audiosAleatorios = Math.ceil(Math.random()*10)
+    audioSrcPlayer.src = "assets/audio/procurarBoss/Ambient"+ audiosAleatorios +".mp3";
+    // Atualiza o audio player para carregar o novo src
+    audioPlayer.load();
+    // Opcionalmente, reproduz o áudio
+    audioPlayer.play();
+
+
+
     alert("Você decidiu fugir!");
     alert("Você está andando pelo mapa.");
     alert("Você está parado.");
@@ -238,6 +263,8 @@ function enviarDados() {
 }
 
 
+
+
 /* **********EXPLICAÇÃO**********
 Ordem dos acontecimentos abaixo:
 -var paramURL recebe ?usuario?sexoSelecionado
@@ -267,8 +294,8 @@ console.log('sexoAtual: ', sexoAtual);
 if (usuarioAtual) {
     document.getElementById("nomePlayer").innerHTML = usuarioAtual;
 } else if (usuarioAtual == false) {
-     window.location.href="index.html"
-     alert("Preencha o formulário para prosseguir!")
+    //  window.location.href="index.html"
+    //  alert("Preencha o formulário para prosseguir!")
 }
 
 

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+.medievalsharp-regular {
+    font-family: "MedievalSharp", cursive;
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+*{
+    margin: 0px;
+    padding: 0px
+}
+
+body{
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.irPraCasa{
+    background-image: url("../assets/img/bg/fundo4.jpg");
+}
+
+.barraProgresso-container {
+    position: relative;
+    display: block;
+    margin: 25% auto;
+    width: 50%;
+    height: 50px;
+    background-color: #d3c6a6; /* cor do fundo da barra */
+    border: 5px solid #8b5a2b; /* borda de madeira */
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000; /* sombra para um efeito 3D */
+    overflow: hidden; /*para o texto não sair para fora do container*/
+}
+
+
+@keyframes progresso {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.barraDeProgresso {
+    height: 50px;
+    width: 20;
+    background-color: #b5651d; /* cor da barra de progresso */
+    border-right: 2px solid #8b5a2b; /* borda direita para parecer 3D */
+    animation: progresso 8s linear forwards; /*animação repete uma vez*/
+}
+
+
+
+
+
+
+
+@keyframes texto{
+    0%{
+    content: "Você está andando pelo mapa...";
+    }
+    50%{
+    content: "Você está indo para casa...";
+    }
+    80%{
+        content: "Você está quase chegando em casa...";
+    }
+    100%{
+        content: "Você chegou em casa =D";
+    }
+}
+
+.barraProgresso-container p::before{
+    content: "Você está andando pelo mapa...";
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    line-height: 50px;
+    margin: 0 10px;
+    display: block;
+    white-space: nowrap;
+    font-family: 'MedievalSharp';
+    animation: texto 8.5s linear forwards;
+}

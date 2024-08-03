@@ -1,4 +1,4 @@
-/* Strings nao possuem propriedades ou metodos -> mas o js pode convertelos em objetos 
+﻿/* Strings nao possuem propriedades ou metodos -> mas o js pode convertelos em objetos 
     -> oq faz com q podemos agregar propriedades e metodos pre estabelecidos do JS
 Cada caracter dentro de uma string possui uma posição que se inicia em 0 (espaços tambem contam como um numero)
 Ex.: Gabriel -> 0123456
@@ -12,7 +12,7 @@ METODO (função):
 -charAt() = retorna um caracter com base na posicao (indice) do mesmo dentro da cadeia de caracteres
 -indexOf() = retorna a posição da primeira ocorrencia de um valor dentro de uma String 
              ele faz diferenciação de caracteres MAIUSCULOS e MINUSCULOS 
-             -> Exemplo.: arara - quero o retorno do r -> o priemiro "r" aparece na posição 1
+             -> Exemplo.: arara - quero o retorno do r -> o primeiro "r" aparece na posição 1
              ->Caso seja passado um caractere que não existe o retorno será -1
 
 -replace() = com base um valor de pesquisa e um valor de modificação 
