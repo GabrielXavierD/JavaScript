@@ -1,11 +1,35 @@
+/**********IMAGENS DE FUNDO***********/
+var bodyPagina = document.getElementById("body")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* **********PLAYER**********
 VARIAVEIS DO Player*/
 var botaoItens = document.getElementById("comprarItens")
 var irCasa = document.getElementById("irParaCasa");
 var cut = "";
 
+if(irCasa){
 irCasa.className = "esconde";
 irCasa.setAttribute("disabled", "");
+}
+
 
 var vidaDoPlayer = Math.floor(Math.random() * 1500);
 var danoDoPlayer = Math.floor(Math.random() * 1500);
@@ -16,9 +40,11 @@ if (vidaDoPlayer <= 100 || danoDoPlayer <= 100) {
     console.log('Passou por aqui:', 'vidaDoPlayer: ', vidaDoPlayer, 'danoDoPlayer: ', danoDoPlayer);
 }
 
+if(vidaDoPlayer && danoDoPlayer){
+    document.getElementById("vidaPlayer").innerHTML = vidaDoPlayer;
+    document.getElementById("danoPlayer").innerHTML = danoDoPlayer;
+}
 
-document.getElementById("vidaPlayer").innerHTML = vidaDoPlayer;
-document.getElementById("danoPlayer").innerHTML = danoDoPlayer;
 
 
 
@@ -43,8 +69,11 @@ function boss() {
     vidaDoBoss = Math.ceil(Math.random() * 1500);
     danoDoBoss = Math.ceil(Math.random() * 1500);
 
+    if(vidaDoBoss && danoBoss){
     document.getElementById("vidaBoss").innerHTML = vidaDoBoss;
     document.getElementById("danoBoss").innerHTML = danoDoBoss;
+    }
+
 
     if (vidaDoBoss >= 1000 && danoDoBoss >= 1000) {
         dificuldadeDoBoss = "&#9733&#9733&#9733&#9733&#9733";
@@ -98,56 +127,58 @@ function atacar() {
 
 
 function procurarBoss() {
+    bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo13.jpg)";
+
     alert("Você decidiu procurar outro Boss!");
     alert("Você está andando pelo mapa.");
     alert("Você encontrou um novo Boss! Tome cuidado!");
 
 
-/* **********IMG BOSS***********/
-var numBoss = Math.ceil(Math.random() * 5);
+    /* **********IMG BOSS***********/
+    var numBoss = Math.ceil(Math.random() * 5);
 
-function criaImagem(numBoss) {
-    var divConteudo = document.getElementById("conteudo");
+    function criaImagem(numBoss) {
+        var divConteudo = document.getElementById("conteudo");
 
-    console.log("IMAGEM ANTIGA:", imgBoss)
-    if (imgBoss) {
-        imgBoss.remove();
+        console.log("IMAGEM ANTIGA:", imgBoss)
+        if (imgBoss) {
+            imgBoss.remove();
+        }
+
+
+        imgBoss = document.createElement("img");
+        imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
+        imgBoss.classList.add("imgBoss");
+        console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss)
+
+
+
+        divConteudo.insertBefore(imgBoss, divConteudo.firstChild);
+        console.log("ADICIONANDO NA DIV CONTEUDO:", divConteudo);
     }
 
-   
-    imgBoss = document.createElement("img");
-    imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
-    imgBoss.classList.add("imgBoss");
-    console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss)
-
-
-
-    divConteudo.insertBefore(imgBoss, divConteudo.firstChild);
-    console.log("ADICIONANDO NA DIV CONTEUDO:", divConteudo);
-}
-
-switch (numBoss) {
-    case 1:
-        console.log("SWITCH: ", numBoss);
-        criaImagem(numBoss);
-        break;
-    case 2:
-        console.log("SWITCH: ", numBoss);
-        criaImagem(numBoss);
-        break;
-    case 3:
-        console.log("SWITCH: ", numBoss);
-        criaImagem(numBoss);
-        break;
-    case 4:
-        console.log("SWITCH: ", numBoss);
-        criaImagem(numBoss);
-        break;
-    case 5:
-        console.log("SWITCH: ", numBoss);
-        criaImagem(numBoss);
-        break;
-}
+    switch (numBoss) {
+        case 1:
+            console.log("SWITCH: ", numBoss);
+            criaImagem(numBoss);
+            break;
+        case 2:
+            console.log("SWITCH: ", numBoss);
+            criaImagem(numBoss);
+            break;
+        case 3:
+            console.log("SWITCH: ", numBoss);
+            criaImagem(numBoss);
+            break;
+        case 4:
+            console.log("SWITCH: ", numBoss);
+            criaImagem(numBoss);
+            break;
+        case 5:
+            console.log("SWITCH: ", numBoss);
+            criaImagem(numBoss);
+            break;
+    }
 
 
 
@@ -160,21 +191,15 @@ switch (numBoss) {
 
 }
 
-
 function irEmbora() {
     alert("Você decidiu ir embora para casa!");
-    alert("Você está andando pelo mapa.");
-    alert("Você chegou em casa!");
-    blocoDoBoss.style.display = "none";
-
-    botaoItens.removeAttribute("disabled", "");
-    botaoItens.className = "";
-
-    irCasa.className = "esconde";
-    irCasa.setAttribute("disabled", "");
-
+    window.location.href = "irPraCasa.html";
 }
+
+
 function fugir() {
+    bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo1.jpg)";
+
     alert("Você decidiu fugir!");
     alert("Você está andando pelo mapa.");
     alert("Você está parado.");
@@ -220,7 +245,7 @@ Ordem dos acontecimentos abaixo:
 
 -O metodo .split divide no parametro informado e transforma em Array, 
     ->Ou seja, var parametros agora é um array com 2 itens 
-        ->No caso, dividiu no "?" em usuario?sexoSelecionado e "parametros" agora contém/vira um array com 2 itens: ["usuario", "sexoSelecioando"]
+        ->No caso, dividiu no "?" em "usuario?sexoSelecionado" e var "parametros" agora contém/vira um array com 2 itens: ["usuario", "sexoSelecioando"]
 
 -Posicao 0 do array é o usuario
 -Posicao 1 do array é o sexoSelecionado
@@ -241,6 +266,9 @@ console.log('sexoAtual: ', sexoAtual);
 
 if (usuarioAtual) {
     document.getElementById("nomePlayer").innerHTML = usuarioAtual;
+} else if (usuarioAtual == false) {
+     window.location.href="index.html"
+     alert("Preencha o formulário para prosseguir!")
 }
 
 
