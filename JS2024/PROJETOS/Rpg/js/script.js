@@ -7,29 +7,15 @@ audioSrcPlayer.src = ""
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* **********PLAYER**********
 VARIAVEIS DO Player*/
 var botaoItens = document.getElementById("comprarItens")
 var irCasa = document.getElementById("irParaCasa");
 var cut = "";
 
-if(irCasa){
-irCasa.className = "esconde";
-irCasa.setAttribute("disabled", "");
+if (irCasa) {
+    irCasa.className = "esconde";
+    irCasa.setAttribute("disabled", "");
 }
 
 
@@ -42,7 +28,7 @@ if (vidaDoPlayer <= 100 || danoDoPlayer <= 100) {
     console.log('Passou por aqui:', 'vidaDoPlayer: ', vidaDoPlayer, 'danoDoPlayer: ', danoDoPlayer);
 }
 
-if(vidaDoPlayer && danoDoPlayer){
+if (vidaDoPlayer && danoDoPlayer) {
     document.getElementById("vidaPlayer").innerHTML = vidaDoPlayer;
     document.getElementById("danoPlayer").innerHTML = danoDoPlayer;
 }
@@ -71,9 +57,9 @@ function boss() {
     vidaDoBoss = Math.ceil(Math.random() * 1500);
     danoDoBoss = Math.ceil(Math.random() * 1500);
 
-    if(vidaDoBoss && danoBoss){
-    document.getElementById("vidaBoss").innerHTML = vidaDoBoss;
-    document.getElementById("danoBoss").innerHTML = danoDoBoss;
+    if (vidaDoBoss && danoBoss) {
+        document.getElementById("vidaBoss").innerHTML = vidaDoBoss;
+        document.getElementById("danoBoss").innerHTML = danoDoBoss;
     }
 
 
@@ -122,26 +108,32 @@ function atacar() {
         alert("O Player foi derrotado!")
         document.getElementById("vidaPlayer").innerHTML = 0;
         alert("O Boss Venceu!")
-        alert("Você MORREU! O jogo será reiniciado!");
-        window.location.href = "jogo.html";
+        alert("Você MORREU!");
+        window.location.href = "gameOver.html";
     }
 }
 
 
 function procurarBoss() {
-    bodyPagina.style.backgroundImage = "url(./assets/img/bg/fundo13.jpg)";
+    var numeroAleatorio = Math.ceil(Math.random() * 17)
+    console.log('numeroAleatorio: ', numeroAleatorio);
+
+    if (numeroAleatorio > 2) {
+        bodyPagina.style.backgroundImage = "url(./assets/img/bg/fundo" + numeroAleatorio + ".jpg)";
+    } else {
+        numeroAleatorio = numeroAleatorio + 2;
+    }
+
+
 
     // Troca o src do elemento <source>
-    let audioAleatorio = Math.ceil(Math.random()*5)
-    audioSrcPlayer.src = "assets/audio/procurarBoss/Action_"+ audioAleatorio +".mp3";
+    let audioAleatorio = Math.ceil(Math.random() * 5)
+    audioSrcPlayer.src = "assets/audio/procurarBoss/Action_" + audioAleatorio + ".mp3";
     // Atualiza o audio player para carregar o novo src
     audioPlayer.load();
     // Opcionalmente, reproduz o áudio
     audioPlayer.play();
 
-
-    
-    console.log(bodyPagina.style.backgroundImage = "url(./assets/img/bg/fundo13.jpg)")
 
     alert("Você decidiu procurar outro Boss!");
     alert("Você está andando pelo mapa.");
@@ -159,13 +151,10 @@ function procurarBoss() {
             imgBoss.remove();
         }
 
-
         imgBoss = document.createElement("img");
         imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
         imgBoss.classList.add("imgBoss");
         console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss)
-
-
 
         divConteudo.insertBefore(imgBoss, divConteudo.firstChild);
         console.log("ADICIONANDO NA DIV CONTEUDO:", divConteudo);
@@ -194,9 +183,6 @@ function procurarBoss() {
             break;
     }
 
-
-
-
     boss()
 
     botaoItens.setAttribute("disabled", "");
@@ -216,8 +202,8 @@ function fugir() {
 
 
     // Troca o src do elemento <source>
-    let audiosAleatorios = Math.ceil(Math.random()*10)
-    audioSrcPlayer.src = "assets/audio/procurarBoss/Ambient"+ audiosAleatorios +".mp3";
+    let audiosAleatorios = Math.ceil(Math.random() * 10)
+    audioSrcPlayer.src = "assets/audio/procurarBoss/Ambient" + audiosAleatorios + ".mp3";
     // Atualiza o audio player para carregar o novo src
     audioPlayer.load();
     // Opcionalmente, reproduz o áudio

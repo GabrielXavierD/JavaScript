@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/gameOver.css">
+    <title>GAME OVER</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Você morreu <span id="gOverSpan">!</span></h1>
+        <br>
+        <h2>O jogo será reiniciado em <span id="cronometro">10</span></h2>
+
+    </div>
+
+
+    <div class="esconde">
+        <audio autoplay="autoplay" controls="controls" loop id="audioPlayer">
+            <source src="./assets/audio/gameOver/LightAmbience1.mp3" type="audio/mp3" id="audioSrcPlayer"/>
+            seu navegador não suporta HTML5!
+        </audio>
+    </div>
+
+    <script src="./js/gameOver.js"></script>
+</body>
+
+</html>

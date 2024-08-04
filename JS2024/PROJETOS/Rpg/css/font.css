@@ -1,0 +1,23 @@
+/* Fonte medieval personalizada */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+.medievalsharp-regular {
+    font-family: "MedievalSharp", cursive;
+    font-weight: bold;
+    font-style: normal;
+  }
+
+@font-face {
+  font-family: "OldLondon";
+  src: url("../assets/font/OldLondon.woff");
+}
+
+@font-face {
+  font-family: "Seagram";
+  src: url("../assets/font/Seagram.woff");
+}
+
+@font-face {
+  font-family: "EnchantedLand";
+  src: url("../assets/font/EnchantedLand.woff");
+}
