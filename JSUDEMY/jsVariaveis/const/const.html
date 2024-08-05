@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <script>
+      /* Operador de declaração de variaveis CONST
+
+      CONST: -Funciona de forma analoga ao let;
+                ->Ou seja, preserva o escopo onde foi criada, se for global tem acesso a função e blocos e assim por diante...
+                ->A diferença entre CONST e LET é que com o operador CONST criaremos CONSTANTES;
+
+             -Constantes não sofrem alteração de valor ao longo do processamento do script;
+             -Constantes são criadas/declaradas com caracteres maiúsculas (BOA PRÁTICA):
+                ->const GABRIEL = "Olá"
+                ->Mas também poderiamos utilizar caracteres minúsculos.
+
+             -Não podemos reatribuir valor a uma constante declarada com o operador CONST;
+             -É obrigatorio, ao criar um CONST estabelecer um valor a variavel, elas não podem ser criadas sem valor
+                ->Se a criarmos sem estabelecer um valor, ela irá nos retornar um erro no console.log()
+          
+     QUANDO UTILIZAR CONST?
+     -Quando precisamos criar uma variavel que não irá mudar ao longo do processamento do script;
+     -Quando vamos armazenar senhas de banco de dados;
+     -Links para APIs;
+     -Parâmetros de configuração da nossa aplicação;
+     
+     ->Recuperamos essas constantes na segurança de que o valor não sofrerá nenhum tipo de alteração no processo de interpretação da nossa aplicação, pois o próprio JavaScript não vai permitir que elas tenham o valor alterado.
+
+
+
+
+*/
+
+
+      const SERIE = 'Friends'; //global
+      console.log("Escopo Global: ",SERIE);
+
+
+     //O escopo global não interfere no escopo da função, logo não temos conflitos
+     function x(){
+        const SERIE = "Stranger things" // é como se estivesse criando uma nova variavel
+        console.log('Escopo da FUNÇÃO: ', SERIE);
+      }
+      x()
+      console.log("Pós chamada da função, ESCOPO GLOBAL ñ alterado: ", SERIE);
+
+
+
+      SERIE = "TWD" //não podemos reatribuir valor para uma CONST
+      console.log(SERIE); //ERRO
+      
+ 
+
+    </script>
+    
+  </head>
+
+  <body>
+  </body>
+</html>
