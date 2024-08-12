@@ -13,7 +13,9 @@
       ESCOPO GLOBAL: -É o objeto WINDOW;
                         -> Exemplo: var global = "Olá" -> se fizermos console.log(window.global) -> retorna "Olá"
                       -São variáveis declaradas fora de funções, podem ser utilizadas dentro de funções e dentro de blocos (mesmo se o escopo de bloco estiver dentro de uma função)
+
                       -São acessíveis em qualquer lugar da aplicação
+
                       -Escopo global não interfere no escopo da função:
                         ->Se uma variavel let NOME for criada no global e uma mesma variavel let NOME for criada em uma função, seus valores não são interferidos, pois a global permanece o mesmo e a da função permanece o mesmo que foi estabelecido pra ela na função. Pois é como se estivessemos criando uma nova variavel inexistente dentro da função e VICE VERSA 
                         -> APENAS BLOCO pode sofrer hosting, o que poderia ocasionar em um conflito (EXPLICAÇÃO ALI EM BAIXO)
@@ -22,7 +24,7 @@
        SOMENTE para a FUNÇÃO e para os ESCOPO DE BLOCOS contidos dentro da função;
                          -Variaveis criadas dentro de função/escopos de função são isolados do Escopo Global e não sofrem HOSTING/ELEVAÇÃO para o nivel global;
        
-       ESCOPO DE BLOCO: -O UNICO que tem a caracteristica de poder sofrer HOSTING/ELEVAÇÃO
+       ESCOPO DE BLOCO: -O UNICO que tem a caracteristica de a variavel poder sofrer HOSTING/ELEVAÇÃO
                         -Variaveis criadas dentro de escopos de bloco (que estão FORA de uma função) elas sofrem HOSTING/ELEVAÇÃO para o ESCOPO GLOBAL -> Somente se usar VAR;
                         -Variaveis criadas dentro de escopos de bloco (que estão DENTRO de uma função) elas sofrem HOSTING/ELEVAÇÃO para o ESCOPO DA FUNÇÃO -> Somente se usar VAR;
 
@@ -46,8 +48,7 @@
          a variavel sofrerá hosting/elevação porém, "subirá" somente até o escopo da função e não será global.
 
       *hosting/elevação -> termo que indica elevação de declaração de variavel 
-      -> Ex.: variavel declarada dentro do IF(escopo de bloco), ela fica elevada, ou seja, pode ser acessada em qualquer local do codigo,
-      é global
+      -> Ex.: variavel declarada dentro do IF(escopo de bloco fora de uma função), ela fica elevada, ou seja, pode ser acessada em qualquer local do codigo, é global
 
 
 
@@ -111,7 +112,7 @@ console.log('Exemplo 3 - let Global: ', teste4); // Stranger Things
 // EXEMPLO 3
       // Escopo de bloco:
       if(true){
-        var serie2 = 'Game of Thrones'; //VAR declarada dentro do escopo do bloco (VAR sofre hosting em esc. de bloco)
+        var serie2 = 'Game of Thrones'; //VAR declarada dentro do escopo do bloco (VAR sofre hosting em escopo de bloco)
       }
      console.log(serie2); //o escopo global tem acesso a var criada dentro de if
 
