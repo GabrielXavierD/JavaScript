@@ -1,6 +1,6 @@
 /*
 Paradigmas de programação - JavaScript
-* = já visto ou estudando
+(* = já visto ou estudando)
 
     *Procedural(Estruturado ou Imperativo);
     -Funcional;
@@ -11,18 +11,16 @@ Paradigmas de programação - JavaScript
         -Esse é importante conhecer pois funciona muito bem com o JavaScript através da inclusão de uma biblioteca chamada ReactiveX. Ela tem proporcionado a empresas como Netflix, Airbnb, Facebook, enfim, essas empresas de grandes displays de mercado, a possibilidade de criação de aplicações capazes de lidar bem com erros, ou seja, de reagir de forma inteligente com diversas situações possíveis.
 
 
-
-
-
-paradigma é um padrão uma conduta uma forma de se fazer alguma coisa ao longo
+O QUE SIGNIFICA PARADIGMA?
+-Paradigma é um padrão, uma conduta, uma forma de se fazer alguma coisa.
     ->podemos desenvolver dentro do PHP dentro do JavaScript códigos baseados em um paradigma procedural (que é também conhecido como paradigma estruturado ou imperativo).
-    ->Assim como nós podemos na mesma linguagem dentro de um mesmo script desenvolver blocos de códigos baseados no paradigma de orientação a objetos.
+    ->Assim como nós podemos na mesma linguagem, dentro de um mesmo script, desenvolver blocos de códigos baseados no paradigma de orientação a objetos.
 
--Tanto o paradigma estrutural quanto o paradigma de orientação a objetos são os mais difundidos no mercado.
-    ->Trabalham bem juntos
-    ->Embora o paradigma de orientação a objetos é considerado o sucessor do paradigma procedural na verdade o que acontece na prática é que eles se completam.
+-Tanto o paradigma estrutural quanto o paradigma de orientação a objetos são os mais difundidos no mercado:
+    ->Trabalham bem juntos;
+    ->Embora o paradigma de orientação a objetos é considerado o sucessor do paradigma procedural, na verdade, o que acontece na prática é que eles se completam.
 
-Os princípios do paradigma procedural é o desenvolvimento de aplicações que possuem estruturas de decisão (também conhecidas como estruturas de seleção ou condicionais) e possuem também estruturas de repetição ou estruturas interativas, ou seja, nós estamos falando em termos do princípio de sequência, em relação à interpretação gravitacional do código e também a chamada de funções.
+Os princípios do paradigma procedural envolve o desenvolvimento de aplicações que seguem uma sequencia, que possuem estruturas de decisão (também conhecidas como estruturas de seleção ou condicionais) e possuem também estruturas de repetição (loops) ou estruturas interativas, ou seja, nós estamos falando em termos do princípio de sequência, em relação à interpretação gravitacional do código (execução de linha por linha, de cima pra baixo) e também a chamada de funções.
      -Em relação ao princípio de decisão, seleção ou condicionais: Switch, if, else if, else;
      -Em relação ao princípio Repetição ou estruturas interativas: FOR, do WHILE, do DO WHILE;
 
