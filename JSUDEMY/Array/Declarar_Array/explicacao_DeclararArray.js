@@ -79,3 +79,11 @@ console.log(listaDeCompras1[4]);
 var listaDeCompras2 = ["Planta", 1, true, false, "Coberta"];
 console.log(listaDeCompras2);
 console.log(listaDeCompras2[0]);
+
+
+
+let lista = ["maça", "banana", "uva"]
+document.write("Array: ", lista)
+document.write("<br>Quantidade de itens no Array/Última POSIÇÃO no array: ", lista.length, "<br>")
+
+document.write("Último INDICE no array: ", lista.length -1, "<br>")
