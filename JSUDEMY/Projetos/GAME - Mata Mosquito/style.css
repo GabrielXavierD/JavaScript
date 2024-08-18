@@ -52,7 +52,7 @@
         transform: scaleX(1);/*lado 1 é a posição ORIGINAL da img*/
     }
 
-    .ladoA {
+    .ladoB {
         transform: scaleX(-1);/*lado -1 é a posição INVERTIDA da img*/
     }
 
