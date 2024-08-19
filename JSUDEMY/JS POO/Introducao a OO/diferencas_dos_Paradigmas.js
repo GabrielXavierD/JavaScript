@@ -71,3 +71,18 @@ class Calculadora {
 }
 calculadora = new Calculadora()
 calculadora.calcular()
+
+
+
+
+/*
+*MAS QUAL É O MELHOR?
+Depende!
+-O modelo de orientação a objetos trouxe em termos de segurança e organização de código muitas vantagens, códigos menores e menos redundantes e manutenção mais facil
+    -> Se nos precisarmos mudar algo em relação ao dado "Cadeira" nós podemos implementar diretamente no modelo do objeto e aí a cada novo objeto automaticamente esses atributos e métodos atualizados no modelo, estarão disponíveis.
+
+-Já no modelo procedural seria diferente: se eu criasse uma nova função em um determinado local para trabalhar os dados da "Cadeira" eu precisaria copiar essa função para outros scripts se por ventura eu precisasse utilizá-la tb.
+    ->A mesma coisa para os atributos que eu teria que procurar no meu script os locais onde esse objeto era construído, onde essa abstração é feita e, teria que autualizar esses dados tambem.
+
+-Repare que são motivações que trouxeram uma nova forma de pensamento (POO), mas a codificação ela é essencialmente a mesma (PP e POO).
+*/
