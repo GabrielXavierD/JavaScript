@@ -50,3 +50,29 @@ cadeiras.push(new Cadeira(1, true, "vermelha"))
 console.log('cadeiras: ', cadeiras) //mostra um array de objetos do tipo cadeira e cada indice apontará para o respectivo objeto.
 
 //  Com isso nós podemos recuperar os nossos objetos através de uma estrutura de laço
+
+
+
+
+class Sofa{
+    constructor(numAssentos, cor, reclinavel){
+        this.numAssentos = numAssentos;
+        this.cor = cor;
+        this.reclinavel = reclinavel;
+    }
+
+    reclinar(){
+        if(this.reclinavel == true){
+            console.log("O sofá reclinou!")
+        }else{
+            console.log("O sofá não pode reclinar!")
+        }
+    }
+}
+
+let sofa1 = new Sofa(4, "verde", true)
+let sofa2 = new Sofa(2,"roxo", false)
+
+console.log('sofa1: ', sofa1, '\n sofa2: ', sofa2);
+sofa1.reclinar()
+sofa2.reclinar()
