@@ -59,5 +59,22 @@ Então nós precisamos ter uma identidade para acessar cada um desses carros den
         ->Para criar um sistema, é importante entender o que precisa ser representado (abstraído) no código. Você deve observar o mundo real, identificar as características e ações dos objetos, e decidir quais delas são relevantes para o sistema, de acordo com suas necessidades (regra de negócio do sistema).
     
 
+------------------------------------------------------------------------------------
+|      PARADIGMA PROCEDURAL (PP) OU PARADIGMA DA ORIENTAÇÃO A OBJETOS (POO):       |
+------------------------------------------------------------------------------------
+-No modelo procedural nós encaminhamos os dados para dentro das funções para as funções manipularem esses dados
+    ->Na prática, não é uma boa fazer assim (c/ modelo procedural), pois deixa o código mais extenso, complicado de entender, redundante e não é muito seguro, por isso devemos fazer com o paradigma OO (orientação a objetos).
 
+-Mas a grande sacada da Orientação a Objetos nesse aspecto é justamente inverter os papéis entre procedimentos e dados. Nela, os dados passam a ser encapsulados dentro dos dados, nós temos os atributos e os métodos.
+    ->Enquanto no modelo procedural as funções que operam sobre os dados e muitas vezes esses dados ficam disponíveis em escopos globais.
+
+*MAS QUAL É O MELHOR?
+Depende!
+-O modelo de orientação a objetos trouxe em termos de segurança e organização de código muitas vantagens, códigos menores e menos redundantes e manutenção mais facil
+    -> Se nos precisarmos mudar algo em relação ao dado "Cadeira" nós podemos implementar diretamente no modelo do objeto e aí a cada novo objeto automaticamente esses atributos e métodos atualizados no modelo, estarão disponíveis.
+
+-Já no modelo procedural seria diferente: se eu criasse uma nova função em um determinado local para trabalhar os dados da "Cadeira" eu precisaria copiar essa função para outros scripts se por ventura eu precisasse utilizá-la tb.
+    ->A mesma coisa para os atributos que eu teria que procurar no meu script os locais onde esse objeto era construído, onde essa abstração é feita e, teria que autualizar esses dados tambem.
+
+-Repare que são motivações que trouxeram uma nova forma de pensamento (POO), mas a codificação ela é essencialmente a mesma (PP e POO).
 */ 
