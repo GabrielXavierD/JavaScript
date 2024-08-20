@@ -1,107 +1,70 @@
 /*
-objetos literais que também são conhecidos como objetos estáticos.
-
-é um recurso que depende de um certo conceito baseado no paradigma de orientação a objetos.
-Qual na prática o objeto literal ele é um objeto que é descrito dentro do nosso código.
-
-Para compreender isso melhor eu vou fazer uma comparação entre um objeto produto criando esse objeto
-através da notação de classe e depois criando esse objeto através da notação de objeto literal.
-
-
-a sintaxe de classe disponível no ES6 nós criamos uma classe e instanciamos um objeto com base na classe.
-
-
-
-Já o objeto literal ele nada mais é do que um objeto descrito dentro do código.
-
-
-HÁ 2 FORMAS DE ESCREVER OBJETOS -> POR CLASSE OU POR OBJETO LITERAL
-    ->Os OBJETOS LITERAIS são frequentemente utilizados porque nem sempre existe a necessidade da criação de uma classe para estruturação de um OBJETO
-    Geralmente objetos literais são objetos únicos dentro da nossa aplicação. Não existe a necessidade de criar uma coleção de objetos daquele tipo, por exemplo, é muito comum dentro
-    das nossas aplicações termos formulários que são submetidos para o servidor, então, recuperamos os dados do formulário e montamos o objeto literal na sequência que nós pegamos esse objeto ou
-
-
-
-
-
+Melhorias em relação a escrita -> diminuir a quantidade de codigo
 
 */
 
-
-// OBJETO CRIADO POR MEIO DA NOTAÇÃO DE CLASSE
-class Produto {
-    constructor(descricao, preco) {
-        this.descricao = descricao
-        this.preco = preco
-    }
-    verDescricao(){
-        console.log(`${this.descricao} por apenas $${this.preco} reais`)
-    }
-}
-
-let produto = new Produto("Notebook", 2500)
-produto.verDescricao()
-
-
-
-
-/*OBJETO LITERAL
--Pode ter qualquer nome
--Precisamos utilizar {} dentro da variavel
--Dentro das {} definimos pares de nomes e valores
-    ->Esses pares eles funcionam como atributos do objeto, inclusive com os métodos eles tambem são definidos utilizando a notação de par que nós temos o nome do método e o valor que é a função (ação que ele irá executar).
-
-    Esses conjuntos de par, nome e valor são separados por virgula. Dessa forma o interpretador do JavaScript consegue identificar quando um par termina e outro detalhe importante é que o próprio nome e o valor são separados através de um operador dois pontos.
-    Então dessa forma o interpretador JavaScript compreende que a esquerda está o nome e a direita está o valor que deve ser atribuído a aquele nome.
-
-    O nome a esquerda = chave, atributo ou nome
-    Valor = valor atribuido a chave (atributo ou nome)
-    Pares = Forma de se referir a Chave e o seu Valor (formam um par)
-
-    -Tambem utilizamos o this, que ajusta o contexto da variavel que estamos utilizando
-        ->Ou seja, no console.log() -> descricao e preco, são variaveis do contexto do objeto "produtoLiretal" -
-            -> Ou seja, o this ajusta esse contexto 
-                ->Caso seja colocado somente o nome das variaveis sem o "this", o interpretador JS vai entender que essas variaveis são do contexto da FUNÇÃO (que são variaveis criadas na função) e não do contexto do OBJETO LITERAL (criadas no OBJETO LITERAL) 
-                    -> E ainda por cima irá dar um erro, já que não estamos passando essas variaveis por parametro. logo, devemos utilizar o THIS
-No nosso caso nós queremos descrição e preço do contexto do objeto, então por isso utilizamos o this.
-
-Porem o this pode sofrer variação de contexto
-Ex.: se eu criasse dentro de verDescricao, mas uma função dps do console.log()/ ou invocar uma função de qualquer outro objeto
-nós teremos uma modificação de contexto, então se tentarmos utilizar o THIS dentro dessa função referenciar um atributo do objeto vamos ter um erro.
-
-
-PARA UTILIZAR O OBJETO LITERAL NÃO PRECISAMOS DE UM PROCEDIMENTO DE DE INSTÂNCIA(NEW ALGO()) PORQUE O OBJETO JÁ ESTÁ DESCRITO DENTRO DE UMA VARIAVEL
-
-utilizamos o operador "." ponto, para acessar os atributos e metodos desse OBJETO LITERAL
-    ->Inclusive, podemos acessar tambem os atributos relativos a métodos (funções) desse OBJETO LITERAL.
-
-    Metodos utilizam ()
-*/
-
-let produtoLiteral = {
-    descricao: "Geladeira",
-    preco: 1800,
-    verDescricao: function(){
-        console.log(`${this.descricao} por apenas $${this.preco} reais`)
-        // function () { this.ALGUMACOISA}
-    }
-}
-
-produtoLiteral.verDescricao()
-
+let nome = "Gabriel"
+let idade = 29
+let sexo = "Masculino"
+let profissao = "Engenheiro de Software"
 
 /*
-EXEMPLO DE RECUPERANDO DADOS DO SERVIDOR E MONTANDO OBJETO LITERAL
+O JS tem a inteligencia para entender que os nomes do lado esquerdo, fazem referencia ao OBJETO e as variaveis a direita, são as variaveis criadas ali no escopo global
 
-->Formulario é submetido ao Servidor
-    ->Depois, recuperamos os dados do SERVIDOR e depois montamos um OBJETO LITERAL
-        ->Pegamos esse OBJETO LITERAL e o convertemos para JSON
-            ->Encaminhamos esse OBJETO JSON anexado a nossa REQUISIÇÃO HTTP e o enviamos de volta para o servidor, que finalmente armazena esses dados.
+OBJETO LITERAL VERSAO ES5
+*/
+let objeto = {
+    nome: nome,
+    idade: idade,
+    sexo: sexo,
+    profissao: profissao,
+    exibirResumo: function(){
+        console.log(`Nome: ${this.nome}, Idade: ${this.idade}, Sexo: ${this.sexo}, Profissao: ${this.profissao}`);
+    }
+}
 
-Poderiamos realizar esses procedimentos com uma CLASSE?
--Sim, mas não existe a necessidade de tirar uma classe apenas para um único formulário, a não ser que esse formulário sirva, por exemplo, de entrada para uma coleção de objetos.
-    ->Aí sim faz sentido criar uma classe que vai instanciar vários objetos do mesmo tipo 
 
-o objeto literal nada mais nada menos do que um objeto descritivo que combina pares de nomes e valores, sendo que esses valores podem ser: strings, valores numéricos, funções, arrays ou até mesmo outros OBJETOS LITERAIS
+console.log('objeto: ', objeto);
+objeto.exibirResumo()
+
+
+
+
+
+
+/* OBJETO LITERAL VERSÃO ES6 (melhorado e + enxuto)
+-Nas situações em que a variável possui o mesmo nome da chave par/valor nós podemos omitir a definição do nome desse par
+    Ex.:  nome: nome,  -> nome,
+Ou seja, o nome (do par/valor) vai ser = ao nome da variavel e o valor do conjunto (par/valor) vai ser igual ao valor da variavel
+
+Então dessa forma que nós estamos falando é: recupere essa variável e utilize o nome da variável como sendo o nome par/valor enquanto o valor da variável será o valor do par/valor.
+
+A segunda melhoria é em relação aos metodos
+Em vez de utilizarmos a combinação: par/nome: valor -> nos podemos combinar nome e o valor quando nós estamos falando de funções como que nós fazemos isso. Simples nós retiramos os dois pontos e retiramos a palavra reservada ao FUNCTION.
+    ->é como se nós passássemos uma função diretamente como parâmetro para o nosso objeto literal.
+E aí nós chamamos a nossa função a partir do nome dessa função tal como se de fato nós estivéssemos
+removendo a definição do nome e como o valor estivesse-mos colocando aqui uma função nomeada e não uma função anônima.
+->Logo, temos uma sintaxe menos verbosa e o resultado continua o mesmo
+
+
+
+E não obrigatoriamente precisa utilizar o nome da variável como definição do nome/par = valor.
+por ex.: em vez de nome = nome, -> podemos usar nomeTeste = nome,
+    ->através dos dois pontos criamos um nome específico para esse conjunto par/nome valor, que o valor dele é o conteudo contido dentro da variável "nome" e o nome desse conjunto par/valor é o nomeTeste. Funciona da mesma forma
+    Veremos no console.log() que ele modificou, porem mostra undefined porque ele procura o atributo nome e o atributo nome não existe mais, mas, ele foi modificado para nomeTeste -> Para ajustar isso, basta mudarmos this.nome para this.nomeTeste
+
 
 */
+
+let objeto2 = {
+    nomeTeste: nome,
+    idade, //idade = idade variavel / valor = valor da variavel idade
+    sexo,
+    profissao,
+    exibirResumo(){
+        console.log(`Nome: ${this.nomeTeste}, Idade: ${this.idade}, Sexo: ${this.sexo}, Profissao: ${this.profissao}`);
+    }
+}
+
+console.log('objeto2: ', objeto2);
+objeto2.exibirResumo()
