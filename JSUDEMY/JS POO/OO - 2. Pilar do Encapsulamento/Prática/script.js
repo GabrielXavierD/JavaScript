@@ -86,8 +86,6 @@ class Tv{
             this._canalAtivo = canal //modificamos o canal
         } //se nao, n faz nd
         
-
-
     }
 }
 
@@ -97,7 +95,7 @@ let tv = new Tv();
 
 
 /*
-Então ao invés de acessar diretamente o atributo do objeto nós estamos através de uma convenção indicandoque esse atributo privado é a regra de acesso a esse atributo deve ser respeitado.
+Então ao invés de acessar diretamente o atributo do objeto nós estamos através de uma convenção indicando que esse atributo privado é a regra de acesso a esse atributo deve ser respeitado.
 
 Então nós vamos acessar e modificar esse atributo através de uma pseudo variável que será canalAtivo.
 O JS tem a inteligencia de compreender essas pseudoVariveis como sendo os metodos GET e SET
