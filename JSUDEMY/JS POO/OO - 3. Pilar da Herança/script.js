@@ -90,7 +90,6 @@ class Passaro extends Animal {
 
 
 
-
 let cachorro = new Cachorro()
 let passaro = new Passaro()
 
@@ -116,6 +115,7 @@ class Papagaio extends Passaro{
 }
 
 let papagaio = new Papagaio()
+console.log(papagaio);
 
 papagaio.dormir()  //Método herdado de ANIMAL
 papagaio.voar()    //Método herdado de PASSARO   
