@@ -1,6 +1,5 @@
 /*
 Melhorias em relação a escrita -> diminuir a quantidade de codigo
-
 */
 
 let nome = "Gabriel"
