@@ -16,7 +16,7 @@ var altura = 0;
 var largura = 0;
 var vidas = 1;
 var tempo = 15; //15 segundos do cronometro
-var criaMoscaTempo = 1500 //colocando um valor qualquer default, em milissegundos para criar outra mosca no jogo -> valor para o setInterval()
+var criaMoscaTempo = 3500 //colocando um valor qualquer default, em milissegundos para criar outra mosca no jogo -> valor para o setInterval()
 var moscasMortas = 0;
 
 /* **********EXPLICAÇÃO**********
