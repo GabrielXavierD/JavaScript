@@ -21,8 +21,8 @@ function soma(?) {
 }
     soma(?) -> chamada da função
 
--> Para fazer isso se usa ARRAY (na chamada da função) e loops/laços de interação (dentro da função)
-
+->Para fazer isso se usa ARRAY (na chamada da função) e loops/laços de interação (dentro da função)
+->Podemos utilizar o operador REST tambem
 */
 
 document.write(soma(1, 1)) //1 e 1 aceitos
