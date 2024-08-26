@@ -1,5 +1,5 @@
 /*
-design na Factory através do padrão de projeto Factory.
+design Factory através do padrão de projeto Factory.
 Nós podemos montar uma fábrica para criação dos objetos em tempo de execução.
 Basicamente falando em JavaScript as funções factory combinam a chamada de funções com o retorno de
 objetos literais. que podem ser criados com base em parâmetros passados para essas respectivas funções.
