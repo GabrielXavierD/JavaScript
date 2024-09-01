@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+
+
+  <script>
+
+/*
+PARÂMETROS VARIÁVE
+
+OBS.: Graças ao ES6 (2015) podemos utilizar SPREAD ou REST (...) em vez disso
+
+PARÂMETROS VARIÁVEIS o que acontece é que nós podemos passar uma quantidade indefinida 
+de parâmetros e do lado da função lidar adequadamente com essa quantidade indefinida de parâmetros.
+
+
+arguments 
+->palavra reservada => é uma instrução que existe para todas funções JavaScript;
+que retorna algo parecido com um array contendo a relação de parâmetros passados para a função.
+
+->representa um objeto que é uma variável local disponível dentro da função. Ou seja, em qualquer função nós podemos 
+recuperar os parâmetros encaminhados para ela, por meio desse objeto, que é uma variável local do escopo da função.
+	->Porém, isso não se trata de um array, mas sim um OBJETO. Logo, não podemos usar métodos inerentes aos objetos do tipo ARRAY, como por exemplo o método pop()
+mas nós podemos tranquilamente converter esse objeto para um array.
+
+->As posições do objeto que ele mostra no console.log() podemos percorre-las
+
+->Não importa a quantidade de parâmetros passados, pois podemos recuperar de forma muito análoga a um ARRAY esses parâmetros dentro do nosso código.
+
+
+
+
+
+Não defini nenhum parametro para a função abaixo
+
+Vamos percorrer cada uma das posições do nosso objeto ARGUMENTS recuperando os valores
+contidos em cada posição
+
+FOR IN = retorna o índice das posições do array que ele percorre. A partir desse índice nós podemos recuperar o valor contido em uma determinada posição do ARRAY ou OBJETO
+  ->Nós podemos percorrer atributos dos objetos
+
+Ele vai passando por cada argumento e vai realizando a soma e adição na var RESULTADO, porem, quando chega em "TEXTO" ele concatena essa STRING junto com o valor somado anteriormente
+Dps retorna o resultado dessa soma de argumentos
+    */
+    function soma() {
+      var resultado = 0
+      for (var i in arguments) {
+       // console.log(arguments[i]) //retorna um array com parametros das funções
+      resultado += arguments[i]
+      }
+      return resultado
+    }
+
+    console.log(soma(7, 5, 3.2, 'Texto Concatenado'))
+  </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
