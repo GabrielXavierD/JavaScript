@@ -41,7 +41,7 @@ console.log([...texto]); //ESPALHANDO A STRING DENTRO DE UM ARRAY, POR MEIO DO S
 let listaCursos = ["NodeJs e MongoDb", "ES6, TypeScript e Angular 4"];
 let listaCursos2 = ["Multiplataforma Android/IOS", "Introdução ao GNU/Linux"];
 
-let listaCursosCompleto = [ ...listaCursos, "Web Completo", "Android Completo",...listaCursos2]
+let listaCursosCompleto = [ ...listaCursos, "Web Completo", "Android Completo", ...listaCursos2]
 console.log(listaCursosCompleto);
 
 
