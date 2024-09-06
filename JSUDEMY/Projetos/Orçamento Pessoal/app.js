@@ -11,10 +11,45 @@ function cadastrarDespesa(){
         dia.value, tipo.value,
         descricao.value, valor.value);
     
-    gravar(despesa);
+    bd.gravar(despesa); //executando o metodo gravar de Bd e passando o objeto despesa
 
 
 }
+
+
+//o objeto Bd que será responsável por controlar a nossa comunicação com o localStorage e a lógica de inclusão de documentos com base em um índice produzido de forma dinâmica.
+class Bd{
+    //Para termos um proximo ID (e que ele não seja sobreposto por outro), precisamos ter um ID incial:
+    //então vamos verificar se existe, se não existe, setamos um id inicial 0
+    constructor(){
+        let id = localStorage.getItem("id")
+        if(id === null){
+            //chave onde quer inserir e o seu valor
+            localStorage.setItem("id", 0)
+        }
+    }
+
+    getProximoId(){
+        //getItem() serve para recuperar um dado dentro do localStorage -> no caso, quero recuperar o ID -> sempre que ele for executado, pegará o id atual e atribuirá +1.
+        let proximoId = localStorage.getItem("id")
+        return parseInt(proximoId) + 1
+    }
+
+
+    gravar(d){ //recebeu objeto despesa
+
+
+        //sempre quando gravar for executado nós vamos pegar o próximo ID e  na sequencia vamos atualizar o documento/chave ID com o idNovo gerado 
+        let idNovo = this.getProximoId()
+
+        //a key será id e o seu valor será o Objeto despesa convertido para JSON
+        localStorage.setItem(idNovo, JSON.stringify(d))
+        localStorage.setItem("id", idNovo)
+    }
+}
+
+let bd = new Bd()
+
 
 
 class Despesa{
@@ -99,6 +134,3 @@ Na prática, recuperamos um objeto literal, um objeto instanciado dentro da apli
     De tal modo que ao ser recuperado dentro da aplicação no localStorage a aplicação tem se necessário a inteligência de fazer o PARSE dessa informação convertendo essa informação em um novo objeto.
 */
 
-function gravar(d){
-    localStorage.setItem("despesa", JSON.stringify(d))
-}
