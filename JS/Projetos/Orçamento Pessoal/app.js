@@ -1,3 +1,65 @@
+class Despesa{
+    constructor(ano, mes, dia, tipo, descricao, valor){
+        this.ano = ano;
+        this.mes = mes;
+        this.dia = dia;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+    validarDados(){
+        /*
+VALIDAÇÃO DOS DADOS (+ CONTROLE E SEGURANÇA E + INTERAÇÃO COM O USUARIO)
+-Verificando se os dados foram todos preenchidos corretamente com o metodo validarDados()
+        
+        FOR IN
+        - Recupera as (i) indice de um array ou os atributos de um objeto, não o valor em si, mas os indice/atributo e a partir dele podemos acessar os respectivos valores 
+        - Esse atributo é colocado dentro de uma variável (i) 
+        - Como vou percorrer os atributos desse objeto e esse metodo já está dentro dele, utilizamos o THIS 
+            -> i = indice em tal posição (ano,mes, dia etc...)
+            ->Para acessar o VALOR dos atributos em um objeto, usamos a notação semelhante ao do array: this[i] (valor dentro do indice/atributo tal) e usar this.atributo (usando operador ponto) seria a mesma coisa. Ex.: 2024, Janeiro, 10 etc...
+        
+        sempre que a função/metodo encontra o "return" ela é finalizada e retorna algo para quem fez a chamada
+        verificações: testando se o atributo esta undefined, vazio ou null -> se sim, retorna falso, se não retorna true (e caso algum desses dados estiverem preenchidos)
+        */
+        for(let i in this){
+            // console.log(i, this[i])
+            if( this[i] == undefined || this[i] == "" || this[i]== null){
+                return false
+            }
+            return true
+        }
+    }
+}
+
+//o objeto Bd que será responsável por controlar a nossa comunicação com o localStorage e a lógica de inclusão de documentos com base em um índice produzido de forma dinâmica.
+class Bd{
+    //Para termos um proximo ID (e que ele não seja sobreposto por outro), precisamos ter um ID incial:
+    //então vamos verificar se existe, se não existe, setamos um id inicial 0
+    constructor(){
+        let id = localStorage.getItem("id")
+        if(id === null){
+            //chave onde quer inserir e o seu valor
+            localStorage.setItem("id", 0)
+        }
+    }
+    getProximoId(){
+        //getItem() serve para recuperar um dado dentro do localStorage -> no caso, quero recuperar o ID -> sempre que ele for executado, pegará o id atual e atribuirá +1.
+        let proximoId = localStorage.getItem("id")
+        return parseInt(proximoId) + 1
+    }
+
+    gravar(d){ //recebeu objeto despesa
+        //sempre quando gravar for executado nós vamos pegar o próximo ID e  na sequencia vamos atualizar o documento/chave ID com o idNovo gerado 
+        let idNovo = this.getProximoId()
+        //a key será id e o seu valor será o Objeto despesa convertido para JSON
+        localStorage.setItem(idNovo, JSON.stringify(d))
+        localStorage.setItem("id", idNovo)
+    }
+}
+
+let bd = new Bd()
+
 function cadastrarDespesa(){
     let ano = document.getElementById("ano")
     let mes = document.getElementById("mes")
@@ -11,58 +73,16 @@ function cadastrarDespesa(){
         dia.value, tipo.value,
         descricao.value, valor.value);
     
-    bd.gravar(despesa); //executando o metodo gravar de Bd e passando o objeto despesa
-
-
-}
-
-
-//o objeto Bd que será responsável por controlar a nossa comunicação com o localStorage e a lógica de inclusão de documentos com base em um índice produzido de forma dinâmica.
-class Bd{
-    //Para termos um proximo ID (e que ele não seja sobreposto por outro), precisamos ter um ID incial:
-    //então vamos verificar se existe, se não existe, setamos um id inicial 0
-    constructor(){
-        let id = localStorage.getItem("id")
-        if(id === null){
-            //chave onde quer inserir e o seu valor
-            localStorage.setItem("id", 0)
+        //VALIDAÇÃO DOS DADOS (+ CONTROLE E SEGURANÇA E + INTERAÇÃO COM O USUARIO) - Verificando se os dados foram todos preenchidos corretamente com o metodo validarDados()
+        if(despesa.validarDados()){
+            //bd.gravar(despesa); -> executando o metodo gravar de Bd e passando o objeto despesa
+            //dialog  de sucesso
+            console.log("dados validos")
+        }else{
+            //dialog de erro
+        console.log("dados invalidos");
         }
-    }
-
-    getProximoId(){
-        //getItem() serve para recuperar um dado dentro do localStorage -> no caso, quero recuperar o ID -> sempre que ele for executado, pegará o id atual e atribuirá +1.
-        let proximoId = localStorage.getItem("id")
-        return parseInt(proximoId) + 1
-    }
-
-
-    gravar(d){ //recebeu objeto despesa
-
-
-        //sempre quando gravar for executado nós vamos pegar o próximo ID e  na sequencia vamos atualizar o documento/chave ID com o idNovo gerado 
-        let idNovo = this.getProximoId()
-
-        //a key será id e o seu valor será o Objeto despesa convertido para JSON
-        localStorage.setItem(idNovo, JSON.stringify(d))
-        localStorage.setItem("id", idNovo)
-    }
 }
-
-let bd = new Bd()
-
-
-
-class Despesa{
-    constructor(ano, mes, dia, tipo, descricao, valor){
-        this.ano = ano;
-        this.mes = mes;
-        this.dia = dia;
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.valor = valor;
-    }
-}
-
 
 /*
 Como a nossa aplicação o orçamento pessoal ela não é uma aplicação complexa nós vamos apenas cadastrar despesas e recuperar essas despesas Então nós podemos tranquilamente utilizar o recurso de LocalStorage que já será suficiente
@@ -133,4 +153,5 @@ Na prática, recuperamos um objeto literal, um objeto instanciado dentro da apli
 
     De tal modo que ao ser recuperado dentro da aplicação no localStorage a aplicação tem se necessário a inteligência de fazer o PARSE dessa informação convertendo essa informação em um novo objeto.
 */
+
 
