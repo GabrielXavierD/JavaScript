@@ -74,13 +74,36 @@ function cadastrarDespesa(){
         descricao.value, valor.value);
     
         //VALIDAÇÃO DOS DADOS (+ CONTROLE E SEGURANÇA E + INTERAÇÃO COM O USUARIO) - Verificando se os dados foram todos preenchidos corretamente com o metodo validarDados()
-        if(despesa.validarDados()){
-            //bd.gravar(despesa); -> executando o metodo gravar de Bd e passando o objeto despesa
+
+
+        let modal = document.getElementById("registraDespesa")
+        let modalBody = document.getElementById("modalbody")
+        let btnModal =  document.getElementById("btnModal")
+        let modalH5 = document.getElementById("modalH5")
+
+
+        if(despesa.validarDados()) {
+            bd.gravar(despesa); //-> executando o metodo gravar de Bd e passando o objeto despesa
             //dialog  de sucesso
-            console.log("dados validos")
-        }else{
+    
+            document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso'
+            document.getElementById('modal_titulo_div').className = 'modal-header text-success'
+            document.getElementById('modal_conteudo').innerHTML = 'Despesa foi cadastrada com sucesso!'
+            document.getElementById('modal_btn').innerHTML = 'Voltar'
+            document.getElementById('modal_btn').className = 'btn btn-success'
+    
+            //dialog de sucesso
+            $('#modalRegistraDespesa').modal('show') //selecionando a div com modal e exibindo para o usuario
+        } else {
+            
+            document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro'
+            document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
+            document.getElementById('modal_conteudo').innerHTML = 'Erro na gravação, verifique se todos os campos foram preenchidos corretamente!'
+            document.getElementById('modal_btn').innerHTML = 'Voltar e corrigir'
+            document.getElementById('modal_btn').className = 'btn btn-danger'
+    
             //dialog de erro
-        console.log("dados invalidos");
+            $('#modalRegistraDespesa').modal('show') 
         }
 }
 
@@ -155,3 +178,8 @@ Na prática, recuperamos um objeto literal, um objeto instanciado dentro da apli
 */
 
 
+
+
+/*BOOSTRAP MODAL 
+-Exibe uma div em destaque na tela e podemos inserir informações nela
+*/
