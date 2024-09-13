@@ -1,5 +1,5 @@
-class Despesa{
-    constructor(ano, mes, dia, tipo, descricao, valor){
+class Despesa {
+    constructor(ano, mes, dia, tipo, descricao, valor) {
         this.ano = ano;
         this.mes = mes;
         this.dia = dia;
@@ -7,179 +7,195 @@ class Despesa{
         this.descricao = descricao;
         this.valor = valor;
     }
-    validarDados(){
-        /*
-VALIDAÇÃO DOS DADOS (+ CONTROLE E SEGURANÇA E + INTERAÇÃO COM O USUARIO)
--Verificando se os dados foram todos preenchidos corretamente com o metodo validarDados()
-        
-        FOR IN
-        - Recupera as (i) indice de um array ou os atributos de um objeto, não o valor em si, mas os indice/atributo e a partir dele podemos acessar os respectivos valores 
-        - Esse atributo é colocado dentro de uma variável (i) 
-        - Como vou percorrer os atributos desse objeto e esse metodo já está dentro dele, utilizamos o THIS 
-            -> i = indice em tal posição (ano,mes, dia etc...)
-            ->Para acessar o VALOR dos atributos em um objeto, usamos a notação semelhante ao do array: this[i] (valor dentro do indice/atributo tal) e usar this.atributo (usando operador ponto) seria a mesma coisa. Ex.: 2024, Janeiro, 10 etc...
-        
-        sempre que a função/metodo encontra o "return" ela é finalizada e retorna algo para quem fez a chamada
-        verificações: testando se o atributo esta undefined, vazio ou null -> se sim, retorna falso, se não retorna true (e caso algum desses dados estiverem preenchidos)
+
+    validarDados() {
+        /* 
+        VALIDAÇÃO DOS DADOS
+        - Utiliza "for in" para verificar se todos os atributos do objeto estão preenchidos.
+        - Acessa os valores dos atributos com "this[i]", verificando se estão indefinidos, vazios ou nulos.
+        - Retorna false se algum valor não for válido, true caso contrário.
         */
-        for(let i in this){
-            // console.log(i, this[i])
-            if( this[i] == undefined || this[i] == "" || this[i]== null){
-                return false
+        for (let i in this) {
+            if (this[i] == undefined || this[i] == "" || this[i] == null) {
+                return false;
             }
-            return true
         }
+        return true;
     }
 }
 
-//o objeto Bd que será responsável por controlar a nossa comunicação com o localStorage e a lógica de inclusão de documentos com base em um índice produzido de forma dinâmica.
-class Bd{
-    //Para termos um proximo ID (e que ele não seja sobreposto por outro), precisamos ter um ID incial:
-    //então vamos verificar se existe, se não existe, setamos um id inicial 0
-    constructor(){
-        let id = localStorage.getItem("id")
-        if(id === null){
-            //chave onde quer inserir e o seu valor
-            localStorage.setItem("id", 0)
+class Bd {
+    constructor() {
+        /* 
+        CONTROLE DO LOCALSTORAGE
+        - Se não houver ID armazenado, inicializa com 0.
+        */
+        let id = localStorage.getItem("id");
+        if (id === null) {
+            localStorage.setItem("id", 0);
         }
     }
-    getProximoId(){
-        //getItem() serve para recuperar um dado dentro do localStorage -> no caso, quero recuperar o ID -> sempre que ele for executado, pegará o id atual e atribuirá +1.
-        let proximoId = localStorage.getItem("id")
-        return parseInt(proximoId) + 1
+
+    getProximoId() {
+        // Recupera o próximo ID incrementando o valor atual.
+        let proximoId = localStorage.getItem("id");
+        return parseInt(proximoId) + 1;
     }
 
-    gravar(d){ //recebeu objeto despesa
-        //sempre quando gravar for executado nós vamos pegar o próximo ID e  na sequencia vamos atualizar o documento/chave ID com o idNovo gerado 
-        let idNovo = this.getProximoId()
-        //a key será id e o seu valor será o Objeto despesa convertido para JSON
-        localStorage.setItem(idNovo, JSON.stringify(d))
-        localStorage.setItem("id", idNovo)
+    gravar(d) {
+        /* 
+        GRAVAÇÃO NO LOCALSTORAGE
+        - Atribui um novo ID e armazena a despesa convertida para JSON.
+        */
+        let id = this.getProximoId();
+        localStorage.setItem(id, JSON.stringify(d));
+        localStorage.setItem("id", id);
+    }
+
+    recuperarTodosOsRegistros() {
+
+        //array despesas
+        let despesas = []
+
+        // A cada iteração do nosso laço eu vou pegar a despesa recuperada do localStorage já convertida em um objeto literal e vou inserir dentro do ARRAY de "despesas"
+        // Recupera e exibe todas as despesas armazenadas.
+        let id = localStorage.getItem("id");
+        for (let i = 1; i <= id; i++) {
+            let despesa = JSON.parse(localStorage.getItem(i)); //STRING CONVERTENDO P/ OBJETO
+
+            if (despesa === null) {
+
+                //o continue quando identificado pelo interpretador dentro de uma estrutura de laço faz com que o laço avance para a interação seguinte desconsiderando tudo que estiver abaixo ->pulando portanto para a próxima iteração do laço antes que o push daquela despesa NULL seja realizada -> O resultado disso é o retorno de registros validos, ou seja, sem a presença registros vazios no retorno
+                continue;
+            }
+            despesas.push(despesa)
+        }
+        return despesas //enviando array "despesas" com os registros validos
     }
 }
 
-let bd = new Bd()
+let bd = new Bd();
 
-function cadastrarDespesa(){
-    let ano = document.getElementById("ano")
-    let mes = document.getElementById("mes")
-    let dia = document.getElementById("dia")
-    let tipo = document.getElementById("tipo")
-    let descricao = document.getElementById("descricao")
-    let valor = document.getElementById("valor")
+function cadastrarDespesa() {
+    // Captura os valores do formulário
+    let ano = document.getElementById("ano").value;
+    let mes = document.getElementById("mes").value;
+    let dia = document.getElementById("dia").value;
+    let tipo = document.getElementById("tipo").value;
+    let descricao = document.getElementById("descricao").value;
+    let valor = document.getElementById("valor").value;
 
-    let despesa = new Despesa(
-        ano.value, mes.value,
-        dia.value, tipo.value,
-        descricao.value, valor.value);
-    
-        //VALIDAÇÃO DOS DADOS (+ CONTROLE E SEGURANÇA E + INTERAÇÃO COM O USUARIO) - Verificando se os dados foram todos preenchidos corretamente com o metodo validarDados()
+    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
 
 
-        let modal = document.getElementById("registraDespesa")
-        let modalBody = document.getElementById("modalbody")
-        let btnModal =  document.getElementById("btnModal")
-        let modalH5 = document.getElementById("modalH5")
+    if (despesa.validarDados()) {
+        // Gravação e exibição de modal de sucesso
+        bd.gravar(despesa);
+        document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso';
+        document.getElementById('modal_titulo_div').className = 'modal-header text-success';
+        document.getElementById('modal_conteudo').innerHTML = 'Despesa foi cadastrada com sucesso!';
+        document.getElementById('modal_btn').innerHTML = 'Voltar';
+        document.getElementById('modal_btn').className = 'btn btn-success';//atribuindo classe
+
+        //dialog de sucesso
+        $('#modalRegistraDespesa').modal('show');
+    } else {
+        // Exibição de modal de erro
+        document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro';
+        document.getElementById('modal_titulo_div').className = 'modal-header text-danger';
+        document.getElementById('modal_conteudo').innerHTML = 'Erro na gravação, verifique se todos os campos foram preenchidos corretamente!';
+        document.getElementById('modal_btn').innerHTML = 'Voltar e corrigir';
+        document.getElementById('modal_btn').className = 'btn btn-danger';
+
+        //dialog de erro
+        $('#modalRegistraDespesa').modal('show');
+    }
+}
+
+function carregaListaDespesa() {
+
+    let despesas = Array()
+
+    // Despesa recebe o array enviado pelo return -> Carrega todos os registros salvos no localStorage com o metodo ".recuperarTodosOsRegistros()"
+    despesas = bd.recuperarTodosOsRegistros()
+
+    console.log("Todos em um array: ", despesas)
+
+    let listaDespesas = document.getElementById("bodyTabelaListaDespesas")
+    /*percorrendo array despesas listando cada despesa de forma dinamica
+    -usando for each = permite percorrer cada uma das posições do ARRAY recuperando o seu respectivo valor interno - esse valor é recuperado por meio de uma função
+
+    -Para cada item percorrido, irá criar linha e coluna no tbody
 
 
-        if(despesa.validarDados()) {
-            bd.gravar(despesa); //-> executando o metodo gravar de Bd e passando o objeto despesa
-            //dialog  de sucesso
-    
-            document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso'
-            document.getElementById('modal_titulo_div').className = 'modal-header text-success'
-            document.getElementById('modal_conteudo').innerHTML = 'Despesa foi cadastrada com sucesso!'
-            document.getElementById('modal_btn').innerHTML = 'Voltar'
-            document.getElementById('modal_btn').className = 'btn btn-success'
-    
-            //dialog de sucesso
-            $('#modalRegistraDespesa').modal('show') //selecionando a div com modal e exibindo para o usuario
-        } else {
-            
-            document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro'
-            document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
-            document.getElementById('modal_conteudo').innerHTML = 'Erro na gravação, verifique se todos os campos foram preenchidos corretamente!'
-            document.getElementById('modal_btn').innerHTML = 'Voltar e corrigir'
-            document.getElementById('modal_btn').className = 'btn btn-danger'
-    
-            //dialog de erro
-            $('#modalRegistraDespesa').modal('show') 
+    */
+    despesas.forEach(function (d) {
+        console.log("Todos separados: ", d)
+
+        //criando linhas (tr - table row) - usando o metodo .insertRow() (faz parte do elemento tbody e permite a inserção de linhas)
+        let linha = listaDespesas.insertRow()
+
+        /*criando colunas (td - table data) - usando o metodo .insertCell() 
+        -> Esse metodo espera um parametro para identificar qual é a coluna que deve ser criada 
+        -> Ele faz parte do elemento tr e permite a inserção de colunas
+        ->No nosso caso, as colunas são criadas de 0 até n - Exemplo abaixo:
+
+        ‹tr›
+            <td>15/03/2018</td>          ->Coluna 0 (é coluna mais à esquerda de uma linha)
+            <td›Alimentação</td>         ->Coluna 1   
+            ‹td›Compras do mes</td>      ->Coluna 2
+            <td>444.75‹/td>              ->Coluna 3
+                                         ->Coluna N (...)    
+        </tr>
+
+        Usando .innerHTML que representa o conteúdo interno de uma tag -> Logo, o innerHTML de uma td, nada mais é do que o conteúdo que aquela td encapsula
+
+        podemos atribuir "d" que o parâmetro que estamos recuperando como o valor de cada uma das despesas 
+        ->Usando o operador "." (ponto) para acessar seus atributos
+        */
+
+        linha.insertCell(0).innerHTML = `${d.dia} / ${d.mes} / ${d.ano}`
+
+        /*como armazenamos o value selecionado de "tipo", vamos utilizar switch Case para atribuir na tabela o valor selecionado (Alimentação, Educação, Lazer...), em vez do value (1,2,3...)
+        -Mas o value retornado está como STRING então devemos usar "" no case
+            ->Se fosse necessario converter string para um inteiro utilizaria o metodo parseInt(d.tipo)
+
+        */
+//sobrepondo o atributo tipo do objeto, de numero para um texto selecionado
+        switch (d.tipo) {
+            case "1":
+                d.tipo = "Alimentação"
+                break;
+            case "2":
+                d.tipo = "Educação"
+                break;
+            case "3":
+                d.tipo = "Lazer"
+                break;
+            case "4":
+                d.tipo = "Saúde"
+                break;
+            case "5":
+                d.tipo = "Transporte"
+                break;
         }
+        //atribuindo tipo, pós verificação no SWITCH CASE
+        linha.insertCell(1).innerHTML = d.tipo
+
+        linha.insertCell(2).innerHTML = d.descricao
+        linha.insertCell(3).innerHTML = d.valor
+    })
 }
 
 /*
-Como a nossa aplicação o orçamento pessoal ela não é uma aplicação complexa nós vamos apenas cadastrar despesas e recuperar essas despesas Então nós podemos tranquilamente utilizar o recurso de LocalStorage que já será suficiente
-
-
-
-
-Mas se eu fosse uma aplicação foram aqui de mais complexa que envolve a necessidade de armazenamento de dados maiores
-Nós poderíamos utilizar por exemplo o WEB SQL.
-
-
-acessando o recurso de LocalStorage -> Essa instrução retorna um objeto de manipulação do localStorage do Browser 
--> E aí nós temos acesso a alguns métodos: 
-    
-.setItem(identificação do objeto a armazenar no LocalStorage (KEY), dado a armazenar(JSON) )
-    ->Sepre quando algo for inserido com .setItem() o dado irá se sobrepor às já existentes (se tiver)
-
-    Sendo que esse dado precisa ser encaminhado através de uma anotação JSON.
-    Como nós estamos trabalhando com um objeto literal nós precisamos converter esse objeto literal para
-    JSON
-        ->esse tipo de tratativa de conversão de objeto literal para JSON e vice versa é muito comum em JavaScript 
-
-Por enquanto estamos recebendo um objeto literal dentro da função (com o parametro "despesas") e precisamos transformar esse objeto literal em notação JSON.
-    ->Para fazer isso nós vamos utilizar o objeto nativo do JavaScript que é justamente o objeto "JSON" e a partir dele nos podemos executar a função .stringfy() passando por parâmetro com o objeto literal que queremos converter para JSON
-
-
-precisamos implementar uma lógica de criação de um identificador único para cada registro feito dentro de LocalStorage.
-
-====================================================
-OBJETOS LITERAIS e JSON:
--A forma de escrita dos 2 é muito semelhante
--São recursos utilizados em contextos diferentes.
--É comum trabalharmos com os 2 ao mesmo tempo
-
-
-JSON
--é similar a notação que utilizamos para a definição de objetos literais
--Porém, JSON é uma STRING: aspas simples e dps {} -> dentro, os pares/chave valor, são passados dentro de aspas simples ou aspas duplas (dependendo de qual aspas estamos utilizando para encapsular esse conteudo, no caso '""' e "''")
-    ->Tanto a chave quanto o valor devem estar encapsulados por aspas
-    ->Os ":" não precisam estar entre aspas e a virgula tambem (que separa a combinação par/chave valor)
-    ->Quando a propriedade recebe valor númerico ela não precisa ser encapsulada por aspas
-
-
-a instância de um objeto existe apenas dentro da instância de uma aplicação. Quando a nossa aplicação ela precisar se comunicar seja com o servidor ou seja com outras aplicações
-como é o caso aqui do localStorage. 
-Então a nossa aplicação está se comunicando com uma aplicação interna do BROWSER e embora o localStorage
-seja é uma aplicação interna do Browser, ela é uma aplicação EXTERNA a nossa aplicação web
-
-A nossa aplicação web e consequentemente nós precisamos se comunicar nesses casos de comunicação entre
-aplicações ou até mesmo com um servidor.
-
-
-Nós precisamos estabelecer um protocolo de comunicação e nesse protocolo nós precisamos transitar os dados porém objetos literais eles não podem ser transitados nesse processo só porque eles são objetos sendo que esses objetos existem apenas na instância da aplicação.
-
-Logo nós precisamos de alguma forma transcrever esse objeto em uma notação de texto que é o caso do JSON Para que esse texto seja anexado a essa comunicação que será feita, seja com o próprio BACKEND da aplicação web ou com outras aplicações.
-	->O Json portanto, atua nesse meio de campo de comunicação. Ele não é o único recurso que pode ser utilizado para isso mas, é um recurso que tem se destacado muito
-justamente porque o JSON é suportado nativamente pelas linguagens de programação em geral como por ex. JS e facilmente nós podemos converter uma string JSON em um objeto que pode ser manipulado pela linguagem e vice versa.
-
-
-Então olha só é nesse ponto que entra uma biblioteca importante do JavaScript que é a biblioteca JSON e A partir dela nós podemos utilizar o método .stringfy() que converte um objeto literal por exemplo "produto" diretamente para uma string JSON sem a necessidade de ter que fazer isso dentro do nosso código ou concatenação de strings.
-
- 
-Podemos receber esse JSON e converter esse JSON para um objeto literal, basta utilizar a biblioteca JSON e executar o metodo .parse(), passando a STRING que representa um JSON VALIDO, no caso "produtoJSON"
-
-
-Na prática, recuperamos um objeto literal, um objeto instanciado dentro da aplicação e no processo de utilização desse objeto na função setItem() que contém um protocolo que vai abrir uma comunicação com o localStorage nós estamos encaminhando um JSON
-    -Por que? Porque o que vai nesse protocolo de comunicação não é a instância do objeto e sim a JSON desse objeto 
-
-    De tal modo que ao ser recuperado dentro da aplicação no localStorage a aplicação tem se necessário a inteligência de fazer o PARSE dessa informação convertendo essa informação em um novo objeto.
+LOCALSTORAGE:
+- Utilizado para armazenar pequenas quantidades de dados (ex.: despesas) no navegador.
+- Métodos úteis:
+    .setItem(key, value) -> Armazena um dado. O valor deve ser uma string, por isso convertemos objetos para JSON.
+    .getItem(key) -> Recupera o valor armazenado.
+    - A conversão de objetos para JSON é feita com JSON.stringify(objeto) e a recuperação com JSON.parse(string).
 */
 
-
-
-
-/*BOOSTRAP MODAL 
--Exibe uma div em destaque na tela e podemos inserir informações nela
+/* BOOTSTRAP MODAL:
+- Ferramenta para exibir diálogos na interface, como mensagens de sucesso ou erro.
 */
