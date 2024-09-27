@@ -107,7 +107,7 @@ function cadastrarDespesa() {
         document.getElementById('modal_btn').innerHTML = 'Voltar e corrigir';
         document.getElementById('modal_btn').className = 'btn btn-danger';
 
-        //dialog de erro
+        //dialog de erro (JQUERY - $().modal("show") )
         $('#modalRegistraDespesa').modal('show');
     }
 }
