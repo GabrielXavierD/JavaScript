@@ -254,6 +254,8 @@ function enviarDados() {
 /* **********EXPLICAÇÃO**********
 Ordem dos acontecimentos abaixo:
 -var paramURL recebe ?usuario?sexoSelecionado
+
+o metodo .replace("", "") substitui o primeiro item encontrado, pelo valor a ser substituido. NÃO SUBSTITUI TODOS DE UMA VEZ. Ou seja:
 -Remove o PRIMEIRO "?" e o resultado é: usuario?sexoSelecionado
 
 -O metodo .split divide no parametro informado e transforma em Array, 

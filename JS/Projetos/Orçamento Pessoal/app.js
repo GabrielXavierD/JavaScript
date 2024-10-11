@@ -72,20 +72,23 @@ class Bd {
         }
         return despesas //enviando array "despesas" com os registros validos
     }
+    pesquisar(despesa){
+        console.log(despesa)
+    }
 }
 
 let bd = new Bd();
 
 function cadastrarDespesa() {
     // Captura os valores do formulário
-    let ano = document.getElementById("ano").value;
-    let mes = document.getElementById("mes").value;
-    let dia = document.getElementById("dia").value;
-    let tipo = document.getElementById("tipo").value;
-    let descricao = document.getElementById("descricao").value;
-    let valor = document.getElementById("valor").value;
+    let ano = document.getElementById("ano");
+    let mes = document.getElementById("mes");
+    let dia = document.getElementById("dia");
+    let tipo = document.getElementById("tipo");
+    let descricao = document.getElementById("descricao");
+    let valor = document.getElementById("valor");
 
-    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
+    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
 
     if (despesa.validarDados()) {
@@ -97,8 +100,18 @@ function cadastrarDespesa() {
         document.getElementById('modal_btn').innerHTML = 'Voltar';
         document.getElementById('modal_btn').className = 'btn btn-success';//atribuindo classe
 
+
+
         //dialog de sucesso
         $('#modalRegistraDespesa').modal('show');
+
+        ano.value = "";
+        mes.value = "";
+        dia.value = "";
+        tipo.value = "";
+        descricao.value = "";
+        valor.value = "";
+
     } else {
         // Exibição de modal de erro
         document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro';
@@ -161,7 +174,7 @@ function carregaListaDespesa() {
             ->Se fosse necessario converter string para um inteiro utilizaria o metodo parseInt(d.tipo)
 
         */
-//sobrepondo o atributo tipo do objeto, de numero para um texto selecionado
+        //sobrepondo o atributo tipo do objeto, de numero para um texto selecionado
         switch (d.tipo) {
             case "1":
                 d.tipo = "Alimentação"
@@ -199,3 +212,19 @@ LOCALSTORAGE:
 /* BOOTSTRAP MODAL:
 - Ferramenta para exibir diálogos na interface, como mensagens de sucesso ou erro.
 */
+
+
+function pesquisarDespesa(){
+    let ano = document.getElementById("ano").value;
+    let mes = document.getElementById("mes").value;
+    let dia = document.getElementById("dia").value;
+    let tipo = document.getElementById("tipo").value;
+    let descricao = document.getElementById("descricao").value;
+    let valor = document.getElementById("valor").value;
+
+    //criando um objeto despesa por meio da classe Despesa com os dados (.value) dos itens do formulario
+    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+
+    //passando a variavel despesa como argumento do metodo pesquisar do objeto bd
+    bd.pesquisar(despesa)
+}
