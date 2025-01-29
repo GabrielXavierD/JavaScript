@@ -34,7 +34,8 @@ body{
     background-image: url("../assets/img/fundo-jogo.png");
     background-size: cover;
     z-index: 1;
-    max-height: 506px;
+    /* top:20px; */
+    height: 506px; /*506*/
     max-width: 500px;
     position: relative;
     font-weight: bold;
@@ -74,7 +75,11 @@ body{
     width: 95%;
     align-self: flex-end;
 }
-
+/* .imgPlayerTeste{
+    position: absolute;
+    bottom: 100px;
+    width: 540px;
+} */
 .imgBoss{
 
     position: absolute;

@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(111, 204, 235);
+}
+
+#chao {
+    background-color: green;
+    position: relative;
+    top: 400px;
+    height:3000px;
+    width: 100%;
+}
+
+#predio {
+    position: absolute;
+    top: 10px;
+    height: 450px;
+    width: 30%;
+}
+
+#predio,
+.andar{
+    border: 1px solid black;
+}
+
+.andar {
+    height: 150px;
+}
+
+.andar1{
+    background-color: rgb(62, 31, 141);
+}
+
+.andar2{
+    background-color: rgb(215, 215, 77);
+}
+
+.andar3{
+    background-color: rgb(255, 136, 45);
+}
+table,
+td,
+tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    margin: 10px auto;
+}
+.janela{
+    background-color: rgba(64, 64, 68, 0.623);
+}
+td,
+tr {
+    height: 31px;
+    width: 31px;
+}
+
+@keyframes luzPiscandoNoite{
+    0%{
+        background-color: rgba(255, 255, 0, 0.682);
+    }
+    100%{
+    background-color: yellow;
+    }
+}
