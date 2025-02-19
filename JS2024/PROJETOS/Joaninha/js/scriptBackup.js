@@ -1,11 +1,13 @@
 document.onkeydown = teclado; /*pegando as teclas pressionadas no html e atribuindo a teclado */
-let joaninha = joaninha;
-console.log(joaninha.style.left)
+let joaninhaTop = document.getElementById("aJoaninha").style.top;
+let joaninhaBottom = document.getElementById("aJoaninha").style.bottom;
+let joaninhaRight = document.getElementById("aJoaninha").style.right;
+let joaninhaLeft = document.getElementById("aJoaninha").style.left;
 let macaco = document.getElementById("macaco").style.visibility;
 
 /*Posição inicial da joaninha no mapa */
-let posicaoJoaninhaTop = 445; /*top*/
-let posicaoJoaninhaLeft = 20; /*left */
+let w = 445; /*top*/
+let x = 20; /*left */
 
 
 
@@ -13,49 +15,48 @@ let posicaoJoaninhaLeft = 20; /*left */
 
 function teclado(tecla) {
     if (tecla.keyCode == 39) { /*direita*/
-        posicaoJoaninhaLeft += 50;
-        alert("aq")
-        if (posicaoJoaninhaLeft >= 20 && posicaoJoaninhaLeft <= 8300) {
+        x += 50;
+        if (x >= 20 && x <= 8300) {
             /*JOANINHA - PASSOS PRA DIREITA */
-            joaninha.style.left = posicaoJoaninhaLeft + "px";
-            joaninha.style.transform = "rotateY(0deg) scale(0.4)";
+            document.getElementById("aJoaninha").style.left = x + "px";
+            document.getElementById("aJoaninha").style.transform = "rotateY(0deg) scale(0.4)";
             window.scrollBy(5, 0); // Atualiza o scroll, pra andar "junto" com a joaninha
         }
-        else if (posicaoJoaninhaLeft >= 8300) { /*NÃO DEIXAR ULTRAPASSAR O FINAL DO MAPA DO LADO DIREITO */
-            joaninha.style.left = (posicaoJoaninhaLeft -= 50) + "px";
-            joaninha.style.transform = "rotateY(0deg) scale(0.4)";
+        else if (x >= 8300) { /*NÃO DEIXAR ULTRAPASSAR O FINAL DO MAPA DO LADO DIREITO */
+            document.getElementById("aJoaninha").style.left = (x -= 50) + "px";
+            document.getElementById("aJoaninha").style.transform = "rotateY(0deg) scale(0.4)";
         }
     }
 
     else if (tecla.keyCode == 37) { /*esquerda*/
-        posicaoJoaninhaLeft -= 50;
-        if (posicaoJoaninhaLeft < 20) {
-            joaninha.style.left = (posicaoJoaninhaLeft += 50) + "px";
-            joaninha.style.transform = "rotateY(180deg) scale(0.4)";
+        x -= 50;
+        if (x < 20) {
+            document.getElementById("aJoaninha").style.left = (x += 50) + "px";
+            document.getElementById("aJoaninha").style.transform = "rotateY(180deg) scale(0.4)";
 
         } else {
-            joaninha.style.left = posicaoJoaninhaLeft + "px";
-            joaninha.style.transform = "rotateY(180deg) scale(0.4)";
+            document.getElementById("aJoaninha").style.left = x + "px";
+            document.getElementById("aJoaninha").style.transform = "rotateY(180deg) scale(0.4)";
             window.scrollBy(-5, 0); // Atualiza o scroll
         }
     }
 
     else if (tecla.keyCode == 38) { //p/ cima
-        posicaoJoaninhaTop -= 50;
-        if (posicaoJoaninhaTop <= 415) {
-            joaninha.style.top = (posicaoJoaninhaTop += 50) + "px";
+        w -= 50;
+        if (w <= 415) {
+            document.getElementById("aJoaninha").style.top = (w += 50) + "px";
         } else {
-            joaninha.style.top = posicaoJoaninhaTop + "px";
+            document.getElementById("aJoaninha").style.top = w + "px";
             window.scrollBy(0, -5); // Atualiza o scroll
         }
     }
 
     else if (tecla.keyCode == 40) { /*pra baixo */
-        posicaoJoaninhaTop += 50;
-        if (posicaoJoaninhaTop >= 2600) {
-            joaninha.style.top = (posicaoJoaninhaTop -= 50) + "px";
+        w += 50;
+        if (w >= 2600) {
+            document.getElementById("aJoaninha").style.top = (w -= 50) + "px";
         } else { /*passos */
-            joaninha.style.top = posicaoJoaninhaTop + "px";
+            document.getElementById("aJoaninha").style.top = w + "px";
             window.scrollBy(0, 5); // Atualiza o scroll
         }
     }
@@ -63,9 +64,9 @@ function teclado(tecla) {
 
     /* MISSAO 1
        Obter o valor atual da propriedade left*/
-    let joaninha = window.getComputedStyle(joaninha).getPropertyValue('left'); /*Pegando valor atual da propriedade LEFT do css da joaninha */
-    joaninha.style.left = parseFloat(joaninha.style.left); // Converter o valor para número para poder verificar no IF
-    if (joaninha.style.left >= 1000 && joaninha.style.left <= 1420) { // Verificar se a posição está entre 1000px e 1420px, ou seja perto da GATA
+    let joaninhaLeft = window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('left'); /*Pegando valor atual da propriedade LEFT do css da joaninha */
+    joaninhaLeft = parseFloat(joaninhaLeft); // Converter o valor para número para poder verificar no IF
+    if (joaninhaLeft >= 1000 && joaninhaLeft <= 1420) { // Verificar se a posição está entre 1000px e 1420px, ou seja perto da GATA
         document.getElementById("gataMissao").style.visibility = "visible"; // Definir a visibilidade do paragrafo como "visible"
     } else {
         document.getElementById("gataMissao").style.visibility = "hidden"; // Ocultar o parágrafo caso não esteja perto da gata
@@ -73,13 +74,13 @@ function teclado(tecla) {
 
     /* MISSAO 2
         Obter o valor atual da propriedade left*/
-    joaninha = window.getComputedStyle(joaninha).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
-    joaninha.style.top = parseFloat(joaninha.style.top);
-    let joaninhaLeft4 = window.getComputedStyle(joaninha).getPropertyValue('left'); /*Pegando valor atual da propriedade LEFT do css da joaninha */
+    let joaninhaTop = window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
+    joaninhaTop = parseFloat(joaninhaTop);
+    let joaninhaLeft4 = window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('left'); /*Pegando valor atual da propriedade LEFT do css da joaninha */
     joaninhaLeft4 = parseFloat(joaninhaLeft4);
 
 
-    if (joaninha.style.top >= 2100 && joaninhaLeft4 <= 400) {
+    if (joaninhaTop >= 2100 && joaninhaLeft4 <= 400) {
         document.getElementById("caoMissao").style.visibility = "visible"; // Definir a visibilidade do paragrafo como "visible"
 
     } else {
@@ -87,8 +88,8 @@ function teclado(tecla) {
     }
 
     /* MISSAO 3*/
-    let joaninhaLeft2 = parseFloat(window.getComputedStyle(joaninha).getPropertyValue('left'));
-    let joaninhaTop2 = window.getComputedStyle(joaninha).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
+    let joaninhaLeft2 = parseFloat(window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('left'));
+    let joaninhaTop2 = window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
     joaninhaTop2 = parseFloat(joaninhaTop2);
     if (joaninhaTop2 >= 1600 && joaninhaTop2 <= 2000 && joaninhaLeft2 >= 4650 && joaninhaLeft2 <= 5320) {
         document.getElementById("macacoMissao").style.visibility = "visible"; // Definir a visibilidade do paragrafo como "visible"
@@ -96,8 +97,8 @@ function teclado(tecla) {
         document.getElementById("macacoMissao").style.visibility = "hidden"; // Ocultar o parágrafo caso não esteja perto da gata
     }
     /* MISSAO 4*/
-    let joaninhaLeft3 = parseFloat(window.getComputedStyle(joaninha).getPropertyValue('left'));
-    let joaninhaTop3 = window.getComputedStyle(joaninha).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
+    let joaninhaLeft3 = parseFloat(window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('left'));
+    let joaninhaTop3 = window.getComputedStyle(document.getElementById("aJoaninha")).getPropertyValue('top'); /*Pegando valor atual da propriedade TOP do css da joaninha */
     joaninhaTop3 = parseFloat(joaninhaTop3);
     if (joaninhaTop3 >= 420 && joaninhaTop3 <= 800 && joaninhaLeft3 >= 7700 && joaninhaLeft3 <= 8040) {
         document.getElementById("desafioFinal").style.visibility = "visible"; // Definir a visibilidade do paragrafo como "visible"
@@ -207,7 +208,7 @@ meuAudio.addEventListener('ended', function () {
 
 
 // Função para lidar com o evento de pressionar uma tecla em um campo de entrada
-function impedirEnterEmInput(event) {
+function handleInputKeyPress(event) {
     // Verifica se a tecla pressionada é Enter (código 13)
     if (event.keyCode === 13) {
         event.preventDefault(); // Impede o comportamento padrão da tecla pressionada
@@ -220,19 +221,14 @@ var charada2Input = document.getElementById("charada2");
 var charada3Input = document.getElementById("charada3");
 
 // Adiciona um ouvinte de eventos para o evento de pressionar uma tecla em cada campo de entrada
-charada1Input.addEventListener("keydown", impedirEnterEmInput);
-charada2Input.addEventListener("keydown", impedirEnterEmInput);
-charada3Input.addEventListener("keydown", impedirEnterEmInput);
+charada1Input.addEventListener("keydown", handleInputKeyPress);
+charada2Input.addEventListener("keydown", handleInputKeyPress);
+charada3Input.addEventListener("keydown", handleInputKeyPress);
 
-
-
-/* Obtém o formulário
+// Obtém o formulário
 var form = document.getElementById("form");
 
 // Adiciona um ouvinte de eventos para o evento de envio do formulário
 form.addEventListener("submit", function (event) {
     event.preventDefault(); // Impede a submissão padrão do formulário
 });
-
-
-*/
