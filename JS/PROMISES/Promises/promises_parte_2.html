@@ -1,0 +1,163 @@
+<html>
+  <body>
+    <script>
+      /*
+        Encadeamento de operações sincronas e assincronas de modo consecutivo
+        -Ou seja, após o procesamento da promise e dela ter dado um retorno, como é que nós podemos após esse processamento assíncrona disparar ou outras operações de modo um encadeado? Usamos o .then()
+
+
+        O metodo .then() com ele podemos executar uma ação logo apos a conclusao do processamento assincrono da promise, ou seja, assim quando ela disparar o resolve() ou reject(). O .then() recebe uma função anonima
+        encadeamento, ou seja, varios .then() sequidos:
+        .then().then().then()
+                <-    <-    sempre vao tratando o valor retornado pelo .then() anterior caso estiverem encadeados sem limites
+
+        no .catch() podemos encadear outros .then() tambem
+        .catch().then().then() ...
+
+        .catch() pode dar return e o .then() seguinte o recebe
+
+
+        Ou seja, caso um .then() - que receba o resolve() - sejá executado primeiro, o catch() - q recebe o erro - é ignorado, como se fosse um if else com metodos if sucesso seria .then() e else erro, seria o .catch()
+                
+        E dentro de cada .then() pode haver outras promises, com seus respectivos resolve() e reject() e para seus respectivos .then() e catch() internos e por aí vai
+
+
+        try catch() - trata exceções dentro da promisse
+
+        requisições HTTP que possuem essa característica. Nós realizamos uma requisição mas nós não sabemos o valor da resposta e também não sabemos o tempo que vai levar para que essa resposta seja retornada para aplicação.
+
+        Levando em consideração o comportamento de um valor assincrono que o estará disponivel no futuro
+
+        resolve() -> quando ele encaminha parâmetros Esses parâmetros precisam ser capturados pelo método .then()
+        reject() -> quando ele encaminha parâmetros Esses parâmetros precisam ser capturados pelo método .catch()
+
+        Ou seja a promese ela pode ser executada de modo assíncrona mas o .then() e o .catch() e eles são executados de modo síncrono. Mas nada impede que dentro de .then() e catch() sejam adicionadas novas promeses para que um novo processamento assincrono seja iniciado
+
+        mas nao é mt comum encadear muitos .then() depois de uma execução de resolve() ou do catch() reject()
+
+        Agora podemos deixar nossa aplicação mais inteligente, exemplo de uso:
+        Ao inves de quebra a aplicação e apresentar uma mensagem de erro dizendo q teive err o na requisição HTTP podemos Depois desse erro realizar uma requisição HTTP para outra coisa para propor uma outra tela ou um outro fluxo
+        */
+      let promessa = new Promise((resolve, reject) => {
+        /*try {
+
+                }catch(e) {
+
+                }*/
+
+        //requisição http para recuperar uma relação de usuários - usamos um setTimeout() para simular um tempo de requisição na nossa API fake
+        setTimeout(() => {
+          //requisição foi realizada de algum modo
+          let resposta_da_requisicao = {};
+
+          /*Erro na requisição - 
+                    -Existe erro? = true no parametro ent, resposta da requisição é o objeto (resposta ficticia)
+                    
+                    -Se não existe, false no parametro, sem erro, faça resolve() com a resposta ficticia (que é um outro objeto):
+
+                    Após 4 segundos
+                    */
+          if (false) {
+            resposta_da_requisicao = {
+              codigo: 1050,
+              erro: "Falha de autorização",
+            };
+
+            //como houve erro a promise retorna o erro no reject(), requisição rejeitada
+            reject(resposta_da_requisicao);
+          }
+
+          resposta_da_requisicao = {
+            0: { id: 1, nome: "João" },
+            1: { id: 2, nome: "José" },
+            2: { id: 3, nome: "Maria" },
+          };
+
+          resolve(resposta_da_requisicao);
+        }, 4000);
+      })
+        .then((dados) => {
+          console.log(dados);
+
+          //   criando uma nova PROMISE dentro de um .then()
+          let promessa2 = new Promise((resolve, reject) => {
+            //requisição http para recuperar uma relação de posts dos usuários
+            setTimeout(() => {
+              //requisição foi realizada de algum modo
+              let resposta_da_requisicao = {};
+
+              //erro na requisição - simulando (fake)
+              if (false) {
+                resposta_da_requisicao = {
+                  codigo: 7788,
+                  erro: "Erro ao recuperar os posts dos usuários",
+                };
+
+                reject(resposta_da_requisicao);
+              }
+
+              resposta_da_requisicao = {
+                0: {
+                  id: 1,
+                  usuario_id: 1,
+                  posts: [
+                    { id: 1, post: "Post 1" },
+                    { id: 2, post: "Post 2" },
+                  ],
+                },
+                1: {
+                  id: 2,
+                  usuario_id: 2,
+                  posts: [
+                    { id: 3, post: "Post 1" },
+                    { id: 4, post: "Post 2" },
+                  ],
+                },
+                2: {
+                  id: 3,
+                  usuario_id: 3,
+                  posts: [
+                    { id: 5, post: "Post 1" },
+                    { id: 4, post: "Post 2" },
+                  ],
+                },
+              };
+
+              resolve(resposta_da_requisicao);
+            }, 4000);
+          }) //dps dos 4s o .then() mostra os dados retornados com o resolve() ou reject()
+            .then((dados) => {
+              console.log(dados);
+            })
+            .catch((erro) => {
+              console.log(erro);
+            });
+        })
+        .then((param) => {
+          console.log("Then número 2 ", param);
+        })
+        .then(() => {
+          console.log("Then número 3");
+        })
+        .then(() => {
+          console.log("Then número 4");
+
+          return "Parâmetro capturado no then anterior";
+        })
+        .catch((erro) => {
+          console.log(
+            "Operação sequencial (Catch - c/ retorno do reject(), no caso o objeto): ",
+            erro
+          );
+
+          return "Parâmetro capturado no catch e enviado para o Then seguinte";
+        })
+        .then((param) => {
+          console.log("Then número 5", param);
+        })
+        .then(() => {
+          console.log("Then número 6");
+        });
+    </script>
+  </body>
+</html>

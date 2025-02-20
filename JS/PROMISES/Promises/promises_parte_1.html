@@ -1,0 +1,80 @@
+<html>
+  <body>
+    <script>
+      /*
+        Promises(promessas) = é um objeto utilizado para a realização de processamentos assincronos uma promessa representa um valor disponivel agora, no futuro ou nunca ter existido.
+
+Geralmente as promessas elas são utilizadas nos contextos de requisições HTTP. Esse é um cenário muito comum de processamento assíncrona em que a gente realiza uma chamada para uma API e aguarda a resposta da API pra tomar alguma ação no programa,Esse processo pode ser feito sem travar a tela quando a resposta estiver pronta se ela for devolvida pelo servidor e podemos atualizar os elementos com o DOM
+
+O objetivo é compreender que as promessas elas foram introduzidas no eS6 pra facilitar para normalizar. Para nos ajudar na organização do nosso código para a criação de objetos que vão trabalhar com valores que estarão disponíveis naquele exato momento no futuro mesmo que nunca serão recuperados e que nós temos dentro de uma promessa Três status.
+
+	-As PROMISES têm a capacidade de  realizar um encadeamento de operações assíncronas de modo consecutivo (ASYNC/AWAIT).
+    -Ao criar uma Promessa devemos passar 2 parametros, um para tratar sua solução(aceitação) e um para tratar a rejeição
+
+    Estamos usando try catch, pois nós faremos a tentativa de realização de alguma operação E caso exista qualquer erro nesse processo nós vamos capturar esse erro aqui no CATCH(erro) e fazer uma ação especifica.
+            -Caso a PROMISSE seja executada com sucesso no try, ou seja, tenha solução, devemos aplicar "resolve"(parametro - solução) no try e, caso haja algum erro devemos aplicar "reject"(parametro - rejeição) e apresentar o erro (parametro que conteu o erro)
+                -Podemos passar parametros para o resolve() e o reject()
+
+         "promessa" é a variavel que recebe uma PROMISE - o resultado do console.log() pode exibir "pending" (pendente), pois os metodos ainda nao foram executados
+            ->Mas essa Promessa é resolvida, depois dos 3 segundos atribuidos no setTimeout() em resolve()       
+
+            -Para resolvermos isso, colocamos o console.log() dentro de um setTimeout() para que ele seja exibido depois dos 3 segundos (tempo de execução dos metodos da Promessa)
+                -O resultado muda para "fulfilled" e traz o conteudo retornado pelo resolve()
+
+                Nós obtivemos esse resultado aqui na nossa promessa recuperando a variável promessa depois dela ter sido resolvida de modo assíncrono, ou seja, baseado em tempo.
+
+           Podemos tentar forçar um erro, para tentar testar o reject(), com o uso do throw new Error(mensagem de erro). Com ele a promessa irá gerar um exceção, que será um erro que será capturado pelo catch(erro) e será atribuido no parametro erro -> depois de 3 segundos será atribuido no reject() da promisse e depois de 5 segundos o console.log() externo mostrará o resultado dessa execução, ou seja, exibirá o erro com o texto "rejected"
+
+
+        Promises possuem parametros: 
+        -resolve: apresenta a solução da execução com o resultado esperado o resultado ideal;
+
+        -reject: apresenta um potencial erro, uma mensagem de controle ou algo que indique que a solução daquela PROMISSE não aconteceu da forma esperada.
+
+        Mas independete da resolução da PROMISE, ela sempre é concluída em algum momento e seu valor fica disponível em algum momento quando a sua execução é feita, inclusive o retorno pode NUNCA ficar disponivel. E durante esse processo, as PROMISES geram seus STATUS:
+        
+        
+        Status de Promise
+        -Pending (pendente): Estado inicial, que não foi realizada e nem rejeitada. Pendente enquanto não for executado os metodos resolve() ou o reject()
+        -Fulfilled (realizado): Sucesso na operação.
+        -Rejected (rejeitado): Falha na operação.
+
+        Processamentos feitos de modo assincrono não travam nossa aplicação
+
+
+        objeto "reposta" recebe outro objeto dentro de resolve()
+        */
+
+      //requisições http
+
+      let resposta = {};
+
+      let promessa = new Promise((resolve, reject) => {
+        try {
+          //throw new Error("Opa, houve um erro!");
+
+          setTimeout(() => {
+            resposta = { dados: { msg: "Recuperamos os dados com sucesso" } };
+            resolve("Sucesso");
+          }, 3000);
+        } catch (e) {
+          setTimeout(() => {
+            reject(e);
+          }, 3000);
+        }
+      });
+
+      console.log(promessa);
+
+      setTimeout(() => {
+        console.log(promessa);
+        console.log(resposta);
+      }, 5000);
+
+      //   Executam antes dos 3 segundos da promise, logo, "reposta" ainda ñ tem um valor
+      console.log(resposta);
+      console.log(resposta);
+      console.log(resposta);
+    </script>
+  </body>
+</html>
