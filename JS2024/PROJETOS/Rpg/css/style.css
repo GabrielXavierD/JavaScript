@@ -1,47 +1,56 @@
 @import url("font.css");
 
-
-
-*{
+* {
+    /* border: 1px solid red; */
     margin: 0px;
     padding: 0px
 }
 
-body{
+body {
     background-size: cover;
     position: relative;
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
-.bodyJogo{
+
+button {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-image: url(../assets/img/prata.png);
+    border: 1px solid black;
+    white-space: nowrap;
+    height: 35px;
+    width: 144px;
+    margin-right: 10px;
+}
+
+.bodyJogo {
     background-image: url("../assets/img/bg/casa.jpg");
 }
 
-
-
-.jogo{
+.jogo {
     display: flex;
     gap: 12.5%;
     flex-direction: row;
-    flex-wrap:  nowrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     margin: 10% 0%;
+
 }
 
-.bloco{
-    background-image: url("../assets/img/fundo-jogo.png");
+.bloco {
     background-size: cover;
     z-index: 1;
-    /* top:20px; */
-    height: 506px; /*506*/
+    height: 506px;
     max-width: 500px;
     position: relative;
     font-weight: bold;
 }
 
-.borda{
+.borda {
     position: absolute;
     z-index: -1;
     bottom: -50px;
@@ -50,12 +59,13 @@ body{
     width: 37rem;
 }
 
-.mudaCor{
+.mudaCor {
     filter: sepia(1);
 }
 
 
-#nomePlayer, #nomeBoss{
+#nomePlayerP,
+#nomeBoss {
     color: white;
     display: inline-flex;
     margin-left: 10.5rem;
@@ -67,75 +77,61 @@ body{
 }
 
 
-.conteudo{
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: -38px;
     margin-left: 1.5%;
-    position: relative;  
+    position: relative;
     height: 80px;
     width: 95%;
-    align-self: flex-end;
 }
-/* .imgPlayerTeste{
-    position: absolute;
-    bottom: 100px;
-    width: 540px;
-} */
-.imgBoss{
 
+.imgPlayerTeste {
+    position: absolute;
+    transform: scale(0.75);
+    bottom: -15px;
+    width: 540px;
+}
+
+.imgBoss {
     position: absolute;
     border: 1px solid black;
     bottom: 90px;
-    left: 3.5px;
+    left: 7.5%;
     height: 360px;
-    width: 420px;
-    z-index: -2;
+    width: 370px;
+    z-index: 2;
 }
 
-.status{  
+.status {
     color: white;
     font-size: 1.25rem;
-    margin-top: -10px;   
+    margin-top: -10px;
     line-height: 100%;
     display: flex;
-    gap: 25px;  
+    gap: 25px;
 }
 
-.acoes{ 
+.acoes {
     display: flex;
-    margin-top: 10px;                                           
-}
-
-button{
-    color: white;
-    font-weight: bold;
-    background-image: url(../assets/img/prata.png);
-    border: 1px solid black;
-    white-space: nowrap;
-    height: 35px;
-    width: 144px;
-    margin-right: 10px;
+    margin-top: 10px;
 }
 
 
 /* JS */
-.escondeBoss{
+.escondeBoss {
     display: none;
 }
 
-.esconde{
+.esconde {
     z-index: -3;
     opacity: 0;
 }
 
-.ajustaBotao{
-    position:relative;
-    left:-295px;
+.ajustaBotao {
+    position: relative;
+    left: -295px;
 }
-
-
-
-
-
-
-
-

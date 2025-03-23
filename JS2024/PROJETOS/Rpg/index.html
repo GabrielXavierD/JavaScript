@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cadastro.css">
     <title>RPG</title>
 </head>
 
 <body>
-     <div class="cadastro">
-        <form action="">
+
+    <div class="container">
+        <div class="instrucoes" id="textosInstrucao">
+            <img src="assets/img/folha_antiga.png" alt="Folha antiga">
+            <div class="textosInstrucao">
+                <button onclick="fechaInstrucao()" class="fecha" type="submit"><span>&#10006;</span></button>
+                <h4>Olá! Obrigado por acessar o meu jogo! Espero que você se divirta!</h4>
+                <h3>INSTRUÇÕES</h3>
+                <ul>
+                    <li>Caso a <span class="underline">vida</span> do player chegue a 0 (zero), você perderá todo o progresso do jogo e irá recomeçar;</li>
+                    <li class="liBoss">Há 3 niveis para os Bosses:
+                        <ul>
+                            <li> &#9733&#9733&#9733 &#8702 São fracos, com pouca vida e/ou com pouco dano;</li>
+                            <li> &#9733&#9733&#9733&#9733 &#8702 Nem muito forte e nem muito fraco;</li>
+                            <li> &#9733&#9733&#9733&#9733&#9733 &#8702 São fortes, com muito dano e/ou com muita vida.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <footer>
+                <p>Minhas redes sociais:
+                    <a href="https://instagram.com/gabrielxavier._" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/GabrielXavierD" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gabriel-xavierr" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <div class="cadastro">
+        <form action="" id="formCadastro">
             <h3>CADASTRO DE USUÁRIO</h3>
-            <label for="nomePlayer">Nome de usuário: </label>
-            <input id="nomePlayer" maxlength="10" required>
+            <label for="nomePlayerForm">Nome de usuário: </label>
+            <input id="nomePlayerForm" maxlength="10" required>
             <br>
             <label for="sexo">Sexo: </label>
             <input class="mudaCor" type="radio" name="sexo" value="masculino">Masculino
             <input class="mudaCor" type="radio" name="sexo" value="feminino">Feminino
             <br>
+            <button type="submit">Cadastrar Conta</button>
         </form>
-        <button onclick="enviarDados()">Cadastrar Conta</button>
     </div>
 
-
-<div class="container">
-    <div class="instrucoes" id="textosInstrucao">
-        <img src="assets/img/folha_antiga.png" alt="Folha antiga">
-
-        <div class="textosInstrucao">
-            <button onclick="fechaInstrucao()" class="fecha" type="submit"><span>&#10006;</span></button>
-            <h4>Olá! Obrigado por acessar o meu jogo! Espero que você se divirta!</h4>
-            <h3>INSTRUÇÕES</h3>
-            <ul>
-                <li>Caso a <span class="underline">vida</span> do player chegue a 0 (zero), você perderá todo o progresso do
-                    jogo e irá recomeçar do zero;</li>
-                <li class="liBoss">Há 3 niveis para os Bosses:
-                    <ul>
-                        <li> &#9733&#9733&#9733 &#8702 São fracos, com pouca vida e/ou com pouco dano;</li>
-                        <li> &#9733&#9733&#9733&#9733 &#8702 Nem muito forte e nem muito fraco;</li>
-                        <li> &#9733&#9733&#9733&#9733&#9733 &#8702 São fortes, com muito dano e/ou com muita vida.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <footer> 
-            <p>Minhas redes sociais:    
-                <a href="" target="_blank"> 
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <a href="https://github.com/GabrielXavierD" target="_blank"> 
-                    <i class="fab fa-github"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/gabriel-xavierr" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </p>
-        </footer>
-    </div>
-</div> 
-
-
-    <script src="js/script.js"></script>
     <script src="js/cadastro.js"></script>
-
 </body>
-
 </html>

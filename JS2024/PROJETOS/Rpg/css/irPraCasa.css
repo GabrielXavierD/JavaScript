@@ -31,15 +31,6 @@ body{
 }
 
 
-@keyframes progresso {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
 .barraDeProgresso {
     height: 50px;
     width: 20;
@@ -49,10 +40,14 @@ body{
 }
 
 
-
-
-
-
+@keyframes progresso {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
 
 @keyframes texto{
     0%{
