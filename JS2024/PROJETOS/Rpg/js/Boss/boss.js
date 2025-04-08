@@ -48,14 +48,10 @@ function atacar() {
     return false; //parando a função
   }
 
-  console.log("ANTES vidaDoBoss: ", vidaDoBoss);
-
   alert("O player ira atacar o Boss!");
   vidaDoBoss = vidaDoBoss - danoDoPlayer;
   alert("Vida restante do Boss: " + vidaDoBoss);
   document.getElementById("vidaBoss").innerHTML = vidaDoBoss;
-
-  console.log("DEPOIS vidaDoBoss: ", vidaDoBoss);
 
   if (vidaDoBoss > 0) {
     alert("O Boss continua vivo! O Boss irá atacar!");
@@ -66,9 +62,10 @@ function atacar() {
     alert("O Boss foi derrotado!");
     document.getElementById("vidaBoss").innerHTML = 0;
     alert("O player Venceu!");
+    document.getElementById("fugirBoss").style.display = "none";
   }
 
-  if (vidaDoPlayer < 0) {
+  if (vidaDoPlayer <= 0) {
     alert("O Player foi derrotado!");
     document.getElementById("vidaPlayer").innerHTML = 0;
     alert("O Boss Venceu!");
@@ -79,7 +76,6 @@ function atacar() {
 
 function procurarBoss() {
   let numeroAleatorio = Math.ceil(Math.random() * 17);
-  console.log("numeroAleatorio: ", numeroAleatorio);
 
   if (numeroAleatorio > 2) {
     bodyPagina.style.backgroundImage =
@@ -92,89 +88,32 @@ function procurarBoss() {
   let audioAleatorio = Math.ceil(Math.random() * 5);
   audioSrcPlayer.src =
     "assets/audio/procurarBoss/Action_" + audioAleatorio + ".mp3";
-  // Atualiza o audio player para carregar o novo src
   audioPlayer.load();
-  // Opcionalmente, reproduz o áudio
   audioPlayer.play();
 
   alert("Você decidiu procurar outro Boss!");
   alert("Você está andando pelo mapa.");
   alert("Você encontrou um novo Boss! Tome cuidado!");
 
-  /* **********IMG BOSS***********/
-  let numBoss = Math.ceil(Math.random() * 5);
-
-  function criaImagem(numBoss) {
-    let divConteudo = document.getElementById("conteudo");
-
-    console.log("IMAGEM ANTIGA:", imgBoss);
-    if (imgBoss) {
-      imgBoss.remove();
-    }
-
-    imgBoss = document.createElement("img");
-    imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
-    imgBoss.classList.add("imgBoss");
-    console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss);
-
-    divConteudo.insertBefore(imgBoss, divConteudo.firstChild);
-    console.log("ADICIONANDO NA DIV CONTEUDO:", divConteudo);
-  }
-
-  switch (numBoss) {
-    case 1:
-      console.log("SWITCH: ", numBoss);
-      criaImagem(numBoss);
-      break;
-    case 2:
-      console.log("SWITCH: ", numBoss);
-      criaImagem(numBoss);
-      break;
-    case 3:
-      console.log("SWITCH: ", numBoss);
-      criaImagem(numBoss);
-      break;
-    case 4:
-      console.log("SWITCH: ", numBoss);
-      criaImagem(numBoss);
-      break;
-    case 5:
-      console.log("SWITCH: ", numBoss);
-      criaImagem(numBoss);
-      break;
-  }
-
+  criaImagemBoss();
   boss();
-
   btnComprarItens.setAttribute("disabled", "");
   btnComprarItens.className = "esconde";
   btnIrParaCasa.className = "ajustaBotao";
 }
 
-function irEmbora() {
-  alert("Você decidiu ir embora para casa!");
-  window.location.href = "irPraCasa.html";
-}
+function criaImagemBoss() {
+  let numBoss = Math.ceil(Math.random() * 5);
+  let divConteudo = document.getElementById("conteudo");
 
-function fugir() {
-  bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo1.jpg)";
+  console.log("IMAGEM ANTIGA:", imgBoss);
+  if (imgBoss) {
+    imgBoss.remove();
+  }
 
-  // Troca o src do elemento <source>
-  let audiosAleatorios = Math.ceil(Math.random() * 10);
-  audioSrcPlayer.src =
-    "assets/audio/procurarBoss/Ambient" + audiosAleatorios + ".mp3";
-  // Atualiza o audio player para carregar o novo src
-  audioPlayer.load();
-  // Opcionalmente, reproduz o áudio
-  audioPlayer.play();
-
-  alert("Você decidiu fugir!");
-  alert("Você está andando pelo mapa.");
-  alert("Você está parado.");
-  alert("Escolha algo para fazer!");
-  blocoDoBoss.style.display = "none";
-  btnComprarItens.setAttribute("disabled", "");
-  btnComprarItens.className = "esconde";
-
-  btnIrParaCasa.className = "ajustaBotao";
+  imgBoss = document.createElement("img");
+  imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
+  imgBoss.classList.add("imgBoss");
+  console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss);
+  divConteudo.appendChild(imgBoss);
 }
