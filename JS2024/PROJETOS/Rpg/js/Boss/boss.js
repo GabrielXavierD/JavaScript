@@ -1,9 +1,3 @@
-/**********ASSETS***********/
-let bodyPagina = document.getElementById("body");
-let audioPlayer = document.getElementById("audioPlayer");
-let audioSrcPlayer = document.getElementById("audioSrcPlayer");
-audioSrcPlayer.src = "";
-
 /* **********BOSS**********
 letIAVEIS DO BOSS*/
 let blocoDoBoss = document.getElementById("containerBoss");
@@ -106,7 +100,6 @@ function criaImagemBoss() {
   let numBoss = Math.ceil(Math.random() * 5);
   let divConteudo = document.getElementById("conteudo");
 
-  console.log("IMAGEM ANTIGA:", imgBoss);
   if (imgBoss) {
     imgBoss.remove();
   }
@@ -114,6 +107,5 @@ function criaImagemBoss() {
   imgBoss = document.createElement("img");
   imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
   imgBoss.classList.add("imgBoss");
-  console.log("IMAGEM NOVA (REMOVEU A ANTIGA):", imgBoss);
   divConteudo.appendChild(imgBoss);
 }

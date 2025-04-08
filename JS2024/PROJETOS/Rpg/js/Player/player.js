@@ -1,3 +1,9 @@
+/**********ASSETS***********/
+let bodyPagina = document.getElementById("body");
+let audioPlayer = document.getElementById("audioPlayer");
+let audioSrcPlayer = document.getElementById("audioSrcPlayer");
+audioSrcPlayer.src = "";
+
 /* **********PLAYER**********
 VARIAVEIS DO Player*/
 let btnComprarItens = document.getElementById("comprarItens");
@@ -29,13 +35,8 @@ function irEmbora() {
   window.location.href = "irPraCasa.html";
 }
 
-
-
-
 function fugir() {
- 
   bodyPagina.style.backgroundImage = "url(../assets/img/bg/fundo1.jpg)";
-
   let audiosAleatorios = Math.ceil(Math.random() * 10);
   audioSrcPlayer.src =
     "assets/audio/procurarBoss/Ambient" + audiosAleatorios + ".mp3";
