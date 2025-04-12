@@ -4,6 +4,12 @@ formCadastro.addEventListener("submit", (e) => {
   let usuario = document.getElementById("nomePlayerForm").value;
   let botoesRadio = document.getElementsByName("sexo");
   let sexoSelecionado = "";
+  class Usuario {
+    constructor(nome, sexo) {
+      this.nome = nome;
+      this.sexo = sexo;
+    }
+  }
 
   for (let i = 0; i < botoesRadio.length; i++) {
     if (botoesRadio[i].checked) {
@@ -20,13 +26,6 @@ formCadastro.addEventListener("submit", (e) => {
     window.location.href = "jogo.html";
   }
 });
-
-class Usuario {
-  constructor(nome, sexo) {
-    this.nome = nome;
-    this.sexo = sexo;
-  }
-}
 
 function fechaInstrucao() {
   const instrucao = document.getElementById("textosInstrucao");

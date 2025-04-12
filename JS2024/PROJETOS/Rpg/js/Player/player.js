@@ -9,7 +9,7 @@ VARIAVEIS DO Player*/
 let btnComprarItens = document.getElementById("comprarItens");
 let btnIrParaCasa = document.getElementById("irParaCasa");
 
-if (btnIrParaCasa) {
+if (!btnIrParaCasa.classList.contains("esconde")) {
   btnIrParaCasa.className = "esconde";
   btnIrParaCasa.setAttribute("disabled", "");
 }

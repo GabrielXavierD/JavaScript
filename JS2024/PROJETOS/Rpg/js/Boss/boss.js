@@ -1,18 +1,13 @@
 /* **********BOSS**********
-letIAVEIS DO BOSS*/
+VARIAVEIS DO BOSS*/
 let blocoDoBoss = document.getElementById("containerBoss");
 let vidaDoBoss = Math.ceil(Math.random() * 1500);
 let danoDoBoss = Math.ceil(Math.random() * 1500);
-let dificuldadeDoBoss = "";
-
+let categoriaBoss = "";
+let dificuldadeDoBoss = document.getElementById("dificuldadeBoss");
 let imgBoss;
 
 function boss() {
-  blocoDoBoss.style.display = "block";
-
-  btnIrParaCasa.className = "";
-  btnIrParaCasa.removeAttribute("disabled", "");
-
   vidaDoBoss = Math.ceil(Math.random() * 1500);
   danoDoBoss = Math.ceil(Math.random() * 1500);
 
@@ -22,24 +17,68 @@ function boss() {
   }
 
   if (vidaDoBoss >= 1000 && danoDoBoss >= 1000) {
-    dificuldadeDoBoss = "&#9733&#9733&#9733&#9733&#9733";
-    document.getElementById("dificuldadeBoss").innerHTML = dificuldadeDoBoss;
+    categoriaBoss = "&#9733&#9733&#9733&#9733&#9733";
+    dificuldadeDoBoss.innerHTML = categoriaBoss;
   } else if (
     (vidaDoBoss >= 500 && vidaDoBoss < 1000) ||
     (danoDoBoss >= 500 && danoDoBoss < 1000)
   ) {
-    dificuldadeDoBoss = "&#9733&#9733&#9733&#9733";
-    document.getElementById("dificuldadeBoss").innerHTML = dificuldadeDoBoss;
+    categoriaBoss = "&#9733&#9733&#9733&#9733";
+    dificuldadeDoBoss.innerHTML = categoriaBoss;
   } else {
-    dificuldadeDoBoss = "&#9733&#9733&#9733";
-    document.getElementById("dificuldadeBoss").innerHTML = dificuldadeDoBoss;
+    categoriaBoss = "&#9733&#9733&#9733";
+    dificuldadeDoBoss.innerHTML = categoriaBoss;
   }
 }
+
+function criaImagemBoss() {
+  let numBoss = Math.ceil(Math.random() * 5);
+  const divImgBoss = document.getElementById("divImgBoss");
+
+  divImgBoss.innerHTML = "";
+  const imgBoss = document.createElement("img");
+  imgBoss.src = `./assets/img/BOSS/boss${numBoss}.jpg`;
+  imgBoss.classList.add("imgBoss");
+  divImgBoss.appendChild(imgBoss);
+}
+
+function geraFundoEAudio() {
+  let numeroAleatorio = Math.ceil(Math.random() * 17);
+  if (numeroAleatorio <= 2) {
+    numeroAleatorio += 2;
+  }
+  document.body.style.backgroundImage = `url(./assets/img/bg/fundo${numeroAleatorio}.jpg)`;
+
+  const audioAleatorio = Math.ceil(Math.random() * 5);
+  const audioSrcPlayer = document.getElementById("audioSrcPlayer");
+  const audioPlayer = document.getElementById("audioPlayer");
+  audioSrcPlayer.src = `assets/audio/procurarBoss/Action_${audioAleatorio}.mp3`;
+  audioPlayer.load();
+  audioPlayer.play();
+}
+
+function procurarBoss() {
+  if (window.location.pathname.includes("buscarBoss.html")) {
+    criaImagemBoss();
+    boss();
+    geraFundoEAudio();
+  } else {
+    window.location.href = "buscarBoss.html";
+  }
+}
+document.getElementById("outroBoss").addEventListener("click", procurarBoss);
+
+// O boss já é criado antes do player ir para a página "buscarBoss" -> evita bugar a formatação do bloco do boss
+window.onload = function () {
+  criaImagemBoss();
+  boss();
+  geraFundoEAudio();
+};
 
 function atacar() {
   if (vidaDoBoss <= 0) {
     alert("Boss já derrotado! Procure outro Boss ou vá para casa!");
-    return false; //parando a função
+    return;
   }
 
   alert("O player ira atacar o Boss!");
@@ -66,46 +105,4 @@ function atacar() {
     alert("Você MORREU!");
     window.location.href = "gameOver.html";
   }
-}
-
-function procurarBoss() {
-  let numeroAleatorio = Math.ceil(Math.random() * 17);
-
-  if (numeroAleatorio > 2) {
-    bodyPagina.style.backgroundImage =
-      "url(./assets/img/bg/fundo" + numeroAleatorio + ".jpg)";
-  } else {
-    numeroAleatorio = numeroAleatorio + 2;
-  }
-
-  // Troca o src do elemento <source>
-  let audioAleatorio = Math.ceil(Math.random() * 5);
-  audioSrcPlayer.src =
-    "assets/audio/procurarBoss/Action_" + audioAleatorio + ".mp3";
-  audioPlayer.load();
-  audioPlayer.play();
-
-  alert("Você decidiu procurar outro Boss!");
-  alert("Você está andando pelo mapa.");
-  alert("Você encontrou um novo Boss! Tome cuidado!");
-
-  criaImagemBoss();
-  boss();
-  btnComprarItens.setAttribute("disabled", "");
-  btnComprarItens.className = "esconde";
-  btnIrParaCasa.className = "ajustaBotao";
-}
-
-function criaImagemBoss() {
-  let numBoss = Math.ceil(Math.random() * 5);
-  let divConteudo = document.getElementById("conteudo");
-
-  if (imgBoss) {
-    imgBoss.remove();
-  }
-
-  imgBoss = document.createElement("img");
-  imgBoss.src = "./assets/img/BOSS/boss" + numBoss + ".jpg";
-  imgBoss.classList.add("imgBoss");
-  divConteudo.appendChild(imgBoss);
 }
