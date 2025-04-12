@@ -52,3 +52,64 @@ function fugir() {
   btnComprarItens.className = "esconde";
   btnIrParaCasa.className = "ajustaBotao";
 }
+
+function abreFecha() {
+  const loja = document.getElementById("loja");
+  const blocoPlayer = document.querySelector(".blocoPlayer");
+  const blocoBoss = document.querySelector(".blocoBoss");
+  if (loja && loja.style.display === "none") {
+    loja.style.display = "flex";
+    blocoPlayer.style.display = "none";
+    blocoBoss.style.display = "none";
+  } else if (loja) {
+    loja.style.display = "none";
+    blocoPlayer.style.display = "flex";
+    blocoBoss.style.display = "flex";
+  }
+}
+
+function gerarLoja() {
+  const lojaExistente = document.getElementById("loja");
+  if (lojaExistente) {
+    lojaExistente.remove();
+  }
+
+  fetch("../loja.html")
+    .then((resposta) => {
+      console.log(resposta);
+      if (!resposta.ok) throw new Error(`Erro: ${resposta.statusText}`);
+      return resposta.text();
+    })
+    .then((html) => {
+      const divLoja = document.createElement("div");
+      divLoja.innerHTML = html;
+      document.body.appendChild(divLoja);
+
+      const fecha = document.querySelector(".fecha");
+      const loja = document.getElementById("loja");
+      const blocoPlayer = document.querySelector(".blocoPlayer");
+      const blocoBoss = document.querySelector(".blocoBoss");
+
+      if (blocoPlayer) {
+        blocoPlayer.style.display = "none";
+      }
+      if (blocoBoss) {
+        blocoBoss.style.display = "none";
+      }
+
+      function fechaLoja() {
+        loja.style.display = "none";
+        blocoPlayer.style.display = "flex";
+        blocoBoss.style.display = "flex";
+      }
+
+      fecha.addEventListener("click", fechaLoja);
+      btnComprarItens.onclick = abreFecha;
+    })
+    .catch((erro) => {
+      console.error("Erro ao carregar a página:", erro);
+      document.body.innerHTML = `<p>Erro ao carregar a página.</p>`;
+    });
+}
+
+btnComprarItens.onclick = gerarLoja;
