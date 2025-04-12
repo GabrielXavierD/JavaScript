@@ -125,7 +125,7 @@ body {
     gap: 5px;
 }
 
-button {
+.acoes button {
     width: 144px;
     height: 35px;
     border: 1px solid rgb(0, 0, 0);
@@ -143,7 +143,7 @@ button {
     transition: box-shadow 0.2s ease;
 }
 
-button:hover {
+.acoes button:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 8px rgba(53, 53, 53, 0.9);
 }

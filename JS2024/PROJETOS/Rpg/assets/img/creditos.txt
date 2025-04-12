@@ -1,0 +1,52 @@
+﻿
+GIF - death game over
+https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/82134521577688381192508633623343339215108930623037816635685676303646912937985
+
+Pixel Art Horror
+Death 03 - Owned by ETRR
+
+
+Imagem Loja - Madeira Antiga
+https://br.freepik.com/fotos-gratis/antigo-antigo-fundo-de-textura-da-textura-da-textura-da-madeira-antiga-bonita-espaco-da-copia_1131645.htm
+www.freepik.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Meu Jogo Fantástico 🕹️
+
+Bem-vindo ao **Meu Jogo Fantástico**! Este é um jogo desenvolvido com muito esforço e criatividade. Aqui estão algumas informações importantes sobre o projeto.
+
+## Créditos e Atribuições
+
+### Recursos visuais:
+- **Freepik**: Alguns recursos gráficos foram criados ou adaptados a partir de elementos disponíveis no site [Freepik](https://www.freepik.com).
+- Exemplo de descrição:
+  - Ícones: "Designed by Freepik"
+  - Backgrounds: "Background designed by Freepik"
+
+### Fontes utilizadas:
+- **MedievalSharp**: Fonte usada nos elementos textuais. Disponível em [Google Fonts](https://fonts.google.com/).
+
+### Frameworks e Bibliotecas:
+- **HTML5 e CSS3**: Para estruturação e estilização.
+- **JavaScript**: Para lógica e interatividade.
+
+### Outros:
+- Sons: Recursos adquiridos/licenciados de [Sítio de Sons].
+
+## Licença
+Este jogo é destinado para uso pessoal/educacional. Entre em contato para discussões comerciais. 🚀
+
+---
+
+Você também pode adicionar seções como instruções de uso ou instalação, facilitando para usuários e colaboradores. Se precisar de mais ajuda com o texto ou organização, é só chamar! 😊🎮
