@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grow a Garden - Calculadora de Mutação</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="Assets/img/logo.webp" alt="Logo" title="Logo" />
+        <h1>Grow a Garden</h1>
+      </div>
+
+      <h2>
+        <a
+          href="https://growagarden.fandom.com/wiki/Grow_a_Garden_Wiki"
+          title="Grow a Garden Wiki"
+          target="_blank"
+          >Grow a Garden Wiki</a
+        >
+      </h2>
+      <h2>Calculadora de Mutação</h2>
+      <label for="baseValue">Valor Base do Cultivo:</label>
+      <input
+        type="number"
+        id="baseValue"
+        placeholder="Digite o valor base"
+        min="0"
+        step="any"
+      />
+
+      <label for="mass">Massa do Cultivo:</label>
+      <input
+        type="number"
+        id="mass"
+        placeholder="Digite a massa"
+        min="0"
+        step="any"
+      />
+
+      <label for="growthMutation">Mutação de Crescimento:</label>
+      <select id="growthMutation">
+        <option value="1">Nenhuma (x1)</option>
+        <option value="20">Golden (x20)</option>
+        <option value="50">Rainbow (x50)</option>
+      </select>
+
+      <h2>Mutações Ambientais (Acumulativas)</h2>
+      <div class="group">
+        <!-- Grupo A agora como checkboxes -->
+        <label><input type="checkbox" class="env" value="1" /> Wet (x1)</label>
+        <label
+          ><input type="checkbox" class="env" value="1" /> Chilled (x1)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="1" /> Chocolate (x1)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="1" /> Moonlit (x1)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="20" /> Gold (x20)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="9" /> Frozen (x9)</label
+        >
+
+        <!-- Demais mutações -->
+        <label
+          ><input type="checkbox" class="env" value="2" /> Pollinated(x2)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="3" /> Bloodlit (x3)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="4" /> Plasma (x4)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="4" /> Honey
+          Glazed(x4)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="24" />
+          Zombified(x24)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="99" /> Shocked (x99)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="119" />
+          Celestial(x119)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="124" /> Disco (x124)</label
+        >
+        <label
+          ><input type="checkbox" class="env" value="134" /> Void
+          Touched(x134)</label
+        >
+      </div>
+
+      <button id="calcButton">Calcular Valor Total</button>
+
+      <div class="result" id="result"></div>
+
+      <div class="example">
+        <img
+          src="Assets/img/example.PNG"
+          alt="Coconut price"
+          title="Coconut price"
+        />
+        <p>
+          Coconut - Base Price: 361; 17.07kg; Frozen + Gold + Shocked<br />Calculator
+          result: 1.295.887,58
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
