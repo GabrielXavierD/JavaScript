@@ -137,6 +137,36 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+<div class="modal fade" id="modalConfirmaExclusao" tabindex="-1" role="dialog" aria-labelledby="modalExclusaoTitulo" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    
+      <!-- Cabeçalho do modal -->
+      <div id="modal_exclusao_titulo_div" class="modal-header text-danger">
+        <h5 class="modal-title" id="modalExclusaoTitulo">Confirmar exclusão</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Conteúdo do modal -->
+      <div class="modal-body" id="modal_exclusao_conteudo">
+        Tem certeza que deseja excluir esta despesa?
+      </div>
+
+      <!-- Rodapé com botões -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btnSimExcluir">Sim</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="btnNaoExcluir">Não</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
   </body>	
 
 </html>
